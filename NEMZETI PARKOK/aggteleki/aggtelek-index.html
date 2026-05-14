@@ -4,12 +4,133 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../alap.css">
+    <link rel="stylesheet" href="aggtelek.css">
     <title>Nemzeti parkjaink</title>
+    <!-- <link rel="icon" type="image/x-icon" href="icon.png"> -->
+    <link rel="icon" type="image/x-icon" href="../../mokus2.png">
+
+
+    <style>
+    /* A fülek gombjainak konténere */
+    .tab-menu {
+      display: flex;
+      border-bottom: 5px solid #d9eac5;/*ccc;*/
+      /*background-color: #f1f1f1;*/
+    }
+
+    /* A fülek (gombok) alapértelmezett stílusa */
+    .tab-button {
+      background-color: #f1f1f1; /*inherit;*/
+      border: none;
+      outline: none;
+      cursor: pointer;
+      padding: 14px 20px;
+      font-size: 16px;
+      transition: 0.3s;
+    }
+
+    /* Egérmutató a fül felett */
+    .tab-button:hover {
+      background-color: #d9eac5;/*ddd;*/
+    }
+
+    /* Az éppen aktív fül stílusa */
+    .tab-button.active {
+      background-color: #fff;
+      border-bottom: 2px solid rgb(60, 93, 56);
+    }
+
+    /* A tartalom panelek alapértelmezett stílusa */
+    .tab-panel {
+      display: none; /* Alapból mind el van rejtve */
+      padding: 20px;
+      border: 0px solid #d9eac5; /*#ccc; 5px*/
+      border-top: none;
+      animation: fadeEffect 0.5s; /* Finom áttűnés */
+    }
+
+    /* Aktív panel megjelenítése */
+    .tab-panel.active {
+      display: block;
+    }
+
+    /* Animáció a tartalom megjelenéséhez */
+    @keyframes fadeEffect {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+  </style>
+
+
 </head>
 <body>
-    <header>
+    <div class="hero-image">
+    <div class="hero-text">
         <h1>Aggteleki Nemzeti Park</h1>
-    </header>
+    </div>
+    </div>
+
+    <div class="topnav" id="myTopnav">
+        <a href="../../index.html">Főoldal</a>
+        <a href="../../np-index.html">Nemzeti parkok</a>
+        <a href="#contact">Játékok</a>
+        <a href="#about">Rólam</a>
+    </div>
+
+    <div class="tartalom">
+        <br>
+
+
+            <!-- Fülek gombjai -->
+            <div class="tab-menu">
+                <button type="button" class="tab-button active" onclick="openTab(event, 'panel1')">Rövid leírás</button>
+                <button type="button" class="tab-button" onclick="openTab(event, 'panel2')">Hosszú leírás</button>
+            </div>
+
+            <!-- Fülek tartalmi panelei -->
+            <div id="panel1" class="tab-panel active">
+                <h3>Első fül tartalma</h3>
+                <p>Ez itt az első fülhöz tartozó szöveges tartalom.</p>
+            </div>
+
+            <div id="panel2" class="tab-panel">
+                <h3>Második fül tartalma</h3>
+                <p>Ez pedig a második fül panelje, ami kattintásra nyílik meg.</p>
+            </div>
+
+
+        <br> <br> <br> <br> <br>
+        <br> <br> <br> <br> <br>
+        <br> <br> <br> <br> <br>
+    </div>
+
+
+
+        <!-- JavaScript a működéshez -->
+        <script>
+            function openTab(event, tabId) {
+            // 1. Összes panel elrejtése
+            const panels = document.getElementsByClassName("tab-panel");
+            for (let i = 0; i < panels.length; i++) {
+                panels[i].classList.remove("active");
+            }
+            // 2. Az "active" osztály eltávolítása az összes gombról
+            const buttons = document.getElementsByClassName("tab-button");
+            for (let i = 0; i < buttons.length; i++) {
+                buttons[i].classList.remove("active");
+            }
+            // 3. A kiválasztott panel megjelenítése
+            document.getElementById(tabId).classList.add("active");
+            // 4. A kattintott gomb megjelölése aktívként
+            event.currentTarget.classList.add("active");
+            }
+        </script>
+
+
+
+Rövid (1-2 mondat)A föld alatti világ csodaországa, ahol a világörökségi cseppkőbarlangok monumentális termei és a felszíni karsztvidék titkai várnak rád.
+Közepes (Kibővített)Az 1985-ben alapított Aggteleki Nemzeti Park az első olyan védett terület hazánkban, amelyet elsősorban a földtani értékek, a felszíni karsztformák és a föld alatti barlangvilág megóvására hoztak létre. Az UNESCO 1995-ben a Világörökség részévé nyilvánította az Aggteleki- és a Szlovák-karszt barlangjait. A park leghíresebb eleme a Baradla-barlang, amelynek teljes hossza a szlovákiai szakasszal (Domica) együtt meghaladja a 25 kilométert. A felszínt az úgynevezett karrmezők vagy ördögszántások (sziklafalakba vájt barázdák) díszítik. A nemzeti park fontos kulturális értéke a Jósvafő melletti hucul ménes, amely a Kárpátokban honos, kistestű, primitív lófajta génállományát őrzi.
+Hosszú (Kibővített)Az Aggteleki Nemzeti Park a cseppkövek és a karsztvidék föld alatti birodalma az ország északi határán. Az 1985-ben alapított park az Aggteleki-karszt több mint 20 ezer hektáros területét foglalja magában. Alapkőzete a sekély tengerben lerakódott gutensteini és wettersteini mészkő, amelyet a beszivárgó szénsavas víz az évmilliók során lyukacsos sajttá formált. Ennek eredményeként ma több mint 280 barlang található a park területén, amelyek méretük, formakincsük és régészeti leleteik miatt egyedülállóak.A barlangrendszer királya a Baradla-barlang, amelynek aggteleki és jósvafői bejárata is van. A barlang monumentális termei – mint az Óriások terme vagy a Hangversenyterem – elképesztő akusztikával rendelkeznek, így rendszeresen tartanak itt könnyű- és komolyzenei koncerteket. A cseppkövek (álló sztalagmitok és függő sztalaktitok) olyan nevet kaptak a felfedezőktől, mint a Csipkés-bástha, a Mikulás vagy a Pisai ferdetorony. A Baradla mellett a parkban található a Rákóczi-barlang, amely kékes színű tengerszemeiről ismert, valamint a Meteor-barlang, amely az extrém, kúszós-mászós túrák helyszíne. A barlangokban különleges fauna alakult ki: több mint 500 barlanglakó állatfaj él itt, köztük a vakgőte, a barlangi vakászkák és számos denevérfaj, mint a hegyesorrú denevér.A felszíni világ is tartogat geológiai és biológiai ritkaságokat. A Tornanádaska melletti Alsó-hegyen találhatók a zsombolyok (függőleges aknabarlangok), valamint az ördögszántások, amelyek a mészkőfelszín esővíz által bemart barázdái. A növényvilág büszkesége a magyar tornai frigia (egy sárga virágú bennszülött növényritkaság), amely a világon egyedül itt él meg a sziklákon. Jósvafő festői faluja mellett, a Jósva-forrás tiszta vizű völgyében él a nemzeti park által fenntartott hucul ménes. Ezek a zord körülményeket is jól tűrő, zömök lovak az egykori kárpát-medencei hadi- és málháslovak közvetlen leszármazottai. A park területén folyó észak-magyarországi folyókban él a folyami rák és a petényi-márna is.
 
 
 </body>

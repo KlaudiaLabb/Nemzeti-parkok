@@ -1,0 +1,6 @@
+.hero-image {
+  background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5)), url("foltos-szalamandr-masik.jpg");
+}
+.tartalom{
+    background-color: #eefbb2; /*#f8f697;*/
+}
