@@ -5,3 +5,14 @@ https://femina.hu/utazas/erdo-kirandulas-magyarorszag/
 
 https://www.flaticon.com/free-icon/squirrel_1864480
 
+fájvédelmis képek:
+https://unesco.hu/hirek/fenyek-a-bukki-nemzeti-parkban-107263
+https://www.invia.hu/blog/magyarorszag-nemzeti-parkjai/
+https://www.bnpi.hu/hu/hir/majus-24-az-europai-nemzeti-parkok-napja
+https://jelen.media/az-allam-kiarusitja-a-termeszetvedelmi-teruleteket/
+https://www.turistamagazin.hu/hir/egy-kerdes-egy-valasz-tudtad-e-mikor-lephetsz-be-fokozottan-vedett-termeszeti-teruletre
+
+ai:
+-google (gemini)
+magyarország nemzeti parkjairól írj egy kedvcsinálót. ez egy weboldal elejére menne, szóval az olvasót meg kell fognia hogy a nemzeti parkok miért jók, mik vannak ott stb ((válasz a főoldal (rejtett csodák)))
+

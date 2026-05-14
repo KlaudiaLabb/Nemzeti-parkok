@@ -1,0 +1,47 @@
+table {
+    width: 100%;
+}
+.szokoz{
+    font-size: 2px;
+    width: 10px;
+    color: rgba(0, 255, 255, 0);
+}
+.np{
+    background-color: rgb(194, 249, 197);
+    width: 50%;
+    border: solid 5px rgba(0, 128, 0, 1);
+    border-radius: 30px;
+    padding: 10px;
+}
+.logok{
+    height: 120px;
+    padding: 10px;
+}
+.cim{
+    font-size: 30px;
+}
+a.cim:link {
+  text-decoration: none;
+  color: darkgreen;
+}
+a.cim:visited {
+  text-decoration: none;
+  color: darkgreen;
+}
+a.cim:hover {
+  text-decoration: underline;
+  color: rgb(4, 172, 4);
+}
+a.cim:active {
+  text-decoration: underline;
+  color: rgb(4, 172, 4);
+}
+
+
+.leiras{
+  font-size: 16px;
+  line-height: 130%;
+  text-align: justify;
+  /*hyphens: auto; /*szavak elválasztása*/
+}
+

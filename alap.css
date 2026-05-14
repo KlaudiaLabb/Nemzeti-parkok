@@ -2,14 +2,16 @@ body, html{
     height: 100%;
     margin: 0%;
     background-color: rgb(60, 93, 56); /*antiquewhite;*/
+  font-family: 'Times New Roman', Times, serif;
 }
 
 #terkep{
     text-align: center;
 }
 
+
 .hero-image {
-  background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5)), url("erdo-hatter.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5)), url("tajvedelmi3.jpg"); /*url("erdo-hatter.jpg");*/
   height: 50%;
   background-position: center;
   background-repeat: no-repeat;
@@ -53,17 +55,66 @@ body, html{
 
 
 
-
+.tartalom_szinatmenet{
+  background-image: linear-gradient(to top, rgb(60, 93, 56), #95ac75);
+  display: block;
+    margin: auto; /*külső*/
+    padding: 10px; /*belső*/
+    width: 900px;
+}
 .tartalom{
+  /********* szinátmenet !!!
+  /*******************background-image: linear-gradient(to top, rgb(60, 93, 56), #eefbb2);*/
+
     display: block;
     margin: auto; /*külső*/
     padding: 10px; /*belső*/
-    border: #19241c solid;    
-    background-color: #eefbb2; /*#efec68;*/
+    /*border: #19241c solid;    */
+    background-image: linear-gradient(to top, #95ac75, #eefbb2);
+    /*background-color: #eefbb2; /*#efec68;*/
     width: 900px;
 }
 
+#katt{
+  position: absolute;
+  margin-left: 110px;
+  color: #247606;
+}
 
+.tartalom_cim{  
+  color: #247606;
+  margin: 20px;
+}
+.tartalom_tartalom {
+  margin-left: 40px;
+  margin-right: 20px;
+  font-size: 17px;
+}
+.tartalom_felsorolas{
+  margin-left: 20px;
+  margin-right: 20px;
+  font-size: 17px;
+}
+u, li::marker{
+  font-weight: bold;
+  color: #247606;
+}
+
+.gomba { /********felsorolás jele*/
+  list-style-image: url("minis/gomba.png");
+}
+.pillango{
+  list-style-image: url("minis/pillango.png");  
+}
+.virag{
+  list-style-image: url("minis/virag.png");  
+}
+.makk2{
+  list-style-image: url("minis/makk2.png");  
+}
+.terkep{
+  list-style-image: url("minis/terkep.png");  
+}
 
 
 

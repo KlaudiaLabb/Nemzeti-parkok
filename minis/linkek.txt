@@ -1,0 +1,17 @@
+gomba: https://www.shutterstock.com/image-vector/mushroom-icon-vector-illustration-organic-fungi-2634849009
+makk : https://www.vecteezy.com/vector-art/20275426-acorn-nut-and-food-vector-illustration-food-object-icon-concept-oak-tree-fruit-icon-logo-acorn-vector-design-isolated-on-light-orange-background-with-shadow
+virag: https://www.vecteezy.com/vector-art/73295997-color-outline-flower-icon
+level: https://www.flaticon.com/free-icon/autumn_8611745
+       https://www.flaticon.com/free-icon/tree-leaf_3801146
+       https://www.flaticon.com/free-icon/leaf_8553220
+pillango: https://www.flaticon.com/free-icon/butterfly_2281179
+méh: https://www.flaticon.com/free-icon/bee_2713546
+     https://www.flaticon.com/free-icon/bee_15055781
+tücsok: https://www.flaticon.com/free-icon/cricket_616730
+katica: https://www.flaticon.com/free-icon/ladybug_3579333
+csiga : https://www.flaticon.com/free-icon/snail_2623472
+        https://www.flaticon.com/free-icon/snail_12893099
+        https://www.flaticon.com/free-icon/snail_10415560
+terkep: https://www.flaticon.com/free-icon/location_2373849
+süni: https://www.flaticon.com/free-icon/hedgehog_8493055
+      https://www.flaticon.com/free-icon/hedgehog_2938237

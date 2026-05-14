@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <title>Többfülű Elem Példa</title>
+  <style>
+    /* A fülek gombjainak konténere */
+    .tab-menu {
+      display: flex;
+      border-bottom: 2px solid #ccc;
+    }
+
+    /* A fülek (gombok) alapértelmezett stílusa */
+    .tab-button {
+      background-color: gray;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      padding: 14px 20px;
+      font-size: 16px;
+      transition: 0.3s;
+    }
+
+    /* Egérmutató a fül felett */
+    .tab-button:hover {
+      background-color: #ddd;
+    }
+
+    /* Az éppen aktív fül stílusa */
+    .tab-button.active {
+      background-color: #fff;
+      border-bottom: 2px solid #007BFF;
+      font-weight: bold;
+    }
+
+    /* A tartalom panelek alapértelmezett stílusa */
+    .tab-panel {
+      display: none; /* Alapból mind el van rejtve */
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-top: none;
+      animation: fadeEffect 0.5s; /* Finom áttűnés */
+    }
+
+    /* Aktív panel megjelenítése */
+    .tab-panel.active {
+      display: block;
+    }
+
+    /* Animáció a tartalom megjelenéséhez */
+    @keyframes fadeEffect {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Fülek gombjai -->
+  <div class="tab-menu">
+    <button type="button" class="tab-button active" onclick="openTab(event, 'panel1')">Első fül</button>
+    <button type="button" class="tab-button" onclick="openTab(event, 'panel2')">Második fül</button>
+    <button type="button" class="tab-button" onclick="openTab(event, 'panel3')">Harmadik fül</button>
+  </div>
+
+  <!-- Fülek tartalmi panelei -->
+  <div id="panel1" class="tab-panel active">
+    <h3>Első fül tartalma</h3>
+    <p>Ez itt az első fülhöz tartozó szöveges tartalom.</p>
+  </div>
+
+  <div id="panel2" class="tab-panel">
+    <h3>Második fül tartalma</h3>
+    <p>Ez pedig a második fül panelje, ami kattintásra nyílik meg.</p>
+  </div>
+
+  <div id="panel3" class="tab-panel">
+    <h3>Harmadik fül tartalma</h3>
+    <p>A harmadik fül különálló információkat hordoz.</p>
+  </div>
+
+  <!-- JavaScript a működéshez -->
+  <script>
+    function openTab(event, tabId) {
+      // 1. Összes panel elrejtése
+      const panels = document.getElementsByClassName("tab-panel");
+      for (let i = 0; i < panels.length; i++) {
+        panels[i].classList.remove("active");
+      }
+
+      // 2. Az "active" osztály eltávolítása az összes gombról
+      const buttons = document.getElementsByClassName("tab-button");
+      for (let i = 0; i < buttons.length; i++) {
+        buttons[i].classList.remove("active");
+      }
+
+      // 3. A kiválasztott panel megjelenítése
+      document.getElementById(tabId).classList.add("active");
+
+      // 4. A kattintott gomb megjelölése aktívként
+      event.currentTarget.classList.add("active");
+    }
+  </script>
+
+</body>
+</html>
