@@ -7,6 +7,7 @@
     <link rel="javascript" href="alap.js">
     <title>Nemzeti parkjaink</title>
     <link rel="icon" type="image/x-icon" href="./mokus2.png">
+    <!--hambi icon--><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
 
@@ -16,69 +17,77 @@
     </div>
     </div>
 
-
-    <!-- telefonhoz: https://www.w3schools.com/howto/howto_js_topnav_responsive.asp -->
+    <div id="navigacios_sav">
     <div class="topnav" id="myTopnav">
         <a href="" class="active">Főoldal</a>
         <a href="./np-index.html">Nemzeti parkok</a>
         <a href="JATEKOK/jump-up/jump-up.html">Játékok</a>
         <a href="#about">Rólam</a>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+            <i class="fa fa-bars"></i>
+        </a>
+    </div>
+    </div>
+
+    <script>
+        function myFunction() {
+            var x = document.getElementById("myTopnav");
+            if (x.className === "topnav") {
+                x.className += " responsive";
+            } else {
+                x.className = "topnav";
+            }
+        }
+    </script>
+
+
+    <div class="tartalom">
+    <div class="belso_tartalom_mezo">
+
+        <h2 class="tartalom_resz_cim">Fedezd fel Magyarország Rejtett Csodáit!</h2>
+        <p class="tartalom_resz_tartalom">Gondoltál már arra, hogy milyen lehet egy napfelkelte a ködbe burkolózó Hortobágyon, ahol a vadlovak patáinak dobogása töri meg a csendet? Vagy szívesen elvesznél a Bakony sűrű erdőiben, esetleg az Aggteleki-karszt föld alatti cseppkőbirodalmában kalandoznál?</p>
+        <p class="tartalom_resz_tartalom">Hazánk nemzeti parkjai nem csupán védett természeti területek, hanem kapuk egy olyan világba, ahol a természet még az úr. <br><br></p>
+        <h2 class="tartalom_resz_cim">Miért érdemes elindulnod?</h2>
+        <ul class="tartalom_resz_felsorolas">
+            <li class="mini_pillango"><u>Feltöltődés a digitális zajban:</u> Cseréld le a képernyők villódzását a fák susogására, a madárdalra és a tiszta, harapható levegőre!</li>
+            <li class="mini_terkep"><u>Világklasszis látnivalók:</u> Sétálj Európa legnagyobb összefüggő füves pusztáján, vagy csodáld meg a Dunakanyar panorámáját a magasból!</li>
+            <li class="mini_makk"><u>Testközeli vadon:</u> Less meg ritka madarakat a Fertő-tónál, találkozz bivalyokkal, vagy kövesd a gímszarvasok nyomát a Gemenci-erdőben!</li>
+            <li class="mini_gomba"><u>Kalandok földön és vízen:</u> Kajakozz a nádasok labirintusában, biciklizz a Balaton-felvidék vulkanikus tanúhegyei között, vagy mássz sziklát a Bükkben!</li>
+        </ul>
+        <p class="tartalom_resz_tartalom">Legyen szó egy könnyed családi hétvégéről, egy magányos elvonulásról vagy egy bakancsos túlélőtúráról, Magyarország 10 nemzeti parkja ezerféle arcát mutatja. Itt minden ösvény új történetet mesél, minden kilátó új perspektívát ad, és minden látogatás közelebb visz a gyökereinkhez.</p>
+        <p class="tartalom_resz_tartalom">A kaland a küszöbödön kezdődik. Indulj el, és találd meg a saját kedvenc helyed!</p>
+
+    </div>
     </div>
 
     <div class="tartalom">
-
-        <h2 class="tartalom_cim">Fedezd fel Magyarország Rejtett Csodáit!</h2>
-        <p class="tartalom_tartalom">Gondoltál már arra, hogy milyen lehet egy napfelkelte a ködbe burkolózó Hortobágyon, ahol a vadlovak patáinak dobogása töri meg a csendet? Vagy szívesen elvesznél a Bakony sűrű erdőiben, esetleg az Aggteleki-karszt föld alatti cseppkőbirodalmában kalandoznál?</p>
-        <p class="tartalom_tartalom">Hazánk nemzeti parkjai nem csupán védett természeti területek, hanem kapuk egy olyan világba, ahol a természet még az úr. <br><br></p>
-        <h2 class="tartalom_cim">Miért érdemes elindulnod?</h2>
-        <ul class="tartalom_felsorolas">
-            <li class="pillango"><u>Feltöltődés a digitális zajban:</u> Cseréld le a képernyők villódzását a fák susogására, a madárdalra és a tiszta, harapható levegőre!</li>
-            <li class="terkep"><u>Világklasszis látnivalók:</u> Sétálj Európa legnagyobb összefüggő füves pusztáján, vagy csodáld meg a Dunakanyar panorámáját a magasból!</li>
-            <li class="makk2"><u>Testközeli vadon:</u> Less meg ritka madarakat a Fertő-tónál, találkozz bivalyokkal, vagy kövesd a gímszarvasok nyomát a Gemenci-erdőben!</li>
-            <li class="gomba"><u>Kalandok földön és vízen:</u> Kajakozz a nádasok labirintusában, biciklizz a Balaton-felvidék vulkanikus tanúhegyei között, vagy mássz sziklát a Bükkben!</li>
-        </ul>
-        <p class="tartalom_tartalom">Legyen szó egy könnyed családi hétvégéről, egy magányos elvonulásról vagy egy bakancsos túlélőtúráról, Magyarország 10 nemzeti parkja ezerféle arcát mutatja. Itt minden ösvény új történetet mesél, minden kilátó új perspektívát ad, és minden látogatás közelebb visz a gyökereinkhez.</p>
-        <p class="tartalom_tartalom">A kaland a küszöbödön kezdődik. Indulj el, és találd meg a saját kedvenc helyed!</p>
+    <div class="belso_tartalom_mezo_szinatmenet">
+        <h2 class="tartalom_resz_cim">Kattints a logókra, hogy megismerd a nemzeti parkokat!</h2>
+    <div class="map-container">
 
 
-        <br>
+        <!--<img class="terkep" src="magyarorszag-terkepe-megjelolesekkel-2.PNG" alt="Magyarország nemzeti parkjai">-->
+        <img class="terkep responsive-image" src="magyarorszag-terkepe-megjelolesekkel-2.PNG" alt="Magyarország nemzeti parkjai">
 
-
-        <p></p>
-        <h2 id="katt">Kattints a logókra, hogy megismerd <br>a nemzeti parkokat!</h2>
-        <div id="terkep">
-            <img class="terkep" usemap="#map" src="magyarorszag-terkepe-megjelolesekkel-2.PNG" alt="Magyarország nemzeti parkjai" width="750">
-            <map name="map">
-                <area shape="circle" coords="540, 45, 36" href="NEMZETI PARKOK/aggteleki/aggtelek-index.html" alt="aggteleki">
-                <area shape="circle" coords="443, 119, 36" href="NEMZETI PARKOK/bukki/bukki-index.html" alt="bükki">
-                <area shape="circle" coords="598, 175, 36" href="NEMZETI PARKOK/hortobagyi/hortobagyi-index.html" alt="hortobágyi">
-                <area shape="circle" coords="523, 359, 36" href="NEMZETI PARKOK/koros-maros/koros-maros-index.html" alt="körös-maros">
-                <area shape="circle" coords="402, 301, 36" href="NEMZETI PARKOK/kiskunkagi/kiskunsagi-index.html" alt="kiskunsági">
-                <area shape="circle" coords="279, 168, 36" href="NEMZETI PARKOK/duna-ipoly/duna-i-index.html" alt="duna-ipoly">
-                <area shape="circle" coords="202, 279, 36" href="NEMZETI PARKOK/balaton-felvideki/balaton-f-index.html" alt="balaton-felvidéki">
-                <area shape="circle" coords="234, 459, 36" href="NEMZETI PARKOK/duna-drava/duna-d-index.html" alt="duna-dráva">
-                <area shape="circle" coords="61, 273, 36" href="NEMZETI PARKOK/orsegi/orsegi-index.html" alt="őrségi">
-                <area shape="circle" coords="102, 169, 36" href="NEMZETI PARKOK/ferto-hansag/ferto-h-index.html" alt="fertő-hanság">
-            </map>
-        </div>
-
-
-        <br>
-
+        <a class="hotspot hotspot-1" target="_self" href="NEMZETI PARKOK/aggteleki/aggtelek-index.html">Aggtelek</a>
+        <a class="hotspot hotspot-2" target="_self" href="NEMZETI PARKOK/balaton-felvideki/balaton-f-index.html">Balaton-felvidék</a>
+        <a class="hotspot hotspot-3" target="_self" href="NEMZETI PARKOK/bukki/bukki-index.html">Bükk</a>
+        <a class="hotspot hotspot-4" target="_self" href="NEMZETI PARKOK/duna-drava/duna-d-index.html">Duna-Dráva</a>
+        <a class="hotspot hotspot-5" target="_self" href="NEMZETI PARKOK/duna-ipoly/duna-i-index.html">Duna-Ipoly</a>
+        <a class="hotspot hotspot-6" target="_self" href="NEMZETI PARKOK/ferto-hansag/ferto-h-index.html">Fertő-Hanság</a>
+        <a class="hotspot hotspot-7" target="_self" href="NEMZETI PARKOK/hortobagyi/hortobagyi-index.html">Hortobágy</a>
+        <a class="hotspot hotspot-8" target="_self" href="NEMZETI PARKOK/kiskunkagi/kiskunsagi-index.html">Kiskunság</a>
+        <a class="hotspot hotspot-9" target="_self" href="NEMZETI PARKOK/koros-maros/koros-maros-index.html">Körös-Maros</a>
+        <a class="hotspot hotspot-10" target="_self" href="NEMZETI PARKOK/orsegi/orsegi-index.html">Őrség</a>
 
     </div>
-
-    <div class="tartalom_szinatmenet">
-        <br><br><br><br><br><br><br><br><br><br><br><br><br>
+    </div>
     </div>
 
-    <div>
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-    </div>
-    <div class="hero-image">
-    <div class="hero-text">
-        <h1>RAJZAIM</h1>
-    </div>
+
+
+    <div><!-- style="background: rgb(150, 221, 255);"><!- -image: linear-gradient(to top, rgb(150, 221, 255), #ffffff); padding: 0px; margin: 0px;">-->
+        <img src="erdos_proba.png" alt="" style="width: 100%;">
     </div>
 
 </body>
