@@ -1,45 +1,58 @@
-table {
-    width: 100%;
-}
-.szokoz{
-    font-size: 2px;
-    width: 10px;
-    color: rgba(0, 255, 255, 0);
-}
-.np{
-    background-color: rgb(194, 249, 197);
-    width: 50%;
-    border: solid 5px rgba(0, 128, 0, 1);
+.kartya{
+    background: linear-gradient(to bottom right, #cffbb2, rgb(111, 219, 111));
+    border: outset 5px rgba(0, 128, 0, 1);
     border-radius: 30px;
-    padding: 10px;
+    padding: 15px;
+    padding-right: 35px;
+    margin-top: 25px;
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-bottom: 0px;
+height: auto;
 }
+.belso_tartalom_mezo_szinatmenet{
+  padding-top: 0px;
+}
+.koros-maros-kartya{
+  margin-top: 15px;
+}
+
 .logok{
     height: 120px;
     padding: 10px;
+    float: right;
+    /*A logó kör - hogy jobban hozzásimuljon a szöveg*/
+    border-radius: 50%;
+    shape-outside: circle(50%);
 }
-.cim{
-    font-size: 30px;
+.tartalom_resz_cim_legfelul{
+  text-align: center;
+  padding-top: 0px;
+  padding-bottom: 9px;
 }
-a.cim:link {
+.tartalom_resz_cim{
+  color: #247606;
+  margin: 20px;
+}
+a.tartalom_resz_cim:link {
   text-decoration: none;
   color: darkgreen;
 }
-a.cim:visited {
+a.tartalom_resz_cim:visited {
   text-decoration: none;
   color: darkgreen;
 }
-a.cim:hover {
+a.tartalom_resz_cim:hover {
   text-decoration: underline;
   color: rgb(4, 172, 4);
 }
-a.cim:active {
+a.tartalom_resz_cim:active {
   text-decoration: underline;
   color: rgb(4, 172, 4);
 }
-
 
 .leiras{
-  font-size: 16px;
+  font-size: 17px;
   line-height: 130%;
   text-align: justify;
   /*hyphens: auto; /*szavak elválasztása*/

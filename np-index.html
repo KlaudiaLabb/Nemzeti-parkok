@@ -7,9 +7,7 @@
     <link rel="stylesheet" href="np.css">
     <title>Nemzeti parkjaink</title>
     <link rel="icon" type="image/x-icon" href="./mokus2.png">
-
-    <!--<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">-->
-
+    <!--hambi icon--><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body >
 
@@ -20,181 +18,111 @@
     </div>
 
 
-    <!-- telefonhoz: https://www.w3schools.com/howto/howto_js_topnav_responsive.asp -->
+    <div id="navigacios_sav">
     <div class="topnav" id="myTopnav">
         <a href="./index.html">Főoldal</a>
         <a href="" class="active">Nemzeti parkok</a>
-        <a href="#contact">Játékok</a>
-        <a href="#about">Rólam</a>
+        <a href="./jatekok.html">Játékok</a>
+        <a href="./rolam.html">Rólam</a>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+            <i class="fa fa-bars"></i>
+        </a>
     </div>
+    </div>
+
+    <script>
+        function myFunction() {
+            var x = document.getElementById("myTopnav");
+            if (x.className === "topnav") {
+                x.className += " responsive";
+            } else {
+                x.className = "topnav";
+            }
+        }
+    </script>
+
+
 
     <div class="tartalom">
-        <table><tbody>
-            <tr>
-                <td class="np">
-                    <table><tbody><tr>
-                        <td> <img class="logok" src="NEMZETI PARKOK/aggteleki/logo.png" alt=""> </td>
-                        <td>
-                            <p class="cim"> <a class="cim" href="NEMZETI PARKOK/aggteleki/aggtelek-index.html">Aggteleki Nemzeti Park</a> </p>
-                            <p class="leiras">Az Aggteleki-karszt Magyarország legismertebb barlangvidéke, amely az UNESCO világörökség része. Itt található a híres Baradla-barlangrendszer, rengeteg cseppkőképződménnyel és föld alatti patakkal. A nemzeti parkhoz tartoznak karsztfennsíkok, dolinák, szurdokvölgyek és ritka denevérfajok élőhelyei is. Jósvafő környékén működik a híres hucul ménes, ahol őshonos hegyi lovakat tenyésztenek, emellett a terület gazdag népi hagyományokban és túraútvonalakban is.</p>
-                        </td>
-                    </tr></tbody></table>
-                </td>
+    <div class="belso_tartalom_mezo">
+        <h2 class="tartalom_resz_cim  tartalom_resz_cim_legfelul">Magyarország 10 nemzeti parkja egy-egy különleges világ kapuja</h2>
 
-                <td class="szokoz">.</td>
-
-                <td class="np">
-                    <table><tbody><tr>
-                        <td> <img class="logok" src="NEMZETI PARKOK/balaton-felvideki/logo.png" alt=""> </td>
-                        <td>
-                            <p class="cim"> <a class="cim" href="NEMZETI PARKOK/balaton-felvideki/balaton-f-index.html">Balaton-felvidéki Nemzeti Park</a> </p>
-                            <p class="leiras">A Balaton északi partjának legszebb természeti területeit foglalja magába. Ide tartoznak a vulkanikus tanúhegyek, például a Badacsony, a Szent György-hegy és a Csobánc, valamint a híres bazaltorgonák. A park része a Tihanyi-félsziget levendulásaival, gejzírkúpjaival és a Belső-tóval, továbbá a Kis-Balaton, amely az ország egyik legfontosabb madárrezervátuma. A vidéket szőlőültetvények, régi pincék és különleges balatoni panorámák teszik még híresebbé.</p>
-                            <br>
-                        </td>
-                    </tr></tbody></table>
-                </td>
-            </tr>
-            <tr><td class="szokoz">.</td></tr>
-            <tr>
-                <td class="np">
-                    <table><tbody><tr>
-                        <td> <img class="logok" src="NEMZETI PARKOK/bukki/logo.png" alt=""> </td>
-                        <td>
-                            <p class="cim"> <a class="cim" href="NEMZETI PARKOK/bukki/bukki-index.html">Bükki Nemzeti Park</a> </p>
-                            <p class="leiras"><br>A Bükk hegység erdős, hegyvidéki területe Magyarország egyik legnagyobb összefüggő erdősége. Hatalmas fennsíkok, mély szurdokvölgyek, vízesések és barlangok találhatók itt, például az Istállós-kői-barlang, ahol őskori leleteket is találtak. A park híres ritka növényeiről, vadállatairól és tiszta hegyi levegőjéről. Szilvásvárad környéke a lipicai ménesről és a Fátyol-vízesésről is ismert.</p>
-                        </td>
-                    </tr></tbody></table>
-                </td>
-
-                <td class="szokoz">.</td>
-
-                <td class="np">
-                    <table><tbody><tr>
-                        <td> <img class="logok" src="NEMZETI PARKOK/duna-drava/logo.png" alt=""> </td>
-                        <td>
-                            <p class="cim"> <a class="cim" href="NEMZETI PARKOK/duna-drava/duna-d-index.html">Duna-Dráva Nemzeti Park</a> </p>
-                            <p class="leiras">A Duna és a Dráva mentén elterülő nemzeti park gazdag ártéri erdőkben, holtágakban és mocsaras területekben. A Gemenci-erdő Európa egyik legnagyobb ártéri erdeje, amely híres gímszarvasairól és vízimadarairól. A Dráva mentén kavicszátonyok, tiszta vizű partszakaszok és ritka halfajok találhatók. A park fontos szerepet játszik a folyók természetes élővilágának megőrzésében.</p>
-                            <br>
-                        </td>
-                    </tr></tbody></table>
-                </td>
-            </tr>
-            <tr><td class="szokoz">.</td></tr>
-            <tr>
-                <td class="np">
-                    <table><tbody><tr>
-                        <td> <img class="logok" src="NEMZETI PARKOK/duna-ipoly/logo.png" alt=""> </td>
-                        <td>
-                            <p class="cim"> <a class="cim" href="NEMZETI PARKOK/duna-ipoly/duna-i-index.html">Duna-Ipoly Nemzeti Park</a> </p>
-                            <p class="leiras">A Dunakanyar és az Északi-középhegység nyugati része tartozik ide. A Pilis, a Börzsöny és a Visegrádi-hegység erdős tájai, sziklái és barlangjai rengeteg túrázót vonzanak. A park része a Rám-szakadék, az Ipolytarnóci ősmaradványok és számos védett növényfaj élőhelye. Budapest közelsége miatt ez az egyik leglátogatottabb nemzeti park Magyarországon.</p>
-                            <br>
-                        </td>
-                    </tr></tbody></table>
-                </td>
-
-                <td class="szokoz">.</td>
-
-                <td class="np">
-                    <table><tbody><tr>
-                        <td> <img class="logok" src="NEMZETI PARKOK/ferto-hansag/logo.png" alt=""> </td>
-                        <td>
-                            <p class="cim"> <a class="cim" href="NEMZETI PARKOK/ferto-hansag/ferto-h-index.html">Fertő-Hanság Nemzeti Park</a> </p>
-                            <p class="leiras">A Fertő-tó és a Hanság lápvilága körül alakult ki ez a különleges természetvédelmi terület. A sekély szikes tó és a hatalmas nádasok rengeteg vízimadárnak biztosítanak élőhelyet. A park része az UNESCO világörökségnek is, és híres madármegfigyelő helyeiről. A Hanság mocsaras vidéke ritka növény- és állatfajokat rejt, emellett a környéken sok hagyományos parasztház és szőlőkultúra található.</p>
-                        </td>
-                    </tr></tbody></table>
-                </td>
-            </tr>
-            <tr><td class="szokoz">.</td></tr>
-            <tr>
-                <td class="np">
-                    <table><tbody><tr>
-                        <td> <img class="logok" src="NEMZETI PARKOK/hortobagyi/logo.png" alt=""> </td>
-                        <td>
-                            <p class="cim"> <a class="cim" href="NEMZETI PARKOK/hortobagyi/hortobagyi-index.html">Hortobágyi Nemzeti Park</a> </p>
-                            <p class="leiras">Magyarország első nemzeti parkja és a legismertebb pusztai táj. Végtelen füves puszták, szikes tavak, gémeskutak és pásztorhagyományok jellemzik. A híres Kilenclyukú híd, a szürkemarha-gulyák, rackajuhok és csikósbemutatók a magyar alföldi kultúra fontos részei. A parkhoz kapcsolódik a Tisza-tó térsége is, amely gazdag vízi élővilágáról, madárrezervátumairól és ökoturisztikai programjairól ismert. Ősszel darvak tízezrei vonulnak át a Hortobágyon.</p>
-                        </td>
-                    </tr></tbody></table>
-                </td>
-
-                <td class="szokoz">.</td>
-
-                <td class="np">
-                    <table><tbody><tr>
-                        <td> <img class="logok" src="NEMZETI PARKOK/kiskunkagi/logo.png" alt=""> </td>
-                        <td>
-                            <p class="cim"> <a class="cim" href="NEMZETI PARKOK/kiskunkagi/kiskunsagi-index.html">Kiskunsági Nemzeti Park</a> </p>
-                            <p class="leiras">A Duna és a Tisza közötti homokhátság és szikes tavak vidéke tartozik ide. A park területén homokbuckák, puszták, mocsarak és különleges növénytársulások váltják egymást. Itt található a Fülöpházi homokbuckavidék, a Kolon-tó és több ritka madárfaj élőhelye. A terület jól bemutatja az alföld száraz és vizes élőhelyeinek változatosságát.</p>
-                            <br><br>
-                        </td>
-                    </tr></tbody></table>
-                </td>
-            </tr>
-            <tr><td class="szokoz">.</td></tr>
-            <tr>
-                <td class="np">
-                    <table><tbody><tr>
-                        <td> <img class="logok" src="NEMZETI PARKOK/koros-maros/logo.png" alt=""> </td>
-                        <td>
-                            <p class="cim"> <a class="cim" href="NEMZETI PARKOK/koros-maros/koros-maros-index.html">Körös-Maros Nemzeti Park</a> </p>
-                            <p class="leiras">Az Alföld délkeleti részén fekvő park főként vizes élőhelyeiről és pusztai tájairól ismert. A terület kiemelten fontos a túzokvédelem szempontjából, mert itt él Magyarország egyik legnagyobb túzokállománya. A Körösök és a Maros mentén gazdag madárvilág, mocsarak és ártéri területek találhatók. A parkban több tanösvény és madármegfigyelő hely is működik.</p>
-                            <br><br>
-                        </td>
-                    </tr></tbody></table>
-                </td>
-
-                <td class="szokoz">.</td>
-
-                <td class="np">
-                    <table><tbody><tr>
-                        <td> <img class="logok" src="NEMZETI PARKOK/orsegi/logo.png" alt=""> </td>
-                        <td>
-                            <p class="cim"> <a class="cim" href="NEMZETI PARKOK/orsegi/orsegi-index.html">Őrségi Nemzeti Park</a> </p>
-                            <p class="leiras"><br>Az ország nyugati határvidékén található Őrség különleges, dombos tájairól és hagyományos szeres településeiről híres. A parkot erdők, patakok, kaszálórétek és kis falvak alkotják, ahol ma is élnek a régi népi hagyományok. Híres a fazekasságról, a tökmagolajról és a fából épült haranglábakról. A terület gazdag vadállományban és védett növényfajokban, ezért kedvelt célpont a természetjárók számára.</p>
-                        </td>
-                    </tr></tbody></table>
-                </td>
-            </tr>
-
-
-
-
-
-        </tbody></table>
-    <!--<div class="row g-4" id="home-products" >
-        <div class="col-md-6">
-            <div class="card shadow-sm">
-                <img src="NEMZETI PARKOK/aggteleki/logo.png" style="width: 30%; margin: 10px;" class="card-img-top" alt="Csokis perec">
-                <div class="card-body" style="position: absolute; margin-left: 150px;">
-                    <h5 class="card-title">Aggteleki Nemzeti Park</h5>
-                    <p class="card-text">blabla.</p>
-                </div>
-            </div>
+        <div class="kartya">
+            <h2><a class="tartalom_resz_cim" href="NEMZETI PARKOK/aggteleki/aggtelek-index.html">Aggteleki Nemzeti Park</a></h2>
+            <img class="logok" src="NEMZETI PARKOK/aggteleki/logo.png" alt="">
+            <p class="tartalom_resz_tartalom  leiras">Az Aggteleki-karszt Magyarország legismertebb, UNESCO világörökségi védelmet élvező föld alatti birodalma. Nemcsak a felszíni karsztfennsíkok, dolinák és drámai szurdokvölgyek ejtenek ámulatba, hanem a mélyben húzódó, monumentális Baradla-barlangrendszer is. Itt lélegzetelállító cseppkőképződmények, föld alatti patakok és óriási hangversenytermek várnak, amelyek egy teljesen más dimenzióba repítenek. A barlangok hűvösében különleges, ritka denevérfajok találnak menedéket. Jósvafő mesebeli környékén pedig megcsodálhatod a híres hucul ménest, ahol hazánk őshonos, zömök hegyi lovait tenyésztik és őrzik a jövő számára.</p>
         </div>
-        <div class="col-md-6">
-            <div class="card shadow-sm">
-                <img src="NEMZETI PARKOK/aggteleki/logo.png" style="width: 30%; margin: 10px;" class="card-img-top" alt="Csokis perec">
-                <div class="card-body" style="position: absolute; margin-left: 150px;">
-                    <h5 class="card-title">Aggteleki Nemzeti Park</h5>
-                    <p class="card-text">blabla.</p>
-                </div>
-            </div>
+
+        <div class="kartya">
+            <h2><a class="tartalom_resz_cim" href="NEMZETI PARKOK/balaton-felvideki/balaton-f-index.html">Balaton-felvidéki Nemzeti Park</a></h2>
+            <img class="logok" src="NEMZETI PARKOK/balaton-felvideki/logo.png" alt="">
+            <p class="tartalom_resz_tartalom leiras">A vulkánok és a romantika földje, ahol a toszkán hangulat találkozik a magyar tenger vadregényes arcával. Ki tudna ellenállni a Tapolcai-tavasbarlang föld alatti csónakázásának, vagy a Badacsony és a többi bazaltorgonás tanúhegy látványának? A park magában foglalja a Tihanyi-félsziget illatos levendulásait és gejzírkúpjait, a Káli-medence kőtengereit, valamint a Kis-Balaton misztikus mocsárvilágát. Utóbbi a madarak igazi paradicsoma, ahol kócsagok és kárókatonák fészkelnek a sűrű nádasokban. Ez a vidék tökéletes választás, ha a geológiai csodákat prémium gasztronómiával és borkóstolással kötnéd össze.</p>
         </div>
-    </div>-->
 
+        <div class="kartya">
+            <h2><a class="tartalom_resz_cim" href="NEMZETI PARKOK/bukki/bukki-index.html">Bükki Nemzeti Park</a></h2>
+            <img class="logok" src="NEMZETI PARKOK/bukki/logo.png" alt="">
+            <p class="tartalom_resz_tartalom leiras">Az ország legmagasabban fekvő, vadregényes hegyvidéke, amelyet a mészkősziklák és az őserdők misztikus hangulata ural. Szeretnél elveszni a gigantikus bükkfák között, vagy gyönyörködni a Tar-kő sziklateraszáról nyíló, tiszta időben a Tátráig nyúló panorámában? A Bükk-fennsík karsztvidéke, a titokzatos víznyelők és a mély szurdokvölgyek igazi bakancsos kalandokat ígérnek. Itt kanyarog a festői Szalajka-völgy a Fátyol-vízeséssel, a hegyek gyomrában pedig több mint ezer barlang rejtőzik, köztük az ősember egykori lakóhelyei. A park ráadásul a nagyragadozók, mint a farkasok és hiúzok visszatérésének is a tanúja.</p>
+        </div>
 
-        <!--<table style="border: solid 2px; width: 100%;"> <tbody>
-            <tr>
-                <th>a</th> <th>a</th> cím         tartalom <td>a</td>
-            </tr>
-        </tbody> </table>
-        <samp class="np">s</samp>
-        <samp class="np">s</samp>
-        <div class="np">a</div>
-        <div class="np">a</div>-->
+        <div class="kartya">
+            <h2><a class="tartalom_resz_cim" href="NEMZETI PARKOK/duna-drava/duna-d-index.html">Duna-Dráva Nemzeti Park</a></h2>
+            <img class="logok" src="NEMZETI PARKOK/duna-drava/logo.png" alt="">
+            <p class="tartalom_resz_tartalom leiras">A dél-dunántúli régió nagy folyóinak ölelése, ahol a víz és a szárazföld örökös küzdelme alakítja a drámai tájat. Gondoltál már arra, milyen lehet csendben siklani a vízen a Gemenci-erdő óriási fái között, miközben a gímszarvasok bőgése visszhangzik a fák között? Ez Európa legnagyobb összefüggő ártéri erdeje, amely fekete gólyáknak és jégmadaraknak ad biztonságos otthont. A Dráva folyó vad, szabályozatlan zátonyai, a kanyargó holtágak és a sűrű galériaerdők a vízi túrázók és az érintetlen természet szerelmeseinek abszolút bakancslistás helyszínei, ahol a civilizáció zaját teljesen elmossa a folyó zúgása.</p>
+        </div>
 
+        <div class="kartya">
+            <h2><a class="tartalom_resz_cim" href="NEMZETI PARKOK/duna-ipoly/duna-i-index.html">Duna-Ipoly Nemzeti Park</a></h2>
+            <img class="logok" src="NEMZETI PARKOK/duna-ipoly/logo.png" alt="">
+            <p class="tartalom_resz_tartalom leiras">A főváros kapujában fekvő, hihetetlenül változatos és fenséges táj, ahol a hegyek és a kanyargó folyó látványa találkozik. Ki tudna betelni a Dunakanyar panorámájával a Prédikálószék szikláiról, vagy a Pilis és a Börzsöny sűrű, vadregényes tölgyeseinek illatával? A park területén mély szurdokvölgyek (mint a Holdvilág-árok), kristálytiszta patakok és titokzatos barlangok váltják egymást, miközben az Ipoly folyó árterei nyugalmat árasztanak. Kiváló elhelyezkedése miatt ez a terület a budapesti agglomeráció tüdeje, amely ezerféle túraútvonalat, sziklamászó helyet és családi kirándulóhelyszínt kínál minden évszakban.</p>
+        </div>
 
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <div class="kartya">
+            <h2><a class="tartalom_resz_cim" href="NEMZETI PARKOK/ferto-hansag/ferto-h-index.html">Fertő-Hanság Nemzeti Park</a></h2>
+            <img class="logok" src="NEMZETI PARKOK/ferto-hansag/logo.png" alt="">
+            <p class="tartalom_resz_tartalom leiras">Közép-Európa harmadik legnagyobb tava és a titokzatos lápvidékek világa, amely Ausztriával osztozva ad otthont a természetnek. Készen állsz arra, hogy kajakba szállva, a nádasok bonyolult labirintusában evezve fedezd fel a vízi világ rejtett fészkeit? A Fertő-táj sós vizű medencéje és a Hanság mocsaras láprétjei az európai madárvonulás kulcsfontosságú állomásai, ahol a madármegfigyelő tornyokból ritka rétisasokat vagy barna rétihéjákat is megpillanthatsz. A tájat szikes gyepek, legelésző bivalycsordák és szürkemarhák tarkítják, a történelem kedvelőit pedig a közelben barokk kastélyok és patinás falvak várják.</p>
+        </div>
+
+        <div class="kartya">
+            <h2><a class="tartalom_resz_cim" href="NEMZETI PARKOK/hortobagyi/hortobagyi-index.html">Hortobágyi Nemzeti Park</a></h2>
+            <img class="logok" src="NEMZETI PARKOK/hortobagyi/logo.png" alt="">
+            <p class="tartalom_resz_tartalom leiras">A végtelen délibábok és a szabadság földje, Európa legnagyobb összefüggő füves pusztája. Gondoltál már arra, milyen lehet végignézni a csikósok lenyűgöző bemutatóját, vagy megpillantani a Pentezugi-rezervátumban az ősi Przewalski-vadlovak méltóságteljes csordáját, miközben a puszta felett vörösen izzik a horizont? A világörökségi területen a szürkemarhák, bivalyok és a híres nóniusz lovak mellett a puszta vadregényes arca is feltárul. Ősszel százezernél is több daru vonulása festi feketére az eget, ami a világ egyik leglátványosabb természeti jelensége. Itt található a Csillagoségbolt-park is, ahol a fényszennyezéstől mementóként megóvott éjszakai égbolton a Tejút olyan tisztán ragyog, mintha csak karnyújtásnyira lenne tőled.</p>
+        </div>
+
+        <div class="kartya">
+            <h2><a class="tartalom_resz_cim" href="NEMZETI PARKOK/kiskunkagi/kiskunsagi-index.html">Kiskunsági Nemzeti Park</a></h2>
+            <img class="logok" src="NEMZETI PARKOK/kiskunkagi/logo.png" alt="">
+            <p class="tartalom_resz_tartalom leiras">A Duna–Tisza közén elterülő mozaikos táj a homokbuckák és a szikes tavak igazi vadvilága. Képzeld el, ahogy a szél által formált bugaci homokbuckák finom szemcséi peregnek a talpad alatt, miközben a távolban a puszta ritka lakói bújnak meg. Ez a park a selymes homokbuckák, az orchideákkal teli vizenyős rétek és az ezer színben játszó szikes tavak hazája. Utóbbiak a vonuló madarak százezreinek nyújtanak nélkülözhetetlen pihenőhelyet. A tanyasi világ csendje és a pásztorhagyományok élő öröksége garantálja, hogy a látogatásod során teljesen kiszakadsz a rohanó hétköznapokból és a digitális zajból.</p>
+        </div>
     </div>
+    </div>
+
+
+
+    <div class="tartalom  kulso_tartalom_mezo_szinatmenet">
+    <div class="belso_tartalom_mezo_szinatmenet">
+
+        <div class="kartya koros-maros-kartya">
+            <h2><a class="tartalom_resz_cim" href="NEMZETI PARKOK/koros-maros/koros-maros-index.html">Körös-Maros Nemzeti Park</a></h2>
+            <img class="logok" src="NEMZETI PARKOK/koros-maros/logo.png" alt="">
+            <p class="tartalom_resz_tartalom leiras">Az Alföld délkeleti részének varázslatos mozaikja, ahol az egykori hatalmas mocsárvilág és a megmaradt ősi gyepek találkoznak. Szívesen meglesnéd hazánk legértékesebb és legnagyobb testű madarát, a rejtőzködő túzokot a kiterjedt dévaványai pusztákon? A park a kanyargó Körösök és a Maros folyó menti ártéri erdők, valamint a szikes puszták különleges egyvelege. A folyók holtágai a horgászok és a csendes evezések oázisai, míg a mocsármaradványok és az orchideás rétek a botanikusok kincsesládái. Itt megtapasztalhatod az igazi alföldi nyugalmat, távol a felkapott turisztikai központok tömegétől.</p>
+        </div>
+
+        <div class="kartya">
+            <h2><a class="tartalom_resz_cim" href="NEMZETI PARKOK/orsegi/orsegi-index.html">Őrségi Nemzeti Park</a></h2>
+            <img class="logok" src="NEMZETI PARKOK/orsegi/logo.png" alt="">
+            <p class="tartalom_resz_tartalom leiras">A nyugati határszélen elterülő, mesebeli dombvidék, ahol a természet és az emberi kultúra évszázadok óta tökéletes harmóniában él együtt. El tudod képzelni a reggeli sétát a harmatos, gombákban gazdag fenyvesekben, miközben a völgyekben még gomolyog a köd? Az Őrség híres a szeres településszerkezetéről, a hagyományos szoknyás haranglábakról és a fazekasmesterekről. A dombok között megbúvó tiszta vizű patakok, tőzegmohás lápok és a vidék hűvös, szubalpin klímája azonnali feltöltődést nyújtanak. Itt a fenntartható gazdálkodás és a hagyományőrzés nem csupán jelszó, hanem a mindennapi élet kézzelfogható, megnyugtató valósága.</p>
+        </div>
+
+    </div>
+    </div>
+
+
+
+    <div>
+        <img class="also_kep" src="erdos_proba.png" alt="" >
+    </div>
+
 
 </body>
 </html>
