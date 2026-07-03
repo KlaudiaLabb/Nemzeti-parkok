@@ -1,3 +1,16 @@
 .hero-image {
-  background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5)), url("kep1.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url("háttérkép.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  /* Alapértelmezett beállítás (NAGY KÉPERNYŐN): */
+  width: 100%;       /* kitölti a teljes képernyő szélességét */
+  height: 80vh;      /* a képernyő magasságának 80%-a lesz */
+}
+/* RESPONSIVE: Amikor kisebb lesz a képernyő (pl. mobil) */
+@media (max-width: 600px) {
+  .hero-image {
+    height: 40vh;    /*50vh-> Kisebb kijelzőn a kép magassága lecsökken a képernyő 50%-ára */
+  }
 }
