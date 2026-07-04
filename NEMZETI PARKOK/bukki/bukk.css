@@ -11,6 +11,6 @@
 /* RESPONSIVE: Amikor kisebb lesz a képernyő (pl. mobil) */
 @media (max-width: 600px) {
   .hero-image {
-    height: 40vh;    /*50vh-> Kisebb kijelzőn a kép magassága lecsökken a képernyő 50%-ára */
+    height: 30vh;    /*50vh-> Kisebb kijelzőn a kép magassága lecsökken a képernyő 50%-ára */
   }
 }

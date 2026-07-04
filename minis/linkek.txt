@@ -15,3 +15,33 @@ csiga : https://www.flaticon.com/free-icon/snail_2623472
 terkep: https://www.flaticon.com/free-icon/location_2373849
 süni: https://www.flaticon.com/free-icon/hedgehog_8493055
       https://www.flaticon.com/free-icon/hedgehog_2938237
+kancsó: https://www.flaticon.com/free-icon/jug_1055241
+        https://www.flaticon.com/free-icon/jug_10430605
+híd: https://www.flaticon.com/free-icon/house_699622
+     https://www.flaticon.com/free-icon/bridge_4614759
+art: https://www.flaticon.com/free-icon/art-show_10495139
+ló: https://www.flaticon.com/free-icon/horse_3689399
+lovas: https://www.flaticon.com/free-icon/horseback_625477
+       https://www.flaticon.com/free-icon/horsebak-riding_2038265
+állatok: https://www.flaticon.com/free-icon/livestock_3397536
+beka: https://www.flaticon.com/free-icon/frog_15055890
+madar: https://www.flaticon.com/free-icon/animal_14923035
+auto: https://www.flaticon.com/free-icon/safari_4579568
+csillag: https://www.flaticon.com/free-icon/night_13516969
+         https://www.flaticon.com/free-icon/telescope_2991566
+tank: https://www.flaticon.com/free-icon/tank_1693487
+barany: https://www.flaticon.com/free-icon/sheep_2711858
+        https://www.flaticon.com/free-icon/sheep_5620418?related_id=5617962&origin=search
+        https://www.flaticon.com/free-icon/sheep_3236244
+daru: https://www.flaticon.com/free-icon/crane_9804338
+      https://www.flaticon.com/free-icon/red-crowned-crane_2159638
+      https://www.flaticon.com/free-icon/red-crowned-crane_15404195
+ősz: https://www.flaticon.com/free-icon/food_16180838
+vásár: https://www.flaticon.com/free-icon/stall_3339450
+
+házikó: https://www.flaticon.com/free-icon/field_2303685
+szitakoto: https://www.flaticon.com/free-icon/dragonfly_1984339
+szarvas: https://www.flaticon.com/free-icon/deer_3435772
+
+
+
