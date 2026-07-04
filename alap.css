@@ -10,6 +10,10 @@ body, html{ /*egyész weoldal*/
   color: #f6fdd9;            /* betűszín */
 }
 
+
+
+
+
 .hero-image { /*főoldal képe*/
   background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5)), url("tajvedelmi3.jpg"); /*url("erdo-hatter.jpg");*/
   height: 40vh; /* 50%;*/
@@ -27,6 +31,11 @@ body, html{ /*egyész weoldal*/
   color: rgb(226, 251, 179);
   font-size: clamp(1rem, 2.5vw, 2rem);
 }
+
+
+
+
+
 
 /*navigációs sáv START*/
 #navigacios_sav{
@@ -113,7 +122,7 @@ body, html{ /*egyész weoldal*/
   margin: 20px;
 }
 .tartalom_resz_tartalom {
-  margin-left: 40px;
+  margin-left: 30px;
   margin-right: 20px;
   font-size: 17px;
 }
@@ -138,6 +147,61 @@ u, li::marker{
 .mini_terkep{
   list-style-image: url("minis/terkep.png");  
 }
+.mini_virag{
+  list-style-image: url("minis/virag.png");  
+}
+.mini_kancso{
+  list-style-image: url("minis/jug2.png");  
+}
+.mini_hid{
+  list-style-image: url("minis/hid2.png");  
+}
+.mini_art{
+  list-style-image: url("minis/art.png");  
+}
+.mini_lo{
+  list-style-image: url("minis/lo.png");  
+}
+.mini_auto{
+  list-style-image: url("minis/auto.png");  
+}
+.mini_allatok{
+  list-style-image: url("minis/allatok.png");  
+}
+.mini_beka{
+  list-style-image: url("minis/beka.png");  
+}
+.mini_madar{
+  list-style-image: url("minis/madar.png");  
+}
+.mini_csillag{
+  list-style-image: url("minis/cs.png");  
+}
+
+.mini_mezo{
+  list-style-image: url("minis/meh2.png");  
+}
+.mini_barany{
+  list-style-image: url("minis/barany3.png");  
+}
+.mini_lovas{
+  list-style-image: url("minis/lovas.png");  
+}
+.mini_vasar{
+  list-style-image: url("minis/vasar.png");  
+}
+.mini_daru{
+  list-style-image: url("minis/daru3.png");  
+}
+.mini_osz{
+  list-style-image: url("minis/osz.png");  
+}
+
+.mini_tank{
+  list-style-image: url("minis/tank.png");  
+}
+
+
 
 
 /* Térlép START*/
@@ -216,3 +280,21 @@ u, li::marker{
 }
 
 
+
+/*hiperlikek*/
+a.tartalom_resz_link:link {  /* <a class="tartalom_resz_link">... */
+  text-decoration: none;
+  color: darkgreen;
+}
+a.tartalom_resz_link:visited {
+  text-decoration: none;
+  color: darkgreen;
+}
+a.tartalom_resz_link:hover {
+  text-decoration: underline;
+  color: rgb(4, 172, 4);
+}
+a.tartalom_resz_link:active {
+  text-decoration: underline;
+  color: rgb(4, 172, 4);
+}
