@@ -52,36 +52,4 @@
   background-color: #c2f89e97; /*#f1f1f1;*/
 }
 
-/* A harmonika gombok 
-.osszes_harmonika{
-  /*width: 95%;
-  padding-left: 20px;
-  padding-right: 20px;
-  margin: 0 auto; /* ez pontosan középre teszi 
-}
-.collapsible {
-  background-color:  rgba(36, 118, 6, 0.85) ; /*rgb(60, 93, 56);
-  color: #eefbb2;
-  cursor: pointer;
-  width: 100%;
-  margin-top: 1px; /*10px hézeg közöttük
-  padding: 16px; /*18px
-  border: none;
-  text-align: left;
-  outline: none;
-  font-size: 17px;
-  font-family: 'Times New Roman', Times, serif;
-}
-.active, .collapsible:hover {
-  background-color: rgb(35, 158, 21); /*rgb(60, 93, 56);
-}
-.content {
-  padding: 0 18px;
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.2s ease-out;
-  background-color: #c2f89e; 
-}*/
-
-
 
