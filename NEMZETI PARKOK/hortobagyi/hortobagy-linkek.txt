@@ -8,4 +8,57 @@ icon:
 https://www.hnp.hu/hu
 https://old.bjg.hu/kirandulas/OlgaKoPe/nemzpark/hortonp/hortonpt.htm
 
+látogatóközpont: https://www.hnp.hu/hu/szervezeti-egyseg/turizmus/oldal/hortobagy-latnivaloi
+		 https://ilovetiszato.hu/2024/03/29/kepeken-mutatjuk-meg-milyen-lett-megujult-hnp-latogatokozpontja-es-a-pasztormuzeum/
+csárda: https://hellohungary.hu/gasztronomia/debrecen-es-tersege/vendeglatas/etterem/magyaros/hortobagyi-csarda
+híd: https://sokszinuvidek.24.hu/viragzo-videkunk/2021/11/18/kilenclyuku-hid-hortobagy-ikonikus-hidja/
+pásztormúzeum: https://visithortobagy.com/pasztormuzeum
+               + 1 saját
+fogat, ménes2: https://visithortobagy.com/pusztai-fogatozas
+safari: https://utazzitthon.hu/latnivalo/hortobagy/hortobagyi-vadaspark-2118
+        https://vm-magazin.hu/kalandozasok-nemzeti-parkjainkban-hortobagyi-nemzeti-park/
+vadaspark: https://visithortobagy.com/hortobagyi-vadaspark
+allatpark: https://www.magyarsagunkhungarikumunk.hu/hortobagy/
+	   https://visithortobagy.com/pusztai-allatpark
+kisvasút: https://www.hnp.hu/hu/szervezeti-egyseg/turizmus/hortobagyi-csillagosegbolt-park/1694/marciusi-programok
+halastavak: https://www.turistamagazin.hu/hir/egy-nap-a-madarparadicsomban
+vidra: https://www.hnp.hu/hu/szervezeti-egyseg/turizmus/hortobagy-halastavi-kisvasut/oldal/madarvilag-novenyvilag
+madarpark: https://visithortobagy.com/madarpark
+csillagos: https://vm-magazin.hu/kalandozasok-nemzeti-parkjainkban-hortobagyi-nemzeti-park/
+	   https://roadster.hu/eloterben-hortobagy-hatterben-tejutrendszer
+tank: https://szallas.hu/programok/hortobagyi-tankcsata-emlekmu-hortobagy-p8538
+
+behajtas: https://sokszinuvidek.24.hu/viragzo-videkunk/2021/10/26/domotor-napi-behajtas-hortobagy/
+daruk: https://greendex.hu/vilagrekord-daruvonulas-hortobagy/
+       https://welovetiszato.hu/bovulnek-a-darules-programlehetosegek-a-hortobagyon
+kihajtas: https://baratsagklub.hu/d%C3%A9lib%C3%A1bos-hortob%C3%A1gyon-szent-gy%C3%B6rgy-napi-kihajt%C3%A1s-mad%C3%A1rk%C3%B3rh%C3%A1z
+	  https://csodalatosmagyarorszag.hu/hirek/itthon/kihajtasi-unnep-hortobagyon-joszagok-pasztorok-es-hagyomanyok-a-kilenclyuku-hidnal/
+gyapju: https://www.hnp.hu/hu/szervezeti-egyseg/termeszetvedelem/hortobagyi-csillagosegbolt-park/2259/gyapjufesztival-hortobagyon
+	https://greendex.hu/magyar-gyapjufesztival/
+lovasnapok: https://www.origo.hu/kultura/2024/07/menesfesztivallal-erkeznek-az-idei-hortobagyi-lovasnapok
+	    https://ma7.sk/hethatar/hortobagyi-lovasnapok-veget-ert-a-puszta-legnagyobb-nyari-rendezvenye
+	    https://fidelio.hu/plusz/hortobagyi-lovasnapok-179251.html
+hidi vasar: https://www.programturizmus.hu/ajanlat-hortobagyi-hidivasar-hortobagy.html
+	    https://debreceninap.hu/helyi/2024/08/18/megkezdodott-a-vasarnap-hortobagyi-hidivasar/
+
+tiszató sétány: https://www.hnp.hu/hu/szervezeti-egyseg/turizmus/esemenyek/1189/tisza-to-kerulo-e-bike-tura
+		https://szallaskeres.hu/blog/5-1-elmeny-amit-egyben-csak-a-tisza-to-tud-adni
+pákász tanösvény: https://aktivkalandor.hu/turatipp/a-pakaszok-tanyaja-tiszafured-szabics-kikoto-tiszavirag-setaut-es-oreg-pakasz-tanosveny/
+		  https://csodahelyek.hu/tiszavirag-arteri-setaut-orvenyi-pakasz-tanosveny-tisza-to/
+tiszavirág ártéri sétaút: https://ilovetiszato.hu/2021/04/23/tiszavirag-arteri-setaut-es-tanosveny/
+nyugati fogadóház: https://www.termalfurdo.hu/latnivalo/nyugati-fogadohaz-487
+nagyiváni tájház: https://www.hnp.hu/hu/szervezeti-egyseg/turizmus/oldal/nagyivani-tajhaz
+		  https://visithortobagy.com/nagyivani-tajhaz
+kastély: https://www.kolcsey.org/magyar-emlekek/kolcsey-emlekhelyek/cegenydanyad/
+	 https://sokszinuvidek.24.hu/viragzo-videkunk/2016/09/27/osi-nemesi-kastely-a-termeszet-kincseinek-oleleseben/
+őrház: https://visithortobagy.com/szalkahalmi-tanosveny
+szálkahalmi tanösvény: https://www.hnp.hu/hu/szervezeti-egyseg/turizmus/oldal/szalkahalmi-tanosveny
+tiszaviragzas: https://sokszinuvidek.24.hu/viragzo-videkunk/2025/06/17/tisza-folyo-rajzas-tiszavirag-tiszaviragzas/
+		https://www.penzcentrum.hu/hellovidek/20210703/ezt-a-termeszeti-csodat-egyszer-latni-kell-most-viragzik-a-tisza-1167477
+halasnapok: https://fuzeshirek.hu/csutortokon-elstartol-a-tisza-to-feszt-tiszafuredi-halasnapok/
+	    https://szallas.hu/programok/tisza-to-feszt-2026-tiszafuredi-halasnapok-tiszafured-p22418
+birkafőző: https://rendezvenyvilag.hu/rendezvenyek-2/szabadido-eletmod-2/item/6864-karcagi-birkafozo-fesztival-2022-junius-25.html
+	   https://csodalatosmagyarorszag.hu/programok/gasztro-programok/karcagi-birkafozo-fesztival-2025/
+harcsapaprikás: https://zeneexpressz.hu/2-uncategorised/1868-szombaton-hatalmas-buli-lesz-a-tiszacsegei-harcsapaprikas-fozo-fesztivalon
+		https://www.zeneexpressz.hu/2-uncategorised/427-zeneexpressz-a-tiszacsegei-harcsapaprikas-fesztivalon
 

@@ -34,9 +34,9 @@
   width: 100%;
   margin: 0px; /*10px hézeg közöttük*/
   padding: 0px; /* fenti/alsó helyet ad a gombnak */ /*0px; /*16 18px*     !!! 1xp képekkel*/
-  padding-left: 40px;
-  padding-bottom: 10px;
-  padding-top: 5px;
+  padding-left: 10px;
+  padding-bottom: 8px;
+  padding-top: 12px;
 
   border: solid 1px rgb(200, 230, 200);
   text-align: left;
@@ -80,5 +80,7 @@ margin-top: 5px;
   vertical-align: middle;
 }
 
-
+hr{
+  color: rgb(36, 118, 6);
+}
 

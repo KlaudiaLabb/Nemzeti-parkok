@@ -15,7 +15,7 @@ body, html{ /*egyész weoldal*/
 
 
 .hero-image { /*főoldal képe*/
-  background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5)), url("tajvedelmi3.jpg"); /*url("erdo-hatter.jpg");*/
+  background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5)), url("mokus_hatter.jpg"); /*url("tajvedelmi3.jpg"); /*url("erdo-hatter.jpg");*/
   height: 40vh; /* 50%;*/
   background-position: center;
   background-repeat: no-repeat;
@@ -121,6 +121,10 @@ body, html{ /*egyész weoldal*/
   color: #247606;
   margin: 20px;
 }
+.tartalom_resz_cim_h3{  
+  color: #134003;
+  margin: 20px;
+}
 .tartalom_resz_tartalom {
   margin-left: 30px;
   margin-right: 20px;
@@ -135,70 +139,44 @@ u, li::marker{
   font-weight: bold;
   color: #247606;
 }
+
+/*nem pixeles felsorolásjelek*/
+ul {
+  list-style: none; /* Eltünteti az alapértelmezett pöttyöket */
+  padding-left: 10px;
+}
+li {
+  background-repeat: no-repeat;
+  background-position: left center; /* Bal oldalon, középen legyen */
+  background-size: 16px 16px; /* Itt pontosan beállíthatod a méretet */
+  padding-left: 25px; /* Helyet hagyunk az ikonnak, hogy ne takarja ki a szöveget */
+  /* Ez a sor segít, hogy a böngésző szebben méretezze át a pixeles képet: */
+  image-rendering: -webkit-optimize-contrast; 
+  padding-bottom: 10px; /*felsorolt elemek között kihagyunk egy kis helyet*/
+}
 .mini_gomba { /*felsorolás jele*/
-  list-style-image: url("minis/gomba.png");
+   background-image: url('minis/gomba.png');
 }
 .mini_pillango{
-  list-style-image: url("minis/pillango.png");  
+   background-image: url('minis/pillango.png'); 
 }
 .mini_makk{
-  list-style-image: url("minis/makk2.png");  
+   background-image: url('minis/makk.png');
 }
 .mini_terkep{
-  list-style-image: url("minis/terkep.png");  
+   background-image: url('minis/terkep.png');
 }
 .mini_virag{
-  list-style-image: url("minis/virag.png");  
-}
-.mini_kancso{
-  list-style-image: url("minis/jug2.png");  
-}
-.mini_hid{
-  list-style-image: url("minis/hid2.png");  
-}
-.mini_art{
-  list-style-image: url("minis/art.png");  
-}
-.mini_lo{
-  list-style-image: url("minis/lo.png");  
-}
-.mini_auto{
-  list-style-image: url("minis/auto.png");  
-}
-.mini_allatok{
-  list-style-image: url("minis/allatok.png");  
-}
-.mini_beka{
-  list-style-image: url("minis/beka.png");  
-}
-.mini_madar{
-  list-style-image: url("minis/madar.png");  
-}
-.mini_csillag{
-  list-style-image: url("minis/cs.png");  
+   background-image: url('minis/v.png');
 }
 
-.mini_mezo{
-  list-style-image: url("minis/meh2.png");  
-}
-.mini_barany{
-  list-style-image: url("minis/barany3.png");  
-}
-.mini_lovas{
-  list-style-image: url("minis/lovas.png");  
-}
-.mini_vasar{
-  list-style-image: url("minis/vasar.png");  
-}
-.mini_daru{
-  list-style-image: url("minis/daru3.png");  
-}
-.mini_osz{
-  list-style-image: url("minis/osz.png");  
-}
 
-.mini_tank{
-  list-style-image: url("minis/tank.png");  
+.szoveg_emoji {
+  display: inline-block; /* Így a szöveg része lesz, de állítható a mérete */
+  height: 1em;          /* Pontosan olyan magas lesz, mint a mellette lévő betűk */
+  width: auto;          /* Megtartja a kép eredeti arányait */
+  vertical-align: middle; /* Szépen középre igazítja a szöveg vonalához képest */
+  margin: 0 3px;        /* Tesz egy pici helyet a kép bal és jobb oldalára */
 }
 
 
@@ -297,4 +275,44 @@ a.tartalom_resz_link:hover {
 a.tartalom_resz_link:active {
   text-decoration: underline;
   color: rgb(4, 172, 4);
+}
+
+
+
+
+/***  nemzeti parkok lenyíló részében a képek  ***/
+/* A képeket összefogó doboz */
+.galeria {
+  display: flex;             /* Bekapcsolja a rugalmas elrendezést */
+  flex-wrap: wrap;           /* Megengedi, hogy a képek új sorba ugorjanak, ha nem férnek el */
+  justify-content: center;   /* Középre rendezi a képeket a képernyőn */
+  gap: 10px;                 /* Egyenlő távolságot (rést) hagy a képek között */
+  padding: 20px;
+}
+/* Az egész doboz formázása */
+.kep_doboz {
+  display:inline-block; /* képek egymás mellett is lehetnek nagyobb képernyőn*/
+  margin: 10px auto;
+  text-align: center;    /* Középre zárja a képet és a szöveget is */
+
+  width: 100%;
+  max-width: 500px;
+}
+/* Biztosítja, hogy a kép ne nyúljon túl a dobozán */
+.kep_doboz img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;    /* Opcionális: lekerekíti a kép sarkait */
+}
+/* Az aláírás szövegének formázása */
+.kep_doboz figcaption {
+  margin-top: 8px;       /* Távolság a kép és a szöveg között */
+  font-size: 14px;       /* Kicsit kisebb betűméret */
+  color: #555555;        /* Halványabb, szürke szín */
+  /*font-style: italic;    /* Dőlt betűstílus */
+}
+
+.kepek{
+  max-width: 500px;
+  height: auto;
 }
