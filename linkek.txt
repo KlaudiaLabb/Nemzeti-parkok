@@ -5,12 +5,15 @@ https://femina.hu/utazas/erdo-kirandulas-magyarorszag/
 
 https://www.flaticon.com/free-icon/squirrel_1864480
 
-fájvédelmis képek:
+mokus_hatter: https://www.balatonica.hu/article/Mit-csinalnak-az-erdei-allatok-telen
+
+tájvédelmis képek:
 https://unesco.hu/hirek/fenyek-a-bukki-nemzeti-parkban-107263
 https://www.invia.hu/blog/magyarorszag-nemzeti-parkjai/
 https://www.bnpi.hu/hu/hir/majus-24-az-europai-nemzeti-parkok-napja
 https://jelen.media/az-allam-kiarusitja-a-termeszetvedelmi-teruleteket/
 https://www.turistamagazin.hu/hir/egy-kerdes-egy-valasz-tudtad-e-mikor-lephetsz-be-fokozottan-vedett-termeszeti-teruletre
+https://commons.wikimedia.org/wiki/File:Kiskuns%C3%A1g_National_Park_1.jpg
 
 ai:
 -google (gemini)

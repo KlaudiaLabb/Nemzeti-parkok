@@ -38,9 +38,16 @@ daru: https://www.flaticon.com/free-icon/crane_9804338
       https://www.flaticon.com/free-icon/red-crowned-crane_15404195
 ősz: https://www.flaticon.com/free-icon/food_16180838
 vásár: https://www.flaticon.com/free-icon/stall_3339450
-
-házikó: https://www.flaticon.com/free-icon/field_2303685
 szitakoto: https://www.flaticon.com/free-icon/dragonfly_1984339
+tiszavirag: https://www.flaticon.com/free-icon/mayfly_8149348?related_id=8149376&origin=search
+harcsa: https://www.flaticon.com/free-icon/catfish_12335952
+        https://www.flaticon.com/free-icon/fish_3382525?related_id=3380982&origin=search
+házikó: https://www.flaticon.com/free-icon/field_2303685
+haz: https://www.flaticon.com/free-icon/home_12765558?related_id=12828464&origin=search
+erdei haz: https://www.flaticon.com/free-icon/tiny-house_4661011
+kastély: https://www.flaticon.com/free-icon/neuschwanstein-castle_17974770
+
+
 szarvas: https://www.flaticon.com/free-icon/deer_3435772
 
 

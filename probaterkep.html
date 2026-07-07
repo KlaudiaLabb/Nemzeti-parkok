@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="alap.css">
+    <link rel="javascript" href="alap.js">
+    <title>Nemzeti parkjaink</title>
+    <link rel="icon" type="image/x-icon" href="./mokus2.png">
+    <!--hambi icon--><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+
+    <div class="hero-image">
+    <div class="hero-text">
+        <h1>Ismerjük meg Magyarország nemzeti parkjait!</h1>
+    </div>
+    </div>
+
+    <div id="navigacios_sav">
+    <div class="topnav" id="myTopnav">
+        <a href="" class="active">Főoldal</a>
+        <a href="./np-index.html">Nemzeti parkok</a>
+        <a href="JATEKOK/jump-up/jump-up.html">Játékok</a>
+        <a href="#about">Rólam</a>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+            <i class="fa fa-bars"></i>
+        </a>
+    </div>
+    </div>
+
+    <script>
+        function myFunction() {
+            var x = document.getElementById("myTopnav");
+            if (x.className === "topnav") {
+                x.className += " responsive";
+            } else {
+                x.className = "topnav";
+            }
+        }
+    </script>
+
+
+    <div class="tartalom">
+        <div id="divdiv">
+            <h2 class="tartalom_cim">Fedezd fel Magyarország Rejtett Csodáit!</h2>
+        <p class="tartalom_tartalom">Gondoltál már arra, hogy milyen lehet egy napfelkelte a ködbe burkolózó Hortobágyon, ahol a vadlovak patáinak dobogása töri meg a csendet? Vagy szívesen elvesznél a Bakony sűrű erdőiben, esetleg az Aggteleki-karszt föld alatti cseppkőbirodalmában kalandoznál?</p>
+        </div>
+
+    </div>
+
+<div><!-- style="background-image: linear-gradient(to top, rgb(150, 221, 255), rgb(60, 93, 56));">-->
+    <div class="tartalom_proba_terkep">
+        <p></p>
+        <h2 id="katt_logora_szoveg">Kattints a logókra, hogy megismerd <br>a nemzeti parkokat!</h2>
+        <div id="terkep">
+            <img usemap="#map" src="magyarorszag-terkepe-megjelolesekkel-2.PNG" alt="Magyarország nemzeti parkjai" width="750">
+            <map name="map">
+                <area shape="circle" coords="540, 45, 36" href="NEMZETI PARKOK/aggteleki/aggtelek-index.html" alt="aggteleki">
+                <area shape="circle" coords="443, 119, 36" href="NEMZETI PARKOK/bukki/bukki-index.html" alt="bükki">
+                <area shape="circle" coords="598, 175, 36" href="NEMZETI PARKOK/hortobagyi/hortobagyi-index.html" alt="hortobágyi">
+                <area shape="circle" coords="523, 359, 36" href="NEMZETI PARKOK/koros-maros/koros-maros-index.html" alt="körös-maros">
+                <area shape="circle" coords="402, 301, 36" href="NEMZETI PARKOK/kiskunkagi/kiskunsagi-index.html" alt="kiskunsági">
+                <area shape="circle" coords="279, 168, 36" href="NEMZETI PARKOK/duna-ipoly/duna-i-index.html" alt="duna-ipoly">
+                <area shape="circle" coords="202, 279, 36" href="NEMZETI PARKOK/balaton-felvideki/balaton-f-index.html" alt="balaton-felvidéki">
+                <area shape="circle" coords="234, 459, 36" href="NEMZETI PARKOK/duna-drava/duna-d-index.html" alt="duna-dráva">
+                <area shape="circle" coords="61, 273, 36" href="NEMZETI PARKOK/orsegi/orsegi-index.html" alt="őrségi">
+                <area shape="circle" coords="102, 169, 36" href="NEMZETI PARKOK/ferto-hansag/ferto-h-index.html" alt="fertő-hanság">
+            </map>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
