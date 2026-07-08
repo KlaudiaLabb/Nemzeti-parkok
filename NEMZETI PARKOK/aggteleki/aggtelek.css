@@ -14,3 +14,73 @@
     height: 30vh;    /*50vh-> Kisebb kijelzőn a kép magassága lecsökken a képernyő 50%-ára */
   }
 }
+
+
+
+
+
+
+/* A harmonika gombok */
+.osszes_harmonika{
+  /*width: 95%;*/
+  padding-left: 30px;
+  padding-right: 20px;
+  margin: 0 auto; /* ez pontosan középre teszi */
+}
+.collapsible {
+  background-color:  #def7b9;/*rgba(36, 118, 6, 0) ; /*rgb(60, 93, 56); !!!!!!!!!!!!!!!!!!*/
+  color: rgb(36, 118, 6);/*#eefbb2;*/
+  cursor: pointer;
+  width: 100%;
+  margin: 0px; /*10px hézeg közöttük*/
+  padding: 0px; /* fenti/alsó helyet ad a gombnak */ /*0px; /*16 18px*     !!! 1xp képekkel*/
+  padding-left: 10px;
+  padding-bottom: 8px;
+  padding-top: 12px;
+
+  border: solid 1px rgb(200, 230, 200);
+  text-align: left;
+  outline: none;
+  font-size: 17px;
+  font-family: 'Times New Roman', Times, serif;
+}
+.active, .collapsible:hover {
+  background-color: #c2f89e;/*#efec68;/*rgb(35, 158, 21); /*rgb(60, 93, 56);*/
+}
+.content {
+  padding: 0 18px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+  background-color: #c2f89e97; /*#f1f1f1;*/
+}
+
+
+/* Megjeleníti a plusz (+) jelet alaphelyzetben */
+.collapsible:after {
+  content: '\002B'; /* Ez a plusz jel kódja */
+  color: rgb(36, 118, 6); /* Olyan zöld, mint a betűk */
+  font-weight: bold;
+  float: right;
+  margin-right: 15px; /* Kicsit beljebb tolja a jobb széltől */
+  font-size: 20px; /* Hogy jól látható legyen */
+  line-height: 1; /* Szépen középre igazítja függőlegesen */
+
+margin-top: 5px;
+}
+/* Átváltja mínusz (-) jellé, ha a menü nyitva van (aktív) */
+.active:after {
+  content: "\2212"; /* Ez a mínusz jel kódja */
+}
+/* Ez az extra sor azért kell, hogy a listád és a jel egymás mellett legyenek */
+.collapsible ul {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  vertical-align: middle;
+}
+
+hr{
+  color: rgb(36, 118, 6);
+}
+

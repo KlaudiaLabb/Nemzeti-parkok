@@ -47,8 +47,25 @@ haz: https://www.flaticon.com/free-icon/home_12765558?related_id=12828464&origin
 erdei haz: https://www.flaticon.com/free-icon/tiny-house_4661011
 kastély: https://www.flaticon.com/free-icon/neuschwanstein-castle_17974770
 
+barlang: https://www.flaticon.com/free-icon/cave_7105173
+	 https://www.flaticon.com/free-icon/cave_2897184
+	 https://www.flaticon.com/free-icon/cave_4104375
+csepkő: https://www.flaticon.com/free-icon/grotto_6057204
+hegy-tó: https://www.flaticon.com/free-icon/natural-resources_2487653
+hegy-falu: https://www.flaticon.com/free-icon/village_2259288
+hegy_út: https://www.flaticon.com/free-icon/pathway_15366053
+kórus: https://www.flaticon.com/free-icon/symphony_18326067
+koncert: https://www.flaticon.com/free-icon/concert_1598708
+hegymászó: https://www.flaticon.com/free-icon/hiking_1142682
+gitar-tűz: https://www.flaticon.com/free-icon/guitar_2953610
+vár_rom: https://www.flaticon.com/free-icon/machu-picchu_5050530
+kolostor: https://www.flaticon.com/free-icon/church_1851147
+vizimalom: https://www.flaticon.com/free-icon/water-mill_8235529
+vár: https://www.flaticon.com/free-icon/underwater_4632814
 
+
+ősember: https://www.flaticon.com/free-icon/cave-painting_1800186
 szarvas: https://www.flaticon.com/free-icon/deer_3435772
-
-
-
+házikó2: https://www.flaticon.com/free-icon/cabin_2486944
+	 https://www.flaticon.com/free-icon/cabin_3038920
+hegy_út2: https://www.flaticon.com/free-icon/route_2827118
