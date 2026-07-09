@@ -62,6 +62,7 @@ vár_rom: https://www.flaticon.com/free-icon/machu-picchu_5050530
 kolostor: https://www.flaticon.com/free-icon/church_1851147
 vizimalom: https://www.flaticon.com/free-icon/water-mill_8235529
 vár: https://www.flaticon.com/free-icon/underwater_4632814
+labirintus: https://www.flaticon.com/free-icon/maze_951781
 
 
 ősember: https://www.flaticon.com/free-icon/cave-painting_1800186

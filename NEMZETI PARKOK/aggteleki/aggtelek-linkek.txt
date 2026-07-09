@@ -6,5 +6,32 @@ ikon:
 kicsi: https://www.shutterstock.com/hu/search/salamander-logo
 https://www.shutterstock.com/hu/search/szalamandra
 
-
+baradla: https://anp.hu/tura/3
+	 https://magyarnemzetiparkok.hu/baradla-barlang/
+hucul: https://szallas.hu/programok/hucul-menes-josvafo-p8573
+       https://vm-magazin.hu/kalandozasok-nemzeti-parkjainkban-aggteleki-nemzeti-park-ii/
+	https://ng.24.hu/termeszet/2019/11/03/aggteleki-nemzeti-park-kepekben/
+	https://www.magyarkincsek.hu/kulonleges-latnivalok/aggteleki-nemzeti-park/
+jósvafő: https://ofalui-vendeghaz-josvafo.hu/galeriak/ofalui-vendeghaz/
+tengerszem: https://www.ittjartam.hu/blog/jartal-mar-itt-mutatunk-5-gyongyoru-haza-tengerszemet/
+	    https://ng.24.hu/termeszet/2019/11/03/aggteleki-nemzeti-park-kepekben/
+béke barlang: https://anp.hu/hir/351
+vass imre barlang: https://ng.24.hu/termeszet/2019/11/03/aggteleki-nemzeti-park-kepekben/
+vörös_tó: https://bagyinszki.eu/archives/214
+baradla: https://www.magyarkincsek.hu/kulonleges-latnivalok/aggteleki-nemzeti-park/
+hangverseny: https://www.magyarkincsek.hu/kulonleges-latnivalok/aggteleki-nemzeti-park/
+koncert: https://www.programturizmus.hu/ajanlat-baradla-koncert.html
+vásár: https://ma7.sk/tajaink/ilyen-volt-a-xix-gomori-kezmuves-vasar-kepriport
+rákóczi barlang: https://csodalatosmagyarorszag.hu/hirek/itthon/csodavilag-a-rakoczi-barlangban-az-esztramos-hegy-gyomraban/
+		 https://www.turistamagazin.hu/hir/bejartuk-a-esztramos-fold-alatti-csodavilagat
+szádvár: https://szogliget.kornyeke.hu/szadvari-var
+	 https://anp.hu/termeszeti-ertekek/cikk/226
+pálos korostorrom: https://ng.24.hu/termeszet/2019/11/03/aggteleki-nemzeti-park-kepekben/
+		   https://csodalatosmagyarorszag.hu/hirek/itthon/martonyi-palos-monostora-melyet-tobb-mint-680-eve-alapitottak/
+nagykönyv: http://regi.anp.hu/hu/szinpetri-a-vilag-legnagyobb-konyve
+vizimalom: https://turizmusonline.hu/cikkek/egyeb/hegyvideki_arboretummal_es_lovasbazissal_egeszulhet_ki_a_vilag_legnagyobb_konyve.html
+vármentés: https://www.szadvar.hu/tag/varmento-het/
+	   https://www.szadvar.hu/2011/03/x-varmento-napok-szadvaron/
+madárgyűrűző: http://regi.anp.hu/hu/galeriak/elmenyek-a-bodva-parton
+		http://regi.anp.hu/hu/bodva-volgyi-madargyuruzo-allomas
 
