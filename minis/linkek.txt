@@ -83,3 +83,8 @@ fakopáncs: https://www.flaticon.com/free-icon/woodpecker_3154938
 fa: https://www.flaticon.com/free-icon/tree_489969
     https://www.flaticon.com/free-icon/apple-tree_5264757
 szilva: https://www.flaticon.com/free-icon/plum_1096622
+lovaskocsi: https://www.flaticon.com/free-icon/horse-car_4850627
+	    https://www.flaticon.com/free-icon/carriage_2982365
+istálló: https://www.flaticon.com/free-icon/stable_2713556
+	 https://www.flaticon.com/free-icon/stable_3689364
+ló2: https://www.flaticon.com/free-icon/horse_3299204
