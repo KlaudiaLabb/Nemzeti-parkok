@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+/* Alap konténer */
+.tabla-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+  padding: 50px 20px;
+  font-family: 'Georgia', serif; /* Patinásabb, erdei hangulatú betűtípus */
+  position: relative;
+  max-width: 600px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+/* Tartó oszlop fa textúrával */
+.oszlop {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 24px;
+  background-image: url('https://images.unsplash.com/photo-1611600700192-d87eaeed4f81?q=80&w=327&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+  background-size: cover;
+  z-index: 1;
+  box-shadow: inset -3px 0 5px rgba(0,0,0,0.5), 3px 3px 10px rgba(0,0,0,0.3);
+  border-radius: 3px;
+}
+
+/* Közös fa nyíl stílus */
+.fa-nyil {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Ingyenes, ismétlődő fa textúra */
+  /*background-image: url('https://unsplash.com');*/
+  background-image: url('https://images.unsplash.com/photo-1644931551533-02906718127f?q=80&w=435&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 16px;
+  padding: 15px 30px;
+  min-width: 220px;
+  text-align: center;
+  z-index: 2;
+  /* Rusztikus, sötétített fa keret és árnyék */
+  border: 0px solid #3d2511;
+  box-shadow: 4px 4px 8px rgba(0,0,0,0.4);
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+/* Szöveg belső kiemelése (opcionális, olvashatóságért) */
+.fa-nyil span {
+  position: relative;
+  z-index: 3;
+}
+
+/* Rámulatáskor a fa "kigyullad" vagy sötétedik, és kiemelkedik */
+.fa-nyil:hover {
+  filter: brightness(1.2) contrast(1.1);
+}
+
+/* --- NYÍL FORMÁK KIALAKÍTÁSA CSS-SEL --- */
+
+/* Jobbra mutató nyíl vége (vágás) */
+.fa-nyil.jobbra {
+  clip-path: polygon(0% 0%, 85% 0%, 100% 50%, 85% 100%, 0% 100%);
+  padding-right: 45px;
+}
+
+/* Balra mutató nyíl vége (vágás) */
+.fa-nyil.balra {
+  clip-path: polygon(15% 0%, 100% 0%, 100% 100%, 15% 100%, 0% 50%);
+  padding-left: 45px;
+}
+
+
+/* --- IRÁNYOK ÉS LEJTÉSEK --- */
+
+/* Jobbra mutató táblák dőlései */
+.fa-nyil.jobbra { transform: rotate(3deg); }
+.fa-nyil.jobbra.felfele { transform: rotate(-7deg); }
+.fa-nyil.jobbra.lefele { transform: rotate(11deg); }
+
+/* Balra mutató táblák dőlései */
+.fa-nyil.balra { transform: rotate(-4deg); }
+.fa-nyil.balra.felfele { transform: rotate(8deg); }
+.fa-nyil.balra.lefele { transform: rotate(-9deg); }
+
+/* Hover animáció: kiegyenesedik és kicsit megnő */
+.fa-nyil:hover {
+  transform: scale(1.06) rotate(0deg) !important;
+}
+
+
+/* --- MOBILBARÁT BEÁLLÍTÁSOK --- */
+@media (max-width: 480px) {
+  .fa-nyil {
+    min-width: 180px;
+    font-size: 14px;
+    padding: 12px 25px;
+  }
+  .fa-nyil.jobbra { padding-right: 35px; }
+  .fa-nyil.balra { padding-left: 35px; }
+}
+
+
+
+/* --- ÚJ FELUGRÓ ABLAK (MODAL) STÍLUSOK --- */
+
+/* Sötétített háttér, ami mindent letakar */
+.modal-hatter {
+  display: none; /* Alapértelmezetten rejtve van */
+  position: fixed;
+  z-index: 100;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6); /* Áttetsző fekete */
+  backdrop-filter: blur(3px); /* Enyhe homályosítás a háttérnek */
+  align-items: center;
+  justify-content: center;
+}
+
+/* Az információs kártya doboza */
+.modal-tartalom {
+  background-color: #fcf8f2;
+  background-image: url('https://unsplash.com'); /* Finom fa textúra a felugró ablaknak is */
+  background-size: cover;
+  color: #3d2511;
+  padding: 30px;
+  border: 3px solid #3d2511;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 450px;
+  position: relative;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+  text-align: center;
+  font-family: 'Georgia', serif;
+}
+
+/* Az "X" bezáró gomb */
+.bezar-gomb {
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  color: #3d2511;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.bezar-gomb:hover {
+  color: #8b0000; /* Pirosra vált ha fölé viszed az egeret */
+}
+
+/* Cím és leírás a felugróban */
+.modal-tartalom h2 {
+  margin-top: 10px;
+  font-size: 24px;
+  border-bottom: 2px dashed #3d2511;
+  padding-bottom: 10px;
+}
+.modal-tartalom p {
+  font-size: 16px;
+  line-height: 1.5;
+  margin: 20px 0;
+}
+
+/* Továbbvezető zöldes/erdei gomb */
+.tovabb-gomb {
+  display: inline-block;
+  background-color: #2e5a1c;
+  color: white;
+  text-decoration: none;
+  padding: 12px 24px;
+  border-radius: 4px;
+  font-weight: bold;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+  transition: background-color 0.2s;
+}
+.tovabb-gomb:hover {
+  background-color: #1e3d11;
+}
+
+
+    </style>
+</head>
+<body>
+
+
+<div class="tabla-container">
+  <div class="oszlop"></div>
+
+  <!-- Fa nyilak egyedi azonosítóval -->
+  <div class="fa-nyil balra felfele" data-park="hortobagy">
+    <span>Hortobágyi Nemzeti Park</span>
+  </div>
+
+  <div class="fa-nyil jobbra" data-park="balaton">
+    <span>Balaton-felvidéki NP</span>
+  </div>
+
+  <div class="fa-nyil balra lefele" data-park="aggtelek">
+    <span>Aggteleki Nemzeti Park</span>
+  </div>
+
+  <div class="fa-nyil jobbra felfele" data-park="bukk">
+    <span>Bükki Nemzeti Park</span>
+  </div>
+</div>
+
+<!-- Felugró ablak (Modal) szerkezete -->
+<div id="parkModal" class="modal-hatter">
+  <div class="modal-tartalom">
+    <span class="bezar-gomb">&times;</span>
+    <h2 id="modalCim">Nemzeti Park</h2>
+    <p id="modalLeiras">Itt jelenik meg a rövid leírás...</p>
+    <a id="modalLink" href="#" target="_blank" class="tovabb-gomb">Tovább a hivatalos oldalra</a>
+  </div>
+</div>
+
+
+<script>
+    // 1. Az adatok eltárolása egy objektumban (bármikor bővíthető)
+const parkAdatok = {
+  hortobagy: {
+    cim: "Hortobágyi Nemzeti Park",
+    leiras: "Magyarország első és egyben legnagyobb nemzeti parkja. Híres a pusztai életmódról, a Kilenclyukú hídról, a szürkemarhákról és a lenyűgöző madárvilágáról.",
+    link: "https://hnp.hu"
+  },
+  balaton: {
+    cim: "Balaton-felvidéki Nemzeti Park",
+    leiras: "A Balaton északi partján terül el. Különlegességei a Tihanyi-félsziget, a Tapolcai-tavasbarlang, a tanúhegyek és a Káli-medence varázslatos lankái.",
+    link: "https://bfnp.hu"
+  },
+  aggtelek: {
+    cim: "Aggteleki Nemzeti Park",
+    leiras: "Elsősorban a föld alatti világáról ismert. A Baradla-barlang és a felszíni karsztformák az UNESCO Világörökség részét képezik.",
+    link: "https://anp.hu"
+  },
+  bukk: {
+    cim: "Bükki Nemzeti Park",
+    leiras: "Magyarország egyik legmagasabban fekvő, erdőkkel sűrűn borított hegyvidéki nemzeti parkja. Népszerű látványossága a Szalajka-völgy és a Lillafüredi-vízesés.",
+    link: "https://bnp.hu"
+  }
+};
+
+// 2. HTML elemek kijelölése
+const modal = document.getElementById("parkModal");
+const modalCim = document.getElementById("modalCim");
+const modalLeiras = document.getElementById("modalLeiras");
+const modalLink = document.getElementById("modalLink");
+const bezarGomb = document.querySelector(".bezar-gomb");
+const nyilak = document.querySelectorAll(".fa-nyil");
+
+// 3. Kattintás esemény kezelése a nyilakra
+nyilak.forEach(nyil => {
+  nyil.addEventListener("click", () => {
+    const parkKulcs = nyil.getAttribute("data-park");
+    const adat = parkAdatok[parkKulcs];
+
+    if (adat) {
+      // Tartalom dinamikus cseréje
+      modalCim.textContent = adat.cim;
+      modalLeiras.textContent = adat.leiras;
+      modalLink.href = adat.link;
+      
+      // Megjelenítés Flexboxként (így tökéletesen középen lesz)
+      modal.style.display = "flex";
+    }
+  });
+});
+
+// 4. Bezárás az X gombra kattintva
+bezarGomb.addEventListener("click", () => {
+  modal.style.display = "none";
+});
+
+// 5. Bezárás ha a modal mögötti sötét háttérre kattintunk
+window.addEventListener("click", (esemeny) => {
+  if (esemeny.target === modal) {
+    modal.style.display = "none";
+  }
+});
+
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* Alap konténer */
+.tabla-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 40px 20px;
+  font-family: 'Arial', sans-serif;
+  position: relative;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+/* A tábla fa rúdja a háttérben */
+.rud {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 20px;
+  background: #8B5A2B;
+  z-index: 1;
+  border-radius: 5px;
+}
+
+/* Közös nyíl stílus */
+.nyil {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #CD853F;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 15px 30px;
+  min-width: 200px;
+  text-align: center;
+  z-index: 2;
+  box-shadow: 3px 3px 5px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+/* Hover (rámutatási) effekt */
+.nyil:hover {
+  background: #A0522D;
+}
+
+/* --- IRÁNYOK ÉS DEKORÁCIÓK --- */
+
+/* Jobbra mutató nyílhegy */
+.nyil.jobbra::after {
+  content: '';
+  position: absolute;
+  right: -20px;
+  top: 0;
+  border-left: 20px solid #CD853F;
+  border-top: 27px solid transparent;
+  border-bottom: 27px solid transparent;
+  transition: border-left-color 0.3s ease;
+}
+.nyil.jobbra:hover::after { border-left-color: #A0522D; }
+
+/* Balra mutató nyílhegy */
+.nyil.balra::before {
+  content: '';
+  position: absolute;
+  left: -20px;
+  top: 0;
+  border-right: 20px solid #CD853F;
+  border-top: 27px solid transparent;
+  border-bottom: 27px solid transparent;
+  transition: border-right-color 0.3s ease;
+}
+.nyil.balra:hover::before { border-right-color: #A0522D; }
+
+
+/* --- DŐLÉSSZÖGEK (LEJTÉS) ÉS MOZGÁS --- */
+
+/* Jobbra álló nyilak alap dőlése */
+.nyil.jobbra { transform: rotate(2deg); }
+.nyil.jobbra.felfele { transform: rotate(-8deg); }
+.nyil.jobbra.lefele { transform: rotate(12deg); }
+
+/* Balra álló nyilak alap dőlése */
+.nyil.balra { transform: rotate(-3deg); }
+.nyil.balra.felfele { transform: rotate(7deg); }
+.nyil.balra.lefele { transform: rotate(-10deg); }
+
+/* Hover hatás: Amikor ráviszed az egeret, kicsit kiemelkedik és megbillen */
+.nyil.jobbra:hover { transform: scale(1.05) rotate(0deg); }
+.nyil.balra:hover { transform: scale(1.05) rotate(0deg); }
+
+
+/* --- RESZPONZIVITÁS (KISMÉRETŰ KÉPERNYŐK) --- */
+@media (max-width: 480px) {
+  .nyil {
+    min-width: 160px;
+    font-size: 14px;
+    padding: 12px 20px;
+  }
+  /* Kisebb képernyőn a nyílhegyeket is kicsit zsugorítjuk */
+  .nyil.jobbra::after { border-top-width: 22px; border-bottom-width: 22px; }
+  .nyil.balra::before { border-top-width: 22px; border-bottom-width: 22px; }
+}
+
+    </style>
+</head>
+<body>
+
+    <div class="tabla-container">
+  <!-- Oszlop/Tábla tartó rúd (opcionális, a dizájn miatt) -->
+  <div class="rud"></div>
+
+  <!-- Nyilak listája -->
+  <a href="https://hnp.hu" class="nyil balra felfele" target="_blank">
+    <span>Hortobágyi Nemzeti Park</span>
+  </a>
+
+  <a href="https://bfnp.hu" class="nyil jobbra" target="_blank">
+    <span>Balaton-felvidéki NP</span>
+  </a>
+
+  <a href="https://anp.hu" class="nyil balra lefele" target="_blank">
+    <span>Aggteleki Nemzeti Park</span>
+  </a>
+
+  <a href="https://bnp.hu" class="nyil jobbra felfele" target="_blank">
+    <span>Bükki Nemzeti Park</span>
+  </a>
+</div>
+
+
+
+</body>
+</html>

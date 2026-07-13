@@ -7,6 +7,7 @@ level: https://www.flaticon.com/free-icon/autumn_8611745
 pillango: https://www.flaticon.com/free-icon/butterfly_2281179
 méh: https://www.flaticon.com/free-icon/bee_2713546
      https://www.flaticon.com/free-icon/bee_15055781
+     https://www.flaticon.com/free-icon/nature_14776355
 tücsok: https://www.flaticon.com/free-icon/cricket_616730
 katica: https://www.flaticon.com/free-icon/ladybug_3579333
 csiga : https://www.flaticon.com/free-icon/snail_2623472
@@ -88,3 +89,12 @@ lovaskocsi: https://www.flaticon.com/free-icon/horse-car_4850627
 istálló: https://www.flaticon.com/free-icon/stable_2713556
 	 https://www.flaticon.com/free-icon/stable_3689364
 ló2: https://www.flaticon.com/free-icon/horse_3299204
+
+hegy_folyo: https://www.flaticon.com/free-icon/river_15254832
+szikla: https://www.flaticon.com/free-icon/cliff_721101
+kilato: https://www.flaticon.com/free-icon/tower_17427926
+sárgavirág: https://www.flaticon.com/free-icon/flower_16085733
+vonat: https://www.flaticon.com/free-icon/train_5018835
+denevér: https://www.flaticon.com/free-icon/bat_5427073
+hóvirág: https://www.flaticon.com/free-icon/snowdrop-flower_14263465
+zászló: https://www.flaticon.com/free-icon/hungary_5159503
