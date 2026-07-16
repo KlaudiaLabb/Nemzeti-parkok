@@ -98,3 +98,6 @@ vonat: https://www.flaticon.com/free-icon/train_5018835
 denevér: https://www.flaticon.com/free-icon/bat_5427073
 hóvirág: https://www.flaticon.com/free-icon/snowdrop-flower_14263465
 zászló: https://www.flaticon.com/free-icon/hungary_5159503
+domb2: https://www.flaticon.com/free-icon/hills_3901425
+kígyó: https://www.flaticon.com/free-icon/anaconda_3196011
+	https://www.flaticon.com/free-icon/serpent_3975426
