@@ -101,3 +101,6 @@ zászló: https://www.flaticon.com/free-icon/hungary_5159503
 domb2: https://www.flaticon.com/free-icon/hills_3901425
 kígyó: https://www.flaticon.com/free-icon/anaconda_3196011
 	https://www.flaticon.com/free-icon/serpent_3975426
+jégmadar: https://www.flaticon.com/free-icon/kingfisher_9804337
+haz-domb: https://www.flaticon.com/free-icon/hill_5948089
+	  https://www.flaticon.com/free-icon/farm_804583
