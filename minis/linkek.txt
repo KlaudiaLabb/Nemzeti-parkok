@@ -104,3 +104,4 @@ kígyó: https://www.flaticon.com/free-icon/anaconda_3196011
 jégmadar: https://www.flaticon.com/free-icon/kingfisher_9804337
 haz-domb: https://www.flaticon.com/free-icon/hill_5948089
 	  https://www.flaticon.com/free-icon/farm_804583
+gólya: https://www.flaticon.com/free-icon/stork_3154936
