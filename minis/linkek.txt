@@ -61,6 +61,7 @@ hegymászó: https://www.flaticon.com/free-icon/hiking_1142682
 gitar-tűz: https://www.flaticon.com/free-icon/guitar_2953610
 vár_rom: https://www.flaticon.com/free-icon/machu-picchu_5050530
 kolostor: https://www.flaticon.com/free-icon/church_1851147
+	  https://www.flaticon.com/free-icon/church_4642364
 vizimalom: https://www.flaticon.com/free-icon/water-mill_8235529
 vár: https://www.flaticon.com/free-icon/underwater_4632814
 labirintus: https://www.flaticon.com/free-icon/maze_951781
@@ -106,3 +107,4 @@ haz-domb: https://www.flaticon.com/free-icon/hill_5948089
 	  https://www.flaticon.com/free-icon/farm_804583
 gólya: https://www.flaticon.com/free-icon/stork_3154936
 levendula: https://www.flaticon.com/free-icon/lavender_3200053
+tök: https://www.flaticon.com/free-icon/pumpkin_3413352
