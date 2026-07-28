@@ -1,0 +1,294 @@
+.hero-image {
+  background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url("voros-roka-kolykok\ NemzetiP.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  /* Alapértelmezett beállítás (NAGY KÉPERNYŐN): */
+  width: 100%;       /* kitölti a teljes képernyő szélességét */
+  height: 80vh;      /* a képernyő magasságának 80%-a lesz */
+}
+/* RESPONSIVE: Amikor kisebb lesz a képernyő (pl. mobil) */
+@media (max-width: 600px) {
+  .hero-image {
+    height: 30vh;    /*50vh-> Kisebb kijelzőn a kép magassága lecsökken a képernyő 50%-ára */
+  }
+}
+
+
+.kartya{
+    background: linear-gradient(to bottom right, #cffbb2, rgb(111, 219, 111));
+    border: outset 5px rgba(0, 128, 0, 1);
+    border-radius: 30px;
+    margin-top: 15px;
+    margin-left: 7px;
+    margin-right: 7px;
+    margin-bottom: 0px;
+    height: auto;
+    overflow: hidden; /*kép ne lógjon ki*/
+}
+.belso_tartalom_mezo_szinatmenet{
+  padding-top: 0px;
+}
+.koros-maros-kartya{
+  margin-top: 7px;
+}
+
+.logok{
+    width: 45%;
+    max-width: 150px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    float: right;
+    /*A logó kör - hogy jobban hozzásimuljon a szöveg*/
+    border-radius: 50%;
+    shape-outside: circle(50%);
+}
+.tartalom_resz_cim_legfelul{
+  text-align: center;
+  padding-top: 0px;
+  padding-bottom: 9px;
+}
+.tartalom_resz_cim_h2{
+  text-align: center;
+}
+.tartalom_resz_cim_np{
+  color: #247606;
+  padding: auto;
+}
+a.tartalom_resz_cim_np:link {
+  text-decoration: none;
+  color: darkgreen;
+}
+a.tartalom_resz_cim_np:visited {
+  text-decoration: none;
+  color: darkgreen;
+}
+a.tartalom_resz_cim_np:hover {
+  text-decoration: underline;
+  color: rgb(4, 172, 4);
+}
+a.tartalom_resz_cim_np:active {
+  text-decoration: underline;
+  color: rgb(4, 172, 4);
+}
+
+.leiras{
+  margin-right: 20px;
+  margin-left: 20px;
+  font-size: 17px;
+  line-height: 130%;
+  text-align: justify;
+  /*hyphens: auto; /*szavak elválasztása*/
+}
+
+
+
+/*********** NYILAS TABLA ***********/
+
+/*alapértelmezett*/
+.tabla-container{
+  display: none;
+}
+
+/*mobilon*/
+@media(max-width:600px){
+  .kartya{
+      display:none;
+  }
+
+    /* Alap konténer */
+    .tabla-container {
+        display: flex;
+        flex-direction: column; /*oszlopban jelennek meg az np nevek*/
+        align-items: center;
+        gap: 15px;
+        padding: 50px 20px;
+        padding-top: 15px;
+        position: relative;
+        max-width: 600px;
+        margin: 0 auto;
+        overflow: hidden;
+    }
+
+    /* Tartó oszlop fa */
+    .oszlop {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 24px;
+        z-index: 1; /*egymást fedő elemek egymásra rakása*/
+        background-color: rgb(141, 103, 103);
+        box-shadow: inset -3px 0 5px rgba(0,0,0,0.5), 3px 3px 10px rgba(0,0,0,0.3);
+        border-radius: 3px;
+    }
+
+    /* Közös fa nyíl stílus */
+    .fa-nyil {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: rgb(177, 131, 131);
+        color: black;
+        /*text-decoration: none;*/
+        font-weight: bold;
+        padding: 15px 30px;
+        min-width: 220px;
+        text-align: center;
+        z-index: 2;
+        /*box-shadow: 4px 4px 8px rgba(0,0,0,0.4);              /********nemműkögik nyilon csak téglalapon********/
+        transition: transform 0.3s ease, filter 0.3s ease;
+    }
+
+    /* Rámulatáskor a fa "kigyullad" vagy sötétedik, és kiemelkedik */
+    .fa-nyil:hover {
+        filter: brightness(1.2) contrast(1.1);
+    }
+
+
+    /* --- NYÍL FORMÁK KIALAKÍTÁSA --- */
+
+    /* Jobbra mutató nyíl vége (vágás) */
+    .fa-nyil.jobbra {
+        clip-path: polygon(0% 0%, 85% 0%, 100% 50%, 85% 100%, 0% 100%);
+        padding-right: 45px;
+    }
+    /* Balra mutató nyíl vége (vágás) */
+    .fa-nyil.balra {
+        clip-path: polygon(15% 0%, 100% 0%, 100% 100%, 15% 100%, 0% 50%);
+        padding-left: 45px;
+    }
+
+    /* --- IRÁNYOK ÉS LEJTÉSEK --- */
+
+    /* Jobbra mutató táblák dőlései */
+    .fa-nyil.jobbra { transform: rotate(1deg); }
+    .fa-nyil.jobbra.felfele { transform: rotate(-7deg); background-color: rgb(185, 144, 144);}
+    .fa-nyil.jobbra.lefele { transform: rotate(4deg); background-color: rgb(194, 157, 157);}
+    /* Balra mutató táblák dőlései */
+    .fa-nyil.balra { transform: rotate(-2deg); }
+    .fa-nyil.balra.felfele { transform: rotate(6deg); background-color: #b88f71;}
+    .fa-nyil.balra.lefele { transform: rotate(-4deg); background-color: #b39b8c;}
+
+    /* Hover animáció: kiegyenesedik és kicsit megnő */
+    .fa-nyil:hover {
+        transform: scale(1.06) rotate(0deg) !important;
+    }
+
+}
+
+
+/* --- MOBILBARÁT BEÁLLÍTÁSOK: összébb mennek a nyilak --- */
+@media (max-width: 480px) {
+    .fa-nyil {
+        min-width: 180px;
+        /*font-size: 14px;*/
+        padding: 12px 25px;
+    }
+    .fa-nyil.jobbra { padding-right: 35px; }
+    .fa-nyil.balra { padding-left: 35px; }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* --- FELUGRÓ ABLAK (MODAL) --- */
+
+/* Sötétített háttér, ami mindent letakar */
+.modal-hatter {
+    display: none; /* Alapértelmezetten rejtve van */
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Áttetsző fekete */
+    backdrop-filter: blur(3px); /* Enyhe homályosítás a háttérnek */
+    align-items: center;
+    justify-content: center;
+}
+
+/* Az információs kártya doboza */
+.modal-tartalom {
+    background-color: #eefbb2;/*#fcf8f2;*/
+    background-image: url('https://unsplash.com'); /* Finom fa textúra a felugró ablaknak is */
+    background-size: cover;
+    /*color: #3d2511;*/
+    padding: 30px;
+    border: 3px solid #247606;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 450px;
+    position: relative;
+    text-align: center;
+}
+
+/* Az "X" bezáró gomb */
+.bezar-gomb {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    color: #247606;/*#3d2511;*/
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+.bezar-gomb:hover {
+    color: #8b0000; /* Pirosra vált ha fölé viszed az egeret */
+}
+
+/* Cím és leírás a felugróban */
+.modal-tartalom h2 {
+    color: #247606;
+    margin-top: 10px;
+    font-size: 24px;
+    border-bottom: 2px dashed ;
+    padding-bottom: 10px;
+}
+.modal-tartalom p {
+    font-size: 17px;
+    line-height: 1.5;
+    margin: 20px 0;
+}
+
+/* Továbbvezető zöldes/erdei gomb */
+.tovabb-gomb {
+    display: inline-block;
+    background-color: #247606;/*#2e5a1c;*/
+    color: white;
+    text-decoration: none;
+    padding: 12px 24px;
+    border-radius: 4px;
+    font-weight: bold;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+    transition: background-color 0.4s; /*0.2s;*/
+}
+.tovabb-gomb:hover {
+    background-color: #389c14; /*rgb(60,93,56);*/
+}
+
+.modal-logo {
+    display: block;
+    margin: 0 auto 15px auto; /* Középre teszi és hagy egy kis helyet alatta */
+    max-width: 120px;         /* Maximális szélesség a felugró ablakhoz igazítva */
+    height: auto;             /* Megtartja az arányokat */
+    border-radius: 50%;       /* Kör alakú logót, mint az asztali verziónál */
+}
