@@ -4,8 +4,11 @@ https://sokszinuvidek.24.hu/eletmod/2023/04/19/termeszetfoto-nograd-varmegye-som
 https://femina.hu/utazas/erdo-kirandulas-magyarorszag/
 
 https://www.flaticon.com/free-icon/squirrel_1864480
+https://www.flaticon.com/free-icon/fox_3704101
 
 mokus_hatter: https://www.balatonica.hu/article/Mit-csinalnak-az-erdei-allatok-telen
+rókák: https://ingyen-hatterkep.hu/voros-roka-kolykok-hatterkep-letoltese-52038.shtml
+https://hu.pinterest.com/martipentek/erdei-%C3%A1llatok/
 
 tájvédelmis képek:
 https://unesco.hu/hirek/fenyek-a-bukki-nemzeti-parkban-107263
@@ -15,7 +18,5 @@ https://jelen.media/az-allam-kiarusitja-a-termeszetvedelmi-teruleteket/
 https://www.turistamagazin.hu/hir/egy-kerdes-egy-valasz-tudtad-e-mikor-lephetsz-be-fokozottan-vedett-termeszeti-teruletre
 https://commons.wikimedia.org/wiki/File:Kiskuns%C3%A1g_National_Park_1.jpg
 
-ai:
--google (gemini)
-magyarország nemzeti parkjairól írj egy kedvcsinálót. ez egy weboldal elejére menne, szóval az olvasót meg kell fognia hogy a nemzeti parkok miért jók, mik vannak ott stb ((válasz a főoldal (rejtett csodák)))
+
 

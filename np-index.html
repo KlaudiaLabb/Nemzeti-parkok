@@ -11,10 +11,13 @@
 </head>
 <body >
 
-    <div class="hero-image">
+    <!--<div class="hero-image">
     <div class="hero-text">
         <h1>A 10 Nemzeti Parkunk</h1>
     </div>
+    </div>-->
+
+    <div class="hero-image">
     </div>
 
 
@@ -24,7 +27,7 @@
         <a href="" class="active">Nemzeti parkok</a>
         <a href="./jatekok.html">Játékok</a>
         <a href="./rolam.html">Rólam</a>
-        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()" aria-label="icon">
             <i class="fa fa-bars"></i>
         </a>
     </div>
@@ -47,7 +50,7 @@
     <div class="belso_tartalom_mezo">
         <h2 class="tartalom_resz_cim  tartalom_resz_cim_legfelul">Magyarország 10 nemzeti parkja egy-egy különleges világ kapuja</h2>
 
-        <div class="kartya   ">
+        <div class="kartya">
             <h2 class="tartalom_resz_cim_h2"><a class="tartalom_resz_cim_np" href="NEMZETI PARKOK/aggteleki/aggtelek-index.html">Aggteleki Nemzeti Park</a></h2>
             <img class="logok" src="NEMZETI PARKOK/aggteleki/logo.png" alt="">
             <p class="tartalom_resz_tartalom  leiras">Az Aggteleki-karszt Magyarország legismertebb, UNESCO világörökségi védelmet élvező föld alatti birodalma. Nemcsak a felszíni karsztfennsíkok, dolinák és drámai szurdokvölgyek ejtenek ámulatba, hanem a mélyben húzódó, monumentális Baradla-barlangrendszer is. Itt lélegzetelállító cseppkőképződmények, föld alatti patakok és óriási hangversenytermek várnak, amelyek egy teljesen más dimenzióba repítenek. A barlangok hűvösében különleges, ritka denevérfajok találnak menedéket. Jósvafő mesebeli környékén pedig megcsodálhatod a híres hucul ménest, ahol hazánk őshonos, zömök hegyi lovait tenyésztik és őrzik a jövő számára.</p>
@@ -114,14 +117,181 @@
             <p class="tartalom_resz_tartalom leiras">A nyugati határszélen elterülő, mesebeli dombvidék, ahol a természet és az emberi kultúra évszázadok óta tökéletes harmóniában él együtt. El tudod képzelni a reggeli sétát a harmatos, gombákban gazdag fenyvesekben, miközben a völgyekben még gomolyog a köd? Az Őrség híres a szeres településszerkezetéről, a hagyományos szoknyás haranglábakról és a fazekasmesterekről. A dombok között megbúvó tiszta vizű patakok, tőzegmohás lápok és a vidék hűvös, szubalpin klímája azonnali feltöltődést nyújtanak. Itt a fenntartható gazdálkodás és a hagyományőrzés nem csupán jelszó, hanem a mindennapi élet kézzelfogható, megnyugtató valósága.</p>
         </div>
 
+        <!--táblás-->
+        <div class="tabla-container">
+            <div class="oszlop"></div>
+
+            <div class="fa-nyil jobbra felfele" data-park="aggtelek">
+                <span>Aggteleki Nemzeti Park</span>
+            </div>
+            <div class="fa-nyil balra" data-park="balaton">
+                <span>Balaton-felvidéki Nemzeti Park</span>
+            </div>
+            <div class="fa-nyil jobbra" data-park="bukk">
+                <span>Bükki Nemzeti Park</span>
+            </div>
+            <div class="fa-nyil balra lefele" data-park="dunad">
+                <span>Duna-Dráva Nemzeti Park</span>
+            </div>
+            <div class="fa-nyil balra" data-park="dunai">
+                <span>Duna-Ipoly Nemzeti Park</span>
+            </div>
+            <div class="fa-nyil jobbra felfele" data-park="ferto">
+                <span>Fertő-Hanság Nemzeti Park</span>
+            </div>
+            <div class="fa-nyil balra" data-park="hortobagy">
+                <span>Hortobágyi Nemzeti Park</span>
+            </div>
+            <div class="fa-nyil jobbra lefele" data-park="kiskunsag">
+                <span>Kiskunsági Nemzeti Park</span>
+            </div>
+            <div class="fa-nyil jobbra" data-park="koros">
+                <span>Körös-Maros Nemzeti Park</span>
+            </div>
+            <div class="fa-nyil balra felfele" data-park="orseg">
+                <span>Őrségi Nemzeti Park</span>
+            </div>
+        </div>
+        <!---->
+        <!-- Felugró ablak (Modal) szerkezete -->
+        <div id="parkModal" class="modal-hatter">
+        <div class="modal-tartalom">
+            <span class="bezar-gomb">&times;</span>
+
+            <img id="modalKep" src="x" alt="Nemzeti Park Logó" class="modal-logo">
+
+            <h2 id="modalCim">Nemzeti Park</h2>
+            <p id="modalLeiras">Itt jelenik meg a rövid leírás...</p>
+            <a id="modalLink" href="#" class="tovabb-gomb">Tovább →</a>
+        </div>
+        </div>
+
     </div>
     </div>
-
-
 
     <div>
         <img class="also_kep" src="erdos_proba.png" alt="" >
     </div>
+
+
+<script>
+// 1. Az adatok eltárolása egy objektumban (bármikor bővíthető)
+const parkAdatok = {
+    aggtelek: {
+        cim: "Aggteleki Nemzeti Park",
+        kep: "NEMZETI PARKOK/aggteleki/logo.png",
+        leiras: "Az Aggteleki-karszt az UNESCO világörökség része, amely látványos karsztfennsíkokat és szurdokokat rejt. Fő vonzereje a monumentális Baradla-barlangrendszer cseppkövekkel, föld alatti patakokkal, hangversenytermekkel és ritka denevérfajokkal. Jósvafő környékén az őshonos, zömök hegyi lovak, a hucul ménes is megcsodálható.",
+        link: "NEMZETI PARKOK/aggteleki/aggtelek-index.html"
+    },
+    balaton: {
+        cim: "Balaton-felvidéki Nemzeti Park",
+        kep: "NEMZETI PARKOK/balaton-felvideki/logo.png",
+        leiras: "A vulkánok és a romantika földje, ahol a toszkán hangulat találkozik a Balaton vadregényes arcával. Kiemelkedő látnivalói a Tapolcai-tavasbarlang, a Badacsony bazaltorgonái, a Tihanyi-félsziget levendulásai és a Káli-medence kőtengerei. A Kis-Balaton mocsárvilága madárparadicsom, a vidék pedig kiváló borkóstolási lehetőségeket kínál.",
+        link: "NEMZETI PARKOK/balaton-felvideki/balaton-f-index.html"
+    },
+    bukk: {
+        cim: "Bükki Nemzeti Park",
+        kep: "NEMZETI PARKOK/bukki/logo.png",
+        leiras: "Az ország legmagasabban fekvő hegyvidéke, amelyet mészkősziklák és misztikus őserdők uralnak. A Bükk-fennsík karsztvidéke, a Szalajka-völgy a Fátyol-vízeséssel és a több mint ezer barlang igazi kalandokat ígér. A park a Tar-kő panorámája mellett az olyan nagyragadozók visszatéréséről is híres, mint a farkasok és a hiúzok.",
+        link: "NEMZETI PARKOK/bukki/bukki-index.html"
+    },
+    dunad: {
+        cim: "Duna-Dráva Nemzeti Park",
+        kep: "NEMZETI PARKOK/duna-drava/logo.png",
+        leiras: "A dél-dunántúli régióban a víz és a szárazföld örökös küzdelme alakítja a drámai tájat. Itt található a Gemenci-erdő, Európa legnagyobb ártéri erdeje, amely gímszarvasoknak és fekete gólyáknak ad otthont. A Dráva szabályozatlan zátonyai és kanyargó holtágai a vízi túrázók bakancslistás helyszínei.",
+        link: "NEMZETI PARKOK/duna-drava/duna-d-index.html"
+    },
+    dunai: {
+        cim: "Duna-Ipoly Nemzeti Park",
+        kep: "NEMZETI PARKOK/duna-ipoly/logo.png",
+        leiras: "A főváros kapujában fekvő, változatos táj, ahol a Dunakanyar lenyűgöző panorámája és a Pilis, valamint a Börzsöny sűrű tölgyesei találkoznak. Mély szurdokvölgyek, tiszta patakok és titokzatos barlangok váltják egymást a területen. A budapesti agglomeráció tüdejeként ezerféle túraútvonalat és családi kirándulóhelyet biztosít.",
+        link: "NEMZETI PARKOK/duna-ipoly/duna-i-index.html"
+    },
+    ferto: {
+        cim: "Fertő-Hanság Nemzeti Park",
+        kep: "NEMZETI PARKOK/ferto-hansag/logo.png",
+        leiras: "Közép-Európa harmadik legnagyobb tava és a titokzatos lápvidékek világa, amelyen Ausztriával osztozunk. A nádasok labirintusa, a sós vizű medencék és mocsarak az európai madárvonulás kulcsfontosságú, rétisasokban gazdag állomásai. A tájat szikes gyepek, bivalycsordák, szürkemarhák és barokk kastélyok színesítik.",
+        link: "NEMZETI PARKOK/ferto-hansag/ferto-h-index.html"
+    },
+    hortobagy: {
+        cim: "Hortobágyi Nemzeti Park",
+        kep: "NEMZETI PARKOK/hortobagyi/logo.png",
+        leiras: "Európa legnagyobb összefüggő füves pusztája, a végtelen délibábok és a világörökség része. Híres a csikósok bemutatóiról, a Przewalski-vadlovakról, a szürkemarhákról, valamint az őszi daruvonulásról. Itt található a Csillagoségbolt-park is, ahol a fényszennyezéstől védett éjszakai égbolton a Tejút tisztán ragyog.",
+        link: "NEMZETI PARKOK/hortobagyi/hortobagyi-index.html"
+    },
+    kiskunsag: {
+        cim: "Kiskunsági Nemzeti Park",
+        kep: "NEMZETI PARKOK/kiskunkagi/logo.png",
+        leiras: "A Duna–Tisza közén elterülő mozaikos táj a homokbuckák és a szikes tavak igazi vadvilága. A szél formálta bugaci homokbuckák mellett orchideás rétek és vonuló madarak százezreinek pihenőhelyet adó tavak alkotják. A tanyasi világ csendje és a pásztorhagyományok garantálják a digitális zajtól való elszakadást.",
+        link: "NEMZETI PARKOK/kiskunkagi/kiskunsagi-index.html"
+    },
+    koros: {
+        cim: "Körös-Maros Nemzeti Park",
+        kep: "NEMZETI PARKOK/koros-maros/logo.png",
+        leiras: "Az Alföld délkeleti részének varázslatos mozaikja, ahol az egykori mocsárvilág és az ősi gyepek találkoznak. Legnagyobb értéke a dévaványai pusztákon élő, rejtőzködő túzokpopuláció. A Körösök és a Maros ártéri erdei, holtágai és az orchideás rétek az igazi alföldi nyugalmat nyújtják a látogatóknak.",
+        link: "NEMZETI PARKOK/koros-maros/koros-maros-index.html"
+    },
+    orseg: {
+        cim: "Őrségi Nemzeti Park",
+        kep: "NEMZETI PARKOK/orsegi/logo.png",
+        leiras: "A nyugati határszélen elterülő mesebeli dombvidék, ahol a természet és az emberi kultúra harmóniában él együtt. Az Őrség híres a gombákban gazdag fenyveseiről, a szeres településszerkezetről, a szoknyás haranglábakról és a fazekasokról. Tiszta vizű patakok, tőzegmohás lápok és hűvös, szubalpin klíma várja az ide utazókat.",
+        link: "NEMZETI PARKOK/orsegi/orsegi-index.html"
+    }
+};
+
+// 2. HTML elemek kijelölése
+const modal = document.getElementById("parkModal");
+const modalCim = document.getElementById("modalCim");
+const modalLeiras = document.getElementById("modalLeiras");
+const modalLink = document.getElementById("modalLink");
+const modalKep = document.getElementById("modalKep");  //img elem
+
+const bezarGomb = document.querySelector(".bezar-gomb");
+const nyilak = document.querySelectorAll(".fa-nyil");
+
+// 3. Kattintás esemény kezelése a nyilakra
+nyilak.forEach(nyil => {
+  nyil.addEventListener("click", () => {
+    const parkKulcs = nyil.getAttribute("data-park");
+    const adat = parkAdatok[parkKulcs];
+
+    if (adat) {
+      // Tartalom dinamikus cseréje
+      modalCim.textContent = adat.cim;
+      modalLeiras.textContent = adat.leiras;
+      modalLink.href = adat.link;
+      modalKep.src = adat.kep;
+      
+      // Megjelenítés Flexboxként (így tökéletesen középen lesz)
+      modal.style.display = "flex";
+    }
+  });
+});
+
+// 4. Bezárás az X gombra kattintva
+bezarGomb.addEventListener("click", () => {
+  modal.style.display = "none";
+});
+
+// 5. Bezárás ha a modal mögötti sötét háttérre kattintunk
+window.addEventListener("click", (esemeny) => {
+  if (esemeny.target === modal) {
+    modal.style.display = "none";
+  }
+});
+
+// 6. Bezárás az Escape (Esc) billentyű megnyomásával
+window.addEventListener("keydown", (esemeny) => {          //keydown: folyamatosan figyeli, hogy a felhasználó lenyom-e bármilyen billentyűt a billentyűzeten, miközben az oldalon van
+  // Megnézzük, hogy a megnyomott billentyű az Escape-e
+  if (esemeny.key === "Escape") {
+    modal.style.display = "none";
+  }
+});
+
+
+</script>
+
+
 
 
 </body>
