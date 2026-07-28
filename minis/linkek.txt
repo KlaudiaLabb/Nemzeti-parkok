@@ -9,6 +9,7 @@ méh: https://www.flaticon.com/free-icon/bee_2713546
      https://www.flaticon.com/free-icon/bee_15055781
      https://www.flaticon.com/free-icon/nature_14776355
 tücsok: https://www.flaticon.com/free-icon/cricket_616730
+	https://www.flaticon.com/free-icon/cricket_4982518
 katica: https://www.flaticon.com/free-icon/ladybug_3579333
 csiga : https://www.flaticon.com/free-icon/snail_2623472
         https://www.flaticon.com/free-icon/snail_12893099
@@ -108,3 +109,5 @@ haz-domb: https://www.flaticon.com/free-icon/hill_5948089
 gólya: https://www.flaticon.com/free-icon/stork_3154936
 levendula: https://www.flaticon.com/free-icon/lavender_3200053
 tök: https://www.flaticon.com/free-icon/pumpkin_3413352
+gyik: https://pngtree.com/free-png-vectors/green-lizard-vector
+beka: https://www.flaticon.com/free-icon/frog_7196617

@@ -109,7 +109,7 @@ a.tartalom_resz_cim_np:active {
         position: relative;
         max-width: 600px;
         margin: 0 auto;
-        overflow: hidden;
+        overflow: visible;
     }
 
     /* Tartó oszlop fa */
@@ -175,6 +175,137 @@ a.tartalom_resz_cim_np:active {
     /* Hover animáció: kiegyenesedik és kicsit megnő */
     .fa-nyil:hover {
         transform: scale(1.06) rotate(0deg) !important;
+    }
+
+
+
+    /* --- ÚJ CSOMAGOLÓ DOBOZ STÍLUSA --- */
+    .nyil-doboz {
+        position: relative;
+        display: inline-block;
+        z-index: 2;
+        transition: transform 0.3s ease; /* A mozgást most a doboz végzi! */
+    }
+
+    /* --- DEKORÁCIÓK POZICIONÁLÁSA (SZABAD KILÓGÁSSAL) --- */
+    .nyil-doboz .dekoracio {
+        position: absolute;
+        z-index: 10;
+        width: 40px; 
+        height: auto;
+        pointer-events: none; /*hogy ne zavarjon kattintásnál*/
+        /*filter: drop-shadow(3px 3px 3px rgba(0,0,0,0.5));*/
+        transition: transform 0.3s ease;
+    }
+
+    /* GYÍK */
+    .dekor-gyik .dekoracio{
+        bottom: -10px;       /* Negatív érték: kilóg felfelé */
+        left: 0px;     /* Negatív érték: kilóg jobbra */
+        transform: rotate(60deg);
+    }
+    /* Amikor az egér a tábla fölé ér, a kép külön is bemozdul kicsit */
+    .dekor-gyik:hover .dekoracio {
+        transform: scale(1.2) rotate(70deg) translateX(-13px);
+    }
+
+    /* SZITAKÖTŐ */
+    .dekor-szitakoto .dekoracio{
+        width: 30px;
+        top: -8px;
+        right: -6px;
+        transform: rotate(60deg);
+    }
+    .dekor-szitakoto:hover .dekoracio {
+        transform: scale(1.2) rotate(50deg) translateX(8px) translateY(-3px);
+    }
+
+    /* MÉH */
+    .dekor-meh-cs .dekoracio{
+        width: 30px;
+        top: -10px;
+        left: 40px;
+        transform: rotate(45deg);
+    }
+    .dekor-meh-cs:hover .dekoracio {
+        transform: scale(1.2) rotate(40deg) translateX(-2px);
+    }
+
+    /* BEKA */
+    .dekor-beka .dekoracio{
+        width: 25px;
+        bottom: -2px;
+        left: 35px;
+        transform: rotate(50deg);
+    }
+    .dekor-beka:hover .dekoracio {
+        transform: scale(1.2) rotate(40deg) translateX(-5px);
+    }
+
+    /* PILLANGÓ */
+    .dekor-pillango .dekoracio{
+        width: 30px;
+        top: -10px;
+        right: 25px;
+        transform: rotate(-50deg);
+    }
+    .dekor-pillango:hover .dekoracio {
+        transform: scale(1.2) rotate(-40deg) translateY(5px);
+    }
+
+    /* TÜCSÖK vagyis szöcske */
+    .dekor-tucsok .dekoracio{
+        width: 35px;
+        top: -6px;
+        left: 10px;
+        transform: rotate(-7deg);
+    }
+    .dekor-tucsok:hover .dekoracio {
+        transform: scale(1.2) rotate(0deg) translateY(-14px) translateX(-5px);
+    }
+
+    /* KATICA */
+    .dekor-katica-cs .dekoracio{
+        width: 35px;
+        top: -25px;
+        right: 6px;
+        transform: rotate(0deg);
+    }
+    .dekor-katica-cs:hover .dekoracio {
+        transform: scale(1.2) rotate(2deg) translateX(2px) translateY(2px);
+    }
+
+    /* CSIGA */
+    .dekor-csiga .dekoracio{
+        width: 25px;
+        top: 0px;
+        left: -19px;
+        transform: rotate(-85deg);
+    }
+    .dekor-csiga:hover .dekoracio {
+        transform: scale(1.2) rotate(-88deg) translateY(-8px) translateX(-8px);
+    }
+
+    /* JÉGMADÁR */
+    .dekor-jegmadar .dekoracio{
+        width: 35px;
+        top: -8px;
+        right: 0px;
+        transform: rotate(0deg);
+    }
+    .dekor-jegmadar:hover .dekoracio {
+        transform: scale(1.2) rotate(10deg) translateY(-5px) translateX(10px);
+    }
+
+    /* TÜCSÖK2 */
+    .dekor-tucsok2 .dekoracio{
+        width: 30px;
+        top: -15px;
+        left: 0px;
+        transform: rotate(-15deg);
+    }
+    .dekor-tucsok2:hover .dekoracio {
+        transform: scale(1.2) rotate(-25deg) translateX(-10px) translateY(5px);
     }
 
 }
