@@ -138,11 +138,10 @@ a.tartalom_resz_cim_np:active {
         min-width: 220px;
         text-align: center;
         z-index: 2;
-        /*box-shadow: 4px 4px 8px rgba(0,0,0,0.4);              /********nemműkögik nyilon csak téglalapon********/
         transition: transform 0.3s ease, filter 0.3s ease;
     }
 
-    /* Rámulatáskor a fa "kigyullad" vagy sötétedik, és kiemelkedik */
+    /* Rámulatáskor a fa "kigyullad" és kiemelkedik */
     .fa-nyil:hover {
         filter: brightness(1.2) contrast(1.1);
     }
@@ -201,7 +200,7 @@ a.tartalom_resz_cim_np:active {
     /* GYÍK */
     .dekor-gyik .dekoracio{
         bottom: -10px;       /* Negatív érték: kilóg felfelé */
-        left: 0px;     /* Negatív érték: kilóg jobbra */
+        left: 0px;     /* Negatív érték: kilóg balra */
         transform: rotate(60deg);
     }
     /* Amikor az egér a tábla fölé ér, a kép külön is bemozdul kicsit */

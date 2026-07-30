@@ -71,13 +71,14 @@ margin-top: 5px;
 .active:after {
   content: "\2212"; /* Ez a mínusz jel kódja */
 }
-/* Ez az extra sor azért kell, hogy a listád és a jel egymás mellett legyenek */
+
+/* Hogy a lista és a jel egymás mellett legyenek -> collapsible-ben benne lévő ul-re
 .collapsible ul {
   display: inline-block;
   margin: 0;
   padding: 0;
   vertical-align: middle;
-}
+}*/
 
 hr{
   color: rgb(36, 118, 6);
