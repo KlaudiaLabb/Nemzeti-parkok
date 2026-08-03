@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="tili-toli.css">
+    <link rel="stylesheet" href="../../alap.css">
+    <script src="tili-toli.js"></script>
+    <title>Tili-Toli Kirakó</title>
+    <link rel="icon" type="image/x-icon" href="./mokus2.png">
+    <!--hambi icon--><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+
+    <div class="hero-image">
+    <div class="hero-text">
+        <h1>Játékok</h1>
+    </div>
+    </div>
+
+    <div id="navigacios_sav">
+    <div class="topnav" id="myTopnav">
+        <a href="./index.html">Főoldal</a>
+        <a href="./np-index.html">Nemzeti parkok</a>
+        <a href="" class="active">Játékok</a>
+        <a href="/rolam.html">Rólam</a>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()" aria-label="icon">
+            <i class="fa fa-bars"></i>
+        </a>
+    </div>
+    </div>
+
+    <script>
+        function myFunction() {
+            var x = document.getElementById("myTopnav");
+            if (x.className === "topnav") {
+                x.className += " responsive";
+            } else {
+                x.className = "topnav";
+            }
+        }
+    </script>
+
+
+    <div class="tartalom">
+    <div class="belso_tartalom_mezo">
+
+
+
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+
+    </div>
+    </div>
+
+    <div class="tartalom  kulso_tartalom_mezo_szinatmenet">
+    <div class="belso_tartalom_mezo_szinatmenet">
+
+        <div id="jatektabla">
+            <div id="board"></div>
+            <h1>Lépések: <span id="turns">0</span></h1>
+        </div>
+
+    </div>
+    </div>
+
+
+
+    <div>
+        <img class="also_kep" src="erdos_proba.png" alt="" >
+    </div>
+
+</body>
+</html>

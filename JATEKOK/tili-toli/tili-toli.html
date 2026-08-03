@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="tili-toli.css">
+    <link rel="stylesheet" href="../../alap.css">
+    <script src="tili-toli.js"></script>
+    <title>Nemzeti parkjaink</title>
+    <link rel="icon" type="image/x-icon" href="../../mokus2.png">
+    <!--hambi icon--><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+
+    <div class="hero-image">
+    <div class="hero-text">
+        <h1>Játékok</h1>
+    </div>
+    </div>
+
+    <div id="navigacios_sav">
+    <div class="topnav" id="myTopnav">
+        <a href="../../index.html">Főoldal</a>
+        <a href="../../np-index.html">Nemzeti parkok</a>
+        <a href="../../jatekok.html">Játékok</a>
+        <a href="../../rolam.html">Rólam</a>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()" aria-label="icon">
+            <i class="fa fa-bars"></i>
+        </a>
+    </div>
+    </div>
+
+    <script>
+        function myFunction() {
+            var x = document.getElementById("myTopnav");
+            if (x.className === "topnav") {
+                x.className += " responsive";
+            } else {
+                x.className = "topnav";
+            }
+        }
+    </script>
+
+
+    <div class="tartalom">
+    <div class="belso_tartalom_mezo">
+
+        <h1 class="tartalom_resz_cim">Tili-Toli Kirakó</h1>
+        <p class="tartalom_resz_tartalom">Próbáld meg a lehető legkevesebb lépéssel kirakni a kiválasztott nemzeti park logóját! A végén az üres négyzetnek a jobb felső sarokban kell lennie.</p>
+
+
+        <!-- legördülő menü -->
+        <div class="select-container">
+            <label for="park-select" class="tartalom_resz_tartalom">Válaszd ki, hogy melyik nemzeti park logóját szeretnéd kirakni:</label>
+            <select id="park-select">
+                <option value="aggtelek">Aggteleki Nemzeti Park</option>
+                <option value="balaton">Balaton-felvidéki Nemzeti Park</option>
+                <option value="bukk">Bükki Nemzeti Park</option>
+                <option value="dunad">Duna-Dráva Nemzeti Park</option>
+                <option value="dunai">Duna-Ipoly Nemzeti Park</option>
+                <option value="ferto">Fertő-Hanság Nemzeti Park</option>
+                <option value="hortobagy">Hortobágyi Nemzeti Park</option>
+                <option value="kiskunsag">Kiskunsági Nemzeti Park</option>
+                <option value="koros">Körös-Maros Nemzeti Park</option>
+                <option value="orseg">Őrségi Nemzeti Park</option>
+            </select>
+        </div>
+
+
+
+    </div>
+    </div>
+
+    <div class="tartalom  kulso_tartalom_mezo_szinatmenet">
+    <div class="belso_tartalom_mezo_szinatmenet">
+
+        <!-- A játéktér relatív konténere, hogy a győzelmi kép pontosan rá tudjon halványulni -->
+        <div class="game-container">
+            <!-- A játéktábla -->
+            <div id="board"></div>
+            <!-- A teljes kép, ami alapból láthatatlan, de győzelemkor pontosan a tábla helyén jelenik meg -->
+            <img id="solved-image" src=" " alt="Megoldás">
+        </div>
+
+        <!-- Klasszikus felugró ablak (Modal) a szövegnek -->
+        <div id="win-popup" class="popup-overlay  modal-hatter">
+            <div class="popup-content  modal-tartalom">
+                <span class="bezar-gomb">&times;</span> <!-- Az X bezáró gomb -->
+                <h2 class="modalCim">Sikerült!</h2>
+                <p class="modalLeiras">Sikeresen kiraktad a képet!</p>
+
+                <!-- a href="#" felugrana a lap tetejére (kell javascript), de ez a href="javascript:void(0);" ugyanúgy letíltja az ugrást -->
+                <a id="restart-btn" href="javascript:void(0);" class="tovabb-gomb">Új játék</a>
+            </div>
+        </div>
+
+
+
+
+        <div class="counter-container  tartalom_resz_tartalom">
+            Lépések száma: <span id="turns">0</span>
+        </div>
+
+    </div>
+    </div>
+
+
+
+    <div>
+        <img class="also_kep" src="../../erdos_proba.png" alt="" >
+    </div>
+
+</body>
+</html>

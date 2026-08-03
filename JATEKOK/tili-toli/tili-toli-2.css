@@ -1,0 +1,21 @@
+#jatektabla{
+    text-align: center; /*minden középen jelenik meg*/
+}
+
+#board{
+    width: 360px;
+    height: 360px;
+    background-color: lightgreen;
+    border: 10px solid green;
+    margin: 0 auto; /*középen legyen*/
+    /*A négyzetek balról jobbra mennek és kitöltik a teljes táblát*/
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/*táblában lévő képek*/
+#board img{
+    width: 118px; /*tábla harmada  -2 a szegély miatt (jobb+bal)*/
+    height: 118px;
+    border: 1px solid green;
+}

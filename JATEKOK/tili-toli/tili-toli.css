@@ -1,0 +1,194 @@
+/* Menü konténer */
+.select-container, .counter-container {
+    text-align: center;
+    margin: 20px auto;  /*közép*/
+}
+
+/* Felirat stílusa */
+.select-container label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 600;
+    color: rgb(60,93,56);
+}
+
+/* Maga a legördülő menü */
+#park-select {
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #333;
+    background-color: #e0f9e1; /*#d2fbd3;*/
+    border: 2px solid #4CAF50; /* Természetközeli zöld keret */
+    border-radius: 8px; /*szélek lekerekítése*/
+    cursor: pointer;
+    width: 80vw; /*képernyő 80%-a*/
+    max-width: 300px;
+}
+
+
+
+/* Játéktábla */
+.game-container {
+    width: 70vw;       /* Telefonon a képernyő 70%-a */
+    height: 70vw;
+    max-width: 360px;  /* Számítógépen maximum 360px */
+    max-height: 360px;
+    margin: 0 auto; /*középre*/
+    position: relative;
+}
+
+#board{
+    width: 100%; /* kitölti a játéltábla méretét teljesen */
+    height: 100%;
+    /* 3x3-as rácsot hoz létre automatikusan */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /*oszlopok: 3db egyforma oszlopot hoz létre, 1fr: rendelkezésre állő helyet egyenlő arányban osztja el*/
+    grid-template-rows: repeat(3, 1fr);
+    gap: 2px; /* Egy minimális rést hagy a négyzetek között, hogy elválljanak egymástól */
+    background-color: rgb(60,93,56); /* A rés színe */
+    border: 5px solid rgb(60,93,56); /* Keret a tábla körül */
+    border-radius: 8px;
+    box-sizing: border-box;
+    transition: opacity 0.5s ease-in-out;
+}
+
+/*táblában lévő képek*/
+#board img{    
+    width: 100%;  /* Teljesen kitölti a rácscellát szélességben */
+    height: 100%; /* Teljesen kitölti a rácscellát magasságban */
+    object-fit: cover; /* Ha a kép nem lenne tökéletes négyzet, akkor sem torzul el, hanem levágja a széleit */
+    user-select: none; /* Hogy ne lehessen a képet kijelölni */
+    -webkit-user-drag: none; /* Tiltja a mozgatást -> nem lesz szellemkép, sima kattintásnak fogja érzékelni */
+    cursor: pointer; /* Mutatókéz ikon: mutatja a játékosnak, hogy rákattintható */
+    /* CSÚSZÓ ANIMÁCIÓ: Sima, 0.2 másodperces mozgás minden elmozdulásnál */
+    transition: transform 0.2s ease-in-out; 
+
+    /* hogy ne villanjon be a kép */
+    /* Bekapcsolja a hardveres gyorsítást, így megszűnik a villogás */
+    will-change: transform;
+    transform: translateZ(0);
+}
+
+
+
+
+
+#solved-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; /*kitölti a rendelkezésre álló teret*/
+    height: 100%;
+    object-fit: cover;
+    box-sizing: border-box;
+
+    /* Alapból rejtve van */
+    opacity: 0;
+    pointer-events: none;
+    /* Finom beúszás animáció */
+    transition: opacity 0.8s ease-in-out; /*lassan indul, a közepe felé felgyorsul, majd a végén ismét lelassul*/
+    z-index: 5;
+
+    border-radius: 8px;
+    border: 5px solid rgb(60,93,56); /* Keret a tábla körül */
+}
+
+/* Osztály, amit győzelemkor adunk hozzá */
+#solved-image.show {
+    opacity: 1;
+}
+
+
+
+
+
+
+/* --- FELUGRÓ ABLAK (MODAL) --- */
+
+/* Sötétített háttér, ami mindent letakar */
+.modal-hatter {
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Áttetsző fekete */
+    backdrop-filter: blur(3px); /* Enyhe homályosítás a háttérnek */
+    display: flex; /* Flexboxot használunk a tökéletes középre igazításhoz */
+    align-items: center;
+    justify-content: center;
+    
+    /* ALAPHELYZETBEN REJTVE VAN: Opacity-vel oldjuk meg, hogy szép legyen az átmenet */
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease-in-out;
+}
+
+/* Amikor ezt az osztályt megkapja JavaScriptből, akkor válik láthatóvá */
+.modal-hatter.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Az információs kártya doboza */
+.modal-tartalom {
+    background-color: #eefbb2;
+    background-size: cover;
+    padding: 30px;
+    border: 3px solid #247606;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 450px;
+    position: relative;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+/* Az "X" bezáró gomb */
+.bezar-gomb {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    color: #247606;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+.bezar-gomb:hover {
+    color: #8b0000; /* Pirosra vált ha fölé viszed az egeret */
+}
+
+/* Cím és leírás a felugróban */
+.modal-tartalom h2 {
+    color: #247606;
+    margin-top: 10px;
+    font-size: 24px;
+    border-bottom: 2px dashed #247606;
+    padding-bottom: 10px;
+}
+.modal-tartalom p {
+    font-size: 17px;
+    line-height: 1.5;
+    margin: 20px 0;
+    color: #333;
+}
+
+/* Továbbvezető zöldes/erdei gomb */
+.tovabb-gomb {
+    display: inline-block;
+    background-color: #247606;
+    color: white;
+    text-decoration: none;
+    padding: 12px 24px;
+    border-radius: 4px;
+    font-weight: bold;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+    transition: background-color 0.4s;
+}
+.tovabb-gomb:hover {
+    background-color: #389c14;
+}
+
