@@ -359,7 +359,6 @@ a.tartalom_resz_cim_np:active {
 /* Az információs kártya doboza */
 .modal-tartalom {
     background-color: #eefbb2;/*#fcf8f2;*/
-    background-image: url('https://unsplash.com'); /* Finom fa textúra a felugró ablaknak is */
     background-size: cover;
     /*color: #3d2511;*/
     padding: 30px;
