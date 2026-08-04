@@ -50,7 +50,6 @@
     border: 5px solid rgb(60,93,56); /* Keret a tábla körül */
     border-radius: 8px;
     box-sizing: border-box;
-    transition: opacity 0.5s ease-in-out;
 }
 
 /*táblában lévő képek*/

@@ -48,7 +48,6 @@
         <h1 class="tartalom_resz_cim">Tili-Toli Kirakó</h1>
         <p class="tartalom_resz_tartalom">Próbáld meg a lehető legkevesebb lépéssel kirakni a kiválasztott nemzeti park logóját! A végén az üres négyzetnek a jobb felső sarokban kell lennie.</p>
 
-
         <!-- legördülő menü -->
         <div class="select-container">
             <label for="park-select" class="tartalom_resz_tartalom">Válaszd ki, hogy melyik nemzeti park logóját szeretnéd kirakni:</label>
@@ -66,20 +65,16 @@
             </select>
         </div>
 
-
-
     </div>
     </div>
 
     <div class="tartalom  kulso_tartalom_mezo_szinatmenet">
     <div class="belso_tartalom_mezo_szinatmenet">
 
-        <!-- A játéktér relatív konténere, hogy a győzelmi kép pontosan rá tudjon halványulni -->
+        <!-- A játéktér konténere -->
         <div class="game-container">
-            <!-- A játéktábla -->
-            <div id="board"></div>
-            <!-- A teljes kép, ami alapból láthatatlan, de győzelemkor pontosan a tábla helyén jelenik meg -->
-            <img id="solved-image" src=" " alt="Megoldás">
+            <div id="board"></div> <!-- A játéktábla -->
+            <img id="solved-image" src=" " alt="Megoldás"> <!-- A teljes kép, ami alapból láthatatlan, de győzelemkor pontosan a tábla helyén jelenik meg -->
         </div>
 
         <!-- Klasszikus felugró ablak (Modal) a szövegnek -->
@@ -88,14 +83,10 @@
                 <span class="bezar-gomb">&times;</span> <!-- Az X bezáró gomb -->
                 <h2 class="modalCim">Sikerült!</h2>
                 <p class="modalLeiras">Sikeresen kiraktad a képet!</p>
-
-                <!-- a href="#" felugrana a lap tetejére (kell javascript), de ez a href="javascript:void(0);" ugyanúgy letíltja az ugrást -->
+                <!-- a href="#" felugrana a lap tetejére (kell javascript)                      , de ez a href="javascript:void(0);" ugyanúgy letíltja az ugrást -->
                 <a id="restart-btn" href="javascript:void(0);" class="tovabb-gomb">Új játék</a>
             </div>
         </div>
-
-
-
 
         <div class="counter-container  tartalom_resz_tartalom">
             Lépések száma: <span id="turns">0</span>

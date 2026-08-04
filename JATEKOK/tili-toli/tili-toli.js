@@ -1,9 +1,7 @@
 var rows = 3;
 var columns = 3;
-
-var currTile; // a négyzet amit megfogunk vagy amire rákattintunk
+var currTile; // a négyzet amire rákattintunk
 var otherTile; // az üres négyzet (3.jpg)
-
 var turns = 0;
 
 // Alapértelmezett mappa neve (megegyezik a HTML option value-val)
@@ -11,15 +9,10 @@ var currentFolder = "aggtelek";  //induló mappa
 
 var isAnimating = false; // Megakadályozza a spammelést animáció közben
 
-/* Ez a fix kiinduló keverés
-var defaultOrder = ["4", "2", "8", "5", "1", "6", "7", "9", "3"]; // 3: üres
-var imgOrder = [...defaultOrder]; // Másolatot készítünk, amit szabadon módosíthatunk a shift()-tel
-*/
-// --- MEGOLDHATÓ KEZDŐSORRENDEK LISTÁJA ---
-// 4 különböző, előre letesztelt variációt (a 3-as az üres mező)
+// 4 különböző variációt (a 3-as az üres mező)
 var solvableOrders = [
     /*["1", "3", "2", "4", "5", "6", "7", "8", "9"]*/
-    ["4", "2", "8", "5", "1", "6", "7", "9", "3"], // jók
+    ["4", "2", "8", "5", "1", "6", "7", "9", "3"],
     ["5", "4", "2", "6", "3", "9", "8", "1", "7"],   
     ["3", "7", "4", "2", "9", "5", "1", "8", "6"],
     ["7", "9", "4", "2", "8", "6", "3", "5", "1"],
@@ -43,8 +36,7 @@ window.onload = function() {
     });
 
     // Felugró ablak "Új játék" gombja
-    document.getElementById("restart-btn").addEventListener("click", function() {
-        //e.preventDefault(); // Megakadályozza, hogy a href="#" felugorjon a lap tetejére -- function(e)=event
+    document.getElementById("restart-btn").addEventListener("click", function() {                   //e.preventDefault(); // Megakadályozza, hogy a href="#" felugorjon a lap tetejére -- function(e)=event
         resetGame();
     });
     
@@ -52,7 +44,7 @@ window.onload = function() {
     document.querySelector(".bezar-gomb").addEventListener("click", function() {
         document.getElementById("win-popup").classList.remove("show");
     });
-
+}
     // --- Bezárás a háttérre kattintva --- nemjo nem működik a háttérre kattintás
     /*document.getElementById("parkModal").addEventListener("click", function(e) {
         // Az e.target megmutatja, hogy PONTOSAN mire kattintott a felhasználó.
@@ -62,16 +54,9 @@ window.onload = function() {
             this.classList.remove("show");
         }
     });*/
-}
 
-// Újraindító és mappa-váltó funkció
-/*function resetGame() {
-    turns = 0;
-    document.getElementById("turns").innerText = turns;
-    pickRandomOrder(); // Minden váltásnál vagy restartnál ÚJ random sorrendet sorsolunk!
-    buildBoard();      // Újraépítjük a teljes táblát
-}*/
-// Újraindítás / Mappa váltás kezelése lágy halványítással
+
+
 // Újraindítás / Mappa váltás kezelése - csak a belső képek halványodnak el
 function resetGame() {
     let tiles = document.getElementById("board").getElementsByTagName("img");
@@ -87,10 +72,8 @@ function resetGame() {
     setTimeout(() => {
         turns = 0;
         document.getElementById("turns").innerText = turns;
-        
         pickRandomOrder(); // Új random keverést sorsolunk
-        buildBoard();      // Felépítjük az új táblát a háttérben
-        
+        buildBoard();      // Felépítjük az új táblát a háttérben        
         // 3. Az új képek beúszását a buildBoard() fogja elindítani, 
         // mert az egy friss táblát hoz létre, amire rátesszük a CSS-ben megírt beúszást.
     }, 400); 
@@ -106,9 +89,9 @@ function pickRandomOrder() {
     activeOrder = solvableOrders[randomIndex];
     // Készítünk belőle egy friss másolatot az imgOrder-be, amit szabadon üríthetünk
     imgOrder = [...activeOrder];
-
-    /*vagy kihagyjuk az activeOrder-t:  imgOrder = [...solvableOrders[randomIndex]];*/
 }
+    /*vagy kihagyjuk az activeOrder-t:  imgOrder = [...solvableOrders[randomIndex]];*/
+
 
 // A játéktábla legenerálása
 function buildBoard() {
@@ -148,37 +131,7 @@ function buildBoard() {
     }
 }
 
-/*
-// mikor a képenyő betölt akkor meghívjuk ezt a függvényt
-// a képeket betölti a board-ra
-window.onload = function() {
-    for (let r = 0; r < rows; r++) {
-        for (let c = 0; c < columns; c++) {
 
-           //<img id="0-0" src="1.jpg">
-            let tile = document.createElement("img"); //<img> tag készítése
-            tile.id = r.toString() + "-" + c.toString(); //id hozzáadása: <img id="0-1"> //koordináták helymeghatározáshoz
-            tile.src = imgOrder.shift() + ".jpg";  //shift(): kiveszi(pop) a lista első elemét <img id="0-0" src="1.png">
-
-            // --- 1. KATTINTÁS / ÉRINTÉS FUNKCIÓ (Mobilra és Asztali gépre) ---
-            tile.addEventListener("click", tileClick);
-
-            /* --- 2. EGÉRREL HÚZÁS FUNKCIÓ (Megmarad asztali gépekre) ---   gépnél zavaró mindkettő
-            //DRAG FUNCTIONALITY (esemény, függvény)  az EventListere-ek teszik lehetővé a drag-and-drop funkciót
-            tile.addEventListener("dragstart", dragStart);  //kép meg lett fogva mozgatáshoz (drag)
-            tile.addEventListener("dragover", dragOver);    //kép mozgatása míg rá van kattintva
-            tile.addEventListener("dragenter", dragEnter);  //képet ráhúzzuk egy másikra //belépünk egy másik képre
-            tile.addEventListener("dragleave", dragLeave);  //a mozgatott kép elhagyja a másik képet //kilépünk egy mási képből
-            tile.addEventListener("drop", dragDrop);        //a mozgatott kép elengedése egy másik felett (drop)
-            tile.addEventListener("dragend", dragEnd);*      //drag drop után mi történjen: cserélje fel a két képet
-            
-            // TILTÁS: Megakadályozzuk, hogy a böngésző megpróbálja elhúzni a képet
-            tile.draggable = false; 
-
-            document.getElementById("board").append(tile);
-        }
-    }
-}*/
 
 // Kattintáskor fut le
 function tileClick() {
@@ -197,37 +150,21 @@ function tileClick() {
     checkAndMove();
 }
 
+
 // Ellenőrzi, hoy szomszédos elemre volt-e kattintva, ha igen akkor cserél
 function checkAndMove() { 
-    if (!otherTile || !otherTile.src.includes("3.png")) { 
-        return; 
-    }
+    if (!otherTile || !otherTile.src.includes("3.png")) { return; }
 
     let currCoords = currTile.id.split("-");
     let r = parseInt(currCoords[0]);
     let c = parseInt(currCoords[1]);
-
     let otherCoords = otherTile.id.split("-");
     let r2 = parseInt(otherCoords[0]);
     let c2 = parseInt(otherCoords[1]);
-
     let moveLeft = r == r2 && c2 == c-1;
     let moveRight = r == r2 && c2 == c+1;
     let moveUp = c == c2 && r2 == r-1;
     let moveDown = c == c2 && r2 == r+1;
-
-    /*let isAdjacent = moveLeft || moveRight || moveUp || moveDown;
-
-    if (isAdjacent) {
-        let currImg = currTile.src;
-        let otherImg = otherTile.src;
-
-        currTile.src = otherImg;
-        otherTile.src = currImg;
-
-        turns += 1;
-        document.getElementById("turns").innerText = turns;
-    }*/
 
     if (moveLeft || moveRight || moveUp || moveDown) { //ha szomszédosak
         isAnimating = true;
@@ -244,21 +181,19 @@ function checkAndMove() {
         setTimeout(() => {
             // Visszaállítjuk a transzformációt alaphelyzetbe
             currTile.style.transform = "none";
-
             // Ténylegesen megcseréljük az src-ket a háttérben
             let currImg = currTile.src;
             currTile.src = otherTile.src;
             otherTile.src = currImg;
-
             turns += 1;
             document.getElementById("turns").innerText = turns;
             isAnimating = false;
-
             // Minden sikeres lépés után megnézzük, nyert-e a játékos
             checkWinCondition();
         }, 200); 
     }
 }
+
 
 // Győzelem ellenőrzése
 function checkWinCondition() {
