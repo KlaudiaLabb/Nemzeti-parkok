@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="snake.css">
+    <link rel="stylesheet" href="../../alap.css">
+    <script src="snake.js"></script>
+    <title>Nemzeti parkjaink</title>
+    <link rel="icon" type="image/x-icon" href="../../mokus2.png">
+    <!--hambi icon--><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+
+    <div class="hero-image">
+    <div class="hero-text">
+        <h1>Játékok</h1>
+    </div>
+    </div>
+
+    <div id="navigacios_sav">
+    <div class="topnav" id="myTopnav">
+        <a href="../../index.html">Főoldal</a>
+        <a href="../../np-index.html">Nemzeti parkok</a>
+        <a href="../../jatekok.html">Játékok</a>
+        <a href="../../rolam.html">Rólam</a>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()" aria-label="icon">
+            <i class="fa fa-bars"></i>
+        </a>
+    </div>
+    </div>
+
+    <script>
+        function myFunction() {
+            var x = document.getElementById("myTopnav");
+            if (x.className === "topnav") {
+                x.className += " responsive";
+            } else {
+                x.className = "topnav";
+            }
+        }
+    </script>
+
+
+    <div class="tartalom">
+    <div class="belso_tartalom_mezo">
+
+        <h1 class="tartalom_resz_cim">Snake</h1>
+        <p class="tartalom_resz_tartalom">Próbálj meg a lehető legtöbbmindent megetetni a kígyóddal a játék vége előtt! A kígyót irányíthatod számítógépen a nyíl billentyűk segítségével, telefonon pedig az ujjad mozgatásával a játéktér felett.</p>
+
+        <!-- legördülő menü -->
+        <div class="select-container">
+            <label for="kigyo-select" class="tartalom_resz_tartalom">Válaszd ki, hogy melyik kígyóval szeretnél lenni:</label>
+            <select id="kigyo-select">
+                <option value="erdeisiklo">Erdei sikló</option>
+                <option value="kaszpiharangoskigyo">Kaszpi haragossikló</option>
+                <option value="keresztesvipera">Keresztes vipera</option>
+                <option value="kockassiklo">Kockás sikló</option>
+                <option value="rakosivipera">Rákosi vipera</option>
+                <option value="rezsiklo">Rézsikló</option>
+                <option value="vizisiklo">Vízisikló</option>
+            </select>
+        </div>
+
+    </div>
+    </div>
+
+    <div class="tartalom  kulso_tartalom_mezo_szinatmenet">
+    <div class="belso_tartalom_mezo_szinatmenet">
+
+        <!-- A játéktér konténere -->
+        <div class="game-container">
+            <canvas id="board"></canvas>  <!-- canvas: rajzolási felület. JavaScript-tel közvetlenül a böngészőbe lehet rajzolni, animálnim interaktív játékokat készíteni -->
+
+            <div class="counter-container  tartalom_resz_tartalom">
+                Pontok: <span id="points">0</span>
+            </div>
+        </div>
+
+        <!--<div class="game-container">
+            <div id="board"></div> <!- A játéktábla ->
+            <img id="solved-image" src=" " alt="Megoldás"> <!- A teljes kép, ami alapból láthatatlan, de győzelemkor pontosan a tábla helyén jelenik meg ->
+        </div>-->
+
+        <!-- Klasszikus felugró ablak (Modal) a szövegnek -->
+        <!--<div id="win-popup" class="popup-overlay  modal-hatter">
+            <div class="popup-content  modal-tartalom">
+                <span class="bezar-gomb">&times;</span> <!- Az X bezáró gomb ->
+                <h2 class="modalCim">Sikerült!</h2>
+                <p class="modalLeiras">Sikeresen kiraktad a képet!</p>
+                <!- a href="#" felugrana a lap tetejére (kell javascript)                      , de ez a href="javascript:void(0);" ugyanúgy letíltja az ugrást ->
+                <a id="restart-btn" href="javascript:void(0);" class="tovabb-gomb">Új játék</a>
+            </div>
+        </div>-->
+
+
+        https://matramuzeum.nhmus.hu/hu/blog/bg_kigyokmagyarorszagon
+        Magyarországon összesen hét őshonos kígyófaj él. A hazai kígyók mindegyike védett vagy fokozottan védett!
+
+        Siklófélék (Nem mérgesek)
+        1. Vízisikló (Natrix natrix)
+        Hogy néz ki? Szürkés, olajzöld vagy barnás színű kígyó. Legfontosabb ismertetőjegye a félhold alakú, sárga, fehér vagy narancssárga nyakfolt a feje mögött kétoldalt. Hossza általában 1-1,2 méter.
+        Mit eszik? Elsősorban kétéltűeket (békákat, gőtéket), ezenkívül ebihalakat és kisebb halakat fogyaszt.
+        Melyik nemzeti parkban él? Országszerte elterjedt. Gyakori a Balaton-felvidéki, a Hortobágyi, a Fertő-Hanság és a Duna-Ipoly Nemzeti Park vizes élőhelyein.
+        2. Kockás sikló (Natrix tessellata)
+        Hogy néz ki? Színe a szürkétől a zöldesbarnáig terjed, hátát sakktáblaszerű, sötét négyzetes foltok borítják. Nyakfoltja nincs, szemei kissé felfelé néznek.
+        Mit eszik? Szinte kizárólag halakkal táplálkozik, ritkábban békákat is ejt.
+        Melyik nemzeti parkban él? Kimondottan a nagyobb állóvizek, folyók mentén él. Rendkívül gyakori például a Balaton-felvidéki Nemzeti Park (Balaton-part) és a Duna-Dráva Nemzeti Park területein.
+        3. Erdei sikló (Zamenis longissimus)
+        Hogy néz ki? Hazánk egyik legnagyobb kígyója, hossza a 1,5-2 métert is elérheti. Karcsú, fénylő olajbarna, sárgásbarna vagy szürkés színű, a hasa világossárga. A pikkelyein finom, fehér pontozás látható. Kiválóan mászik fára.
+        Mit eszik? Egereket, pockokat, cickányokat, valamint madárfiókákat és tojásokat. Zsákmányát fojtással öli meg.
+        Melyik nemzeti parkban él? A domb- és hegyvidéki erdőket kedveli. Megtalálható a Bükki, az Aggteleki, a Duna-Ipoly és a Balaton-felvidéki Nemzeti Parkban.
+        4. Rézsikló (Coronella austriaca)
+        Hogy néz ki? Kistermetű (50-70 cm), szürkés vagy rézvörös alapszínű. Hátán két sorban apró, sötét foltok futnak. A feje tetején egy sötét, patkó alakú rajzolat, a szemén keresztül pedig egy sötét csík húzódik. Gyakran összetévesztik a keresztes viperával!
+        Mit eszik? Főként más hüllőket (fali gyíkokat, lábatlan gyíkokat) és esetenként rágcsálók kölykeit fogyasztja.
+        Melyik nemzeti parkban él? Napos, száraz erdőszéleken, kőbányákban él. Jelen van az Őrségi, a Bükki, az Aggteleki és a Balaton-felvidéki Nemzeti Parkban.
+        5. Kaszpi haragossikló (Dolichophis caspius)
+        Hogy néz ki? A legnagyobb és legritkább hazai sikló (akár 2 méter feletti is lehet). Színe olajbarna vagy ezüstösszürke, a pikkelyek közepe világosabb. Hatalmas szemei és szúrós tekintete van. Meglepődve rendkívül gyors és agresszíven védekezik (harap), de nem mérges.
+        Mit eszik? Nagyon falánk: gyíkokat, rágcsálókat (például ürgét), madarakat és más kígyókat is megeszik.
+        Melyik nemzeti parkban él? Fokozottan védett, nagyon szűk élettérrel. Legnagyobb állománya a Duna-Dráva Nemzeti Parkhoz tartozó Villányi-hegységben (Szársomlyó) él, de előfordul a Duna-Ipoly Nemzeti Park száraz, budai kopárjain is (pl. Sas-hegy).
+
+        Viperafélék (Mérgeskígyók)
+        6. Keresztes vipera (Vipera berus)
+        Hogy néz ki? Zömök testű, rövid farkú kígyó (60-80 cm). A feje háromszögletű, rajta sötét „X” vagy „Y” mintázattal. Legfőbb jellemzője a háton végighúzódó, markáns, sötét színű cikkcakk minta. A hímek ezüstszürkék, a nőstények barnásak. Pupillája rés alakú (vágott). A mérge a keringési rendszert és a szöveteket támadja meg, de marása ritka (évente 1-2 eset).
+        Mit eszik? Erdei egereket, pockokat, békákat és gyíkokat fogyaszt.
+        Melyik nemzeti parkban él? Hűvös, nyirkos helyeket kedvel. Főként az Őrségi Nemzeti Park láprétjein, Somogyban és a Bükki Nemzeti Park magasabb, északi területein (illetve a Zemplénben) fordul elő.
+        7. Rákosi vipera (Vipera ursinii rakosiensis)
+        Hogy néz ki? Nagyon kistermetű vipera (40-50 cm). Mintázata hasonló a keresztes viperáéhoz (háti cikkcakk), de a színe sokkal halványabb, szürkésbarna, és a cikkcakkok szélei elmosódottabbak, hullámosabbak lehetnek. Európa egyik legveszélyeztetettebb gerinces állata. A rákosi vipera mérge az egyik leggyengébb az európai viperák között. Ráadásul ez a faj rendkívül békés, alig lehet harapásra bírni.
+        Mit eszik? Főként nagyobb rovarokat (sáskákat, tücsköket), valamint gyíkokat és egérkölyköket eszik.
+        Melyik nemzeti parkban él? Szigorúan védett alföldi gyepeken él. Kizárólag a Kiskunsági Nemzeti Park (Duna-Tisza köze) és a Fertő-Hanság Nemzeti Park (Hanság) gyepein található meg.
+    </div>
+    </div>
+
+
+
+    <div>
+        <img class="also_kep" src="../../erdos_proba.png" alt="" >
+    </div>
+
+</body>
+</html>

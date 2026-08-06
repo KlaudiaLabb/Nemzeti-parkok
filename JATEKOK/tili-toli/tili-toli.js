@@ -185,8 +185,8 @@ function checkAndMove() {
             let currImg = currTile.src;
             currTile.src = otherTile.src;
             otherTile.src = currImg;
-            turns += 1;
-            document.getElementById("turns").innerText = turns;
+            turns += 1; //lépések növelése
+            document.getElementById("turns").innerText = turns; //megjelenítésa a képernyőn
             isAnimating = false;
             // Minden sikeres lépés után megnézzük, nyert-e a játékos
             checkWinCondition();

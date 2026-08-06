@@ -1,0 +1,45 @@
+/* Menü konténer */
+.select-container, .counter-container {
+    text-align: center;
+    margin: 20px auto;  /*közép*/
+}
+
+/* Felirat stílusa */
+.select-container label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 600;
+    color: rgb(60,93,56);
+}
+
+/* Maga a legördülő menü */
+#kigyo-select {
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #333;
+    background-color: #e0f9e1; /*#d2fbd3;*/
+    border: 2px solid #4CAF50; /* Természetközeli zöld keret */
+    border-radius: 8px; /*szélek lekerekítése*/
+    cursor: pointer;
+    width: 80vw; /*képernyő 80%-a*/
+    max-width: 300px;
+}
+
+
+
+.game-container{
+    text-align: center; /*szöveg, képek, canvas középre helyezlse*/
+}
+
+canvas {
+    width: 80vw;             /* Kis képernyőn a kijelző szélességének pontosan a 80%-a lesz */
+    max-width: 525px;        /* Nagy képernyőn maximum az eredeti méretig (15 * 35px) nőhet */
+    height: 80vw;            /* Mivel négyzet alakú, a magassága megegyezik a szélességével */
+    max-height: 525px;
+    box-sizing: border-box;
+    display: inline-block;
+    border: 5px solid #247606;
+    border-radius: 8px;
+}
+
