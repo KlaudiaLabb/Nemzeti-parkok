@@ -198,6 +198,15 @@ const infoGomb = document.getElementById("modalLink");        // A te "modalLink
 const kigyoSelect = document.getElementById("kigyo-select");    // A te legördülő menüd
 const bezarGomb = document.querySelector(".bezar-gomb");
 
+// Közös bezáró függvény, ami kezeli a telefon vissza gombjának az előzményeit is
+function modalBezarasa() {
+  modal.style.display = "none";
+  // Ha a felhasználó nem a vissza gombbal zárt be, töröljük a "kamu" előzményt
+  if (history.state && history.state.modalOpen) {
+    history.back();
+  }
+}
+
 // 3. Kattintás esemény kezelése az információs gombra
 infoGomb.addEventListener("click", () => {
   // Kiolvassuk, hogy melyik opció van éppen kiválasztva (pl. "erdeisiklo" vagy "vizisiklo")
@@ -223,27 +232,32 @@ infoGomb.addEventListener("click", () => {
     
     // Modal megjelenítése Flexbox elrendezéssel (tökéletesen középre teszi)
     modal.style.display = "flex";
+
+    // Előzmény-bejegyzés létrehozása a vissza gombnak ----
+    history.pushState({ modalOpen: true }, ""); 
+
   } else {
     console.error("Nem találhatók adatok a következő kígyóhoz: " + kivalasztottKulcs);
   }
 });
 
-// 4. Bezárás az X gombbal
+// 4. Bezárás az X gombra kattintva
 bezarGomb.addEventListener("click", () => {
-  modal.style.display = "none";
+  modalBezarasa(); // A közös függvényt hívjuk meg //modal.style.display = "none";
 });
 
-// 5. Bezárás háttérre kattintással
-window.addEventListener("click", (e) => {
-  if (e.target === modal) {
-    modal.style.display = "none";
+// 5. Bezárás ha a modal mögötti sötét háttérre kattintunk
+window.addEventListener("click", (esemeny) => {
+  if (esemeny.target === modal) {
+    modalBezarasa();
   }
 });
 
-// 6. Bezárás Escape gombbal
-window.addEventListener("keydown", (e) => {
-  if (e.key === "Escape") {
-    modal.style.display = "none";
+// 6. Bezárás az Escape (Esc) billentyű megnyomásával
+window.addEventListener("keydown", (esemeny) => {          //keydown: folyamatosan figyeli, hogy a felhasználó lenyom-e bármilyen billentyűt a billentyűzeten, miközben az oldalon van
+  // Megnézzük, hogy a megnyomott billentyű az Escape-e
+  if (esemeny.key === "Escape") {
+    modalBezarasa();
   }
 });
 
