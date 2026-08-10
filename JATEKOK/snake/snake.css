@@ -43,3 +43,31 @@ canvas {
     border-radius: 8px;
 }
 
+
+
+#modalLink{
+    text-align: center;
+    max-width: 525px;
+}
+.kigyo-alcim {
+  color: #247606;       /* Nemzeti parkos zöld szín */
+  font-weight: bold;    /* Vastag betű */
+  /*display: inline;      /* Egy vonalban marad a szöveggel */
+}
+#szovegKinezet, #szovegEszik, #szovegLakik {
+  margin-left: 10px;
+}
+
+#modalLeiras1, #modalLeiras2, #modalLeiras3 {
+    text-align: left;
+}
+
+/*görgethető legyen*/
+.modal-tartalom {
+    max-height: 85vh !important;    /* A kijelző magasságának maximum 85%-át foglalhatja el */
+    overflow-y: auto !important;    /* Ha a tartalom hosszabb, automatikusan megjelenik a függőleges görgetősáv */
+    
+    /* Opcionális finomítások a szebb görgetésért: */
+    scroll-behavior: smooth;
+    padding: 50px 30px 30px 30px;            /* Hely a görgetősávnak, hogy ne takarja ki a szöveget */
+}

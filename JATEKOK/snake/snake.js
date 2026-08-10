@@ -11,6 +11,7 @@ var snakeX, snakeY; //fej
 var velocityX, velocityY; //melyik irányba halad
 var snakeBody = []; 
 var foodX, foodY;
+var foodImageIndex = 1; // Eltároljuk, hogy a jelenlegi kaja épp melyik sorszámú kép (1, 2 vagy 3)
 
 // Játékállapotok kezelése: "START" (kezdőképernyő), "PLAYING" (játék), "GAMEOVER" (vége)
 var gameState = "START"; 
@@ -20,6 +21,44 @@ var gameState = "START";
 var touchStartX = 0;
 var touchStartY = 0;
 
+// KÉPEK KEZELÉSE ÉS ELŐTÖLTÉSE
+var kigyoMappa = "erdeisiklo"; // Alapértelmezett mappa (a HTML select első értéke)
+
+// Képobjektumok létrehozása
+var imgFejFel = new Image();
+var imgFejLe = new Image();
+var imgFejBalra = new Image();
+var imgFejJobbra = new Image();
+var imgTest = new Image();
+
+var imgKaja1 = new Image();
+var imgKaja2 = new Image();
+var imgKaja3 = new Image();
+// Új farok képobjektumok létrehozása
+var imgFarokFel = new Image();
+var imgFarokLe = new Image();
+var imgFarokBalra = new Image();
+var imgFarokJobbra = new Image();
+
+
+// Függvény, ami frissíti a képek forrását (src), ha kígyót váltunk
+function kepekBetoltese() {
+    imgFejFel.src = "images/"+ kigyoMappa + "/fej-fel.png";
+    imgFejLe.src = "images/"+ kigyoMappa + "/fej-le.png";
+    imgFejBalra.src = "images/"+ kigyoMappa + "/fej-balra.png";
+    imgFejJobbra.src = "images/"+ kigyoMappa + "/fej-jobbra.png";
+    imgTest.src = "images/"+ kigyoMappa + "/test.png";
+
+    imgFarokFel.src = "images/"+ kigyoMappa + "/farok-fel.png";
+    imgFarokLe.src = "images/"+ kigyoMappa + "/farok-le.png";
+    imgFarokBalra.src = "images/"+ kigyoMappa + "/farok-balra.png";
+    imgFarokJobbra.src = "images/"+ kigyoMappa + "/farok-jobbra.png";
+
+    imgKaja1.src = "images/"+ kigyoMappa + "/kaja/1.png";
+    imgKaja2.src = "images/"+ kigyoMappa + "/kaja/2.png";
+    imgKaja3.src = "images/"+ kigyoMappa + "/kaja/3.png";
+}
+
 
 window.onload = function() {
     board = document.getElementById("board"); 
@@ -27,6 +66,16 @@ window.onload = function() {
     
     board.height = rows * blockSize;
     board.width = cols * blockSize;
+
+    // Képek betöltése az indításkor érvényes mappából
+    kepekBetoltese();
+
+    // Legördülő menü (select) figyelése
+    var selectMenu = document.getElementById("kigyo-select");
+    selectMenu.addEventListener("change", function() {
+        kigyoMappa = this.value; // Megkapja pl. "kaszpiharangossiklo"
+        kepekBetoltese();        // Azonnal újratölti a képeket az új mappából
+    });
 
     // Eseménykezelők regisztrálása
     document.addEventListener("keydown", handleKeyDown); //keydown gyorsabb mint a keyup a nyílbillentyűk kezelésére
@@ -51,6 +100,10 @@ window.onload = function() {
     setInterval(gameLoop, 2000 / 10); //1000/10
 }
 
+
+
+
+
 // Új játékhurok, ami az aktuális állapot (gameState) szerint rajzol
 function gameLoop() {
     if (gameState === "START") {
@@ -72,6 +125,16 @@ function resetGameData() {
     velocityY = 0;
     snakeBody = [];
     placeFood();
+}
+
+// Véletlenszerű kaja elhelyezése és típusának sorsolása
+function placeFood() {
+    // Koordináták kiszámítása a pályán belül
+    foodX = Math.floor(Math.random() * cols) * blockSize;
+    foodY = Math.floor(Math.random() * rows) * blockSize;
+    
+    // 1) Véletlenszerűen kiválasztunk egy kaja képet (1, 2 vagy 3)
+    foodImageIndex = Math.floor(Math.random() * 3) + 1;
 }
 
 // --- 1. BILLENTYŰZET KEZELÉSE ÉS GÖRDÜLÉS LETILTÁSA ---
@@ -102,6 +165,8 @@ function handleKeyDown(e) {
 
 // Játék indítása
 function startGame() {
+    // Játék közben letiltjuk a legördülő menüt, hogy ne lehessen menet közben váltani
+    document.getElementById("kigyo-select").disabled = true;
     resetGameData();
     gameState = "PLAYING";
 }
@@ -130,6 +195,11 @@ function handleCanvasClick(e) {
         }
     }
 }
+
+
+
+
+
 
 // --- 3. KÉPERNYŐK RAJZOLÁSA A CANVAS-RA ---
 
@@ -178,6 +248,9 @@ function drawStartScreen() {
 
 // JÁTÉK VÉGE KÉPERNYŐ
 function drawGameOverScreen() {
+    // Játék végén újra engedélyezzük a legördülő menüt, hogy lehessen fajtát váltani
+    document.getElementById("kigyo-select").disabled = false;
+
     // Sötétített áttetsző réteget vonunk a meglévő játékfázisra (mint a modal-hatter)
     context.fillStyle = "#51923a"; //"rgb(60,93,56)";
     context.fillRect(0, 0, board.width, board.height);
@@ -218,11 +291,10 @@ function drawCanvasButton(text, centerX, centerY) {
     context.stroke();
 
     // Gomb szöveg
-    context.fillStyle = "#white";
+    context.fillStyle = "white";
     context.font = "bold 16px Times serif";
     context.textAlign = "center";
     context.textBaseline = "middle";
-    context.fillStyle = "#ffffff";
     context.fillText(text, centerX, y + h / 2);
     context.textBaseline = "alphabetic"; // Alapértelmezett visszaállítása
 }
@@ -230,17 +302,22 @@ function drawCanvasButton(text, centerX, centerY) {
 // --- 4. A JÁTÉKMENET LOGIKÁJA (A frissítésekért felel) ---
 function updateGame() { 
     // Háttér
-    context.fillStyle = "rgb(60,93,56)"; //vagy #51923a
+    context.fillStyle = "rgb(231, 241, 172)"; //60,93,56 vagy #51923a
     context.fillRect(0, 0, board.width, board.height);
 
-    // Kaja
-    context.fillStyle = "red"; 
-    context.fillRect(foodX, foodY, blockSize, blockSize);
+    // 1) KAJA KIRAJZOLÁSA KÉPPEL (A sorsolt foodImageIndex alapján)
+    var kivalasztottKajaKep = imgKaja1;
+    if (foodImageIndex === 2) {
+        kivalasztottKajaKep = imgKaja2;
+    } else if (foodImageIndex === 3) {
+        kivalasztottKajaKep = imgKaja3;
+    }
+    context.drawImage(kivalasztottKajaKep, foodX, foodY, blockSize, blockSize);
 
     // Kaja megevése
     if (snakeX == foodX && snakeY == foodY) { 
         snakeBody.push([foodX, foodY]); 
-        placeFood();
+        placeFood(); // Új kaját rak le, ami a frissített placeFood függvény miatt képet is sorsol!
         points += 1; 
         document.getElementById("points").innerText = points; 
     }
@@ -257,12 +334,54 @@ function updateGame() {
     snakeX += velocityX * blockSize; 
     snakeY += velocityY * blockSize;
 
-    // Kígyó kirajzolása
-    context.fillStyle = "lime"; 
-    context.fillRect(snakeX, snakeY, blockSize, blockSize); 
+    // // KÍGYÓ TESTÉNEK ÉS FARKÁNAK KIRAJZOLÁSA
     for (let i = 0; i < snakeBody.length; i++) { 
-        context.fillRect(snakeBody[i][0], snakeBody[i][1], blockSize, blockSize); 
+        // Ha ez a legutolsó elem a tömbben, akkor ez a FAROK
+        if (i === snakeBody.length - 1) {
+            
+            // Megnézzük, mi van a farok előtt. Ha több testrész van, akkor az előző testrész, ha nincs, akkor a fej.
+            let elozoX = (i === 0) ? snakeX : snakeBody[i - 1][0];
+            let elozoY = (i === 0) ? snakeY : snakeBody[i - 1][1];
+            
+            let farokX = snakeBody[i][0];
+            let farokY = snakeBody[i][1];
+            
+            // Alapértelmezett kép (jobbra), ha valamiért nem mozogna
+            var aktualisFarokKep = imgFarokJobbra; 
+            
+            // Kiszámoljuk az irányt az előtte lévő elemhez képest
+            if (elozoX === farokX && elozoY < farokY) {
+                aktualisFarokKep = imgFarokFel; // Az előző elem feljebb van, tehát felfelé néz a farok
+            } else if (elozoX === farokX && elozoY > farokY) {
+                aktualisFarokKep = imgFarokLe; // Az előző elem lejjebb van
+            } else if (elozoX < farokX && elozoY === farokY) {
+                aktualisFarokKep = imgFarokBalra; // Az előző elem balra van
+            } else if (elozoX > farokX && elozoY === farokY) {
+                aktualisFarokKep = imgFarokJobbra; // Az előző elem jobbra van
+            }
+            
+            // Farok kirajzolása
+            context.drawImage(aktualisFarokKep, farokX, farokY, blockSize, blockSize);
+            
+        } else {
+            // Ha nem a legutolsó elem, akkor ez egy sima TEST darab
+            context.drawImage(imgTest, snakeBody[i][0], snakeBody[i][1], blockSize, blockSize); 
+        }
     }
+
+    // 2) KÍGYÓ FEJÉNEK KIRAJZOLÁSA (Iránynak megfelelő képpel, alapértelmezett a JOBBRA)
+    var aktualisFejKep = imgFejJobbra; // Kezdőállapot / Jobbra néz alapból
+    
+    if (velocityX === 0 && velocityY === -1) {
+        aktualisFejKep = imgFejFel;
+    } else if (velocityX === 0 && velocityY === 1) {
+        aktualisFejKep = imgFejLe;
+    } else if (velocityX === -1 && velocityY === 0) {
+        aktualisFejKep = imgFejBalra;
+    } else if (velocityX === 1 && velocityY === 0) {
+        aktualisFejKep = imgFejJobbra;
+    }
+    context.drawImage(aktualisFejKep, snakeX, snakeY, blockSize, blockSize); 
 
     // FALNAK ÜTKÖZÉS ELLENŐRZÉSE
     if (snakeX < 0 || snakeX >= cols * blockSize || snakeY < 0 || snakeY >= rows * blockSize) {
@@ -293,6 +412,8 @@ function placeFood() {
             }
         }
     }
+    // Véletlenszerű kaja kép kiválasztása (1, 2 vagy 3)
+    foodImageIndex = Math.floor(Math.random() * 3) + 1;
 }
 
 

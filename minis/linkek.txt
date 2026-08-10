@@ -111,3 +111,5 @@ levendula: https://www.flaticon.com/free-icon/lavender_3200053
 tök: https://www.flaticon.com/free-icon/pumpkin_3413352
 gyik: https://pngtree.com/free-png-vectors/green-lizard-vector
 beka: https://www.flaticon.com/free-icon/frog_7196617
+
+elihal: https://www.flaticon.com/free-icon/animal_11177563

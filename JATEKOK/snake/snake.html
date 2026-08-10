@@ -5,10 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="snake.css">
     <link rel="stylesheet" href="../../alap.css">
+    <link rel="stylesheet" href="../../np.css">
     <script src="snake.js"></script>
     <title>Nemzeti parkjaink</title>
     <link rel="icon" type="image/x-icon" href="../../mokus2.png">
     <!--hambi icon--><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
 </head>
 <body>
 
@@ -17,7 +20,6 @@
         <h1>Játékok</h1>
     </div>
     </div>
-
 
     <div id="navigacios_sav">
     <div class="topnav" id="myTopnav">
@@ -53,13 +55,13 @@
         <div class="select-container">
             <label for="kigyo-select" class="tartalom_resz_tartalom">Válaszd ki, hogy melyik kígyóval szeretnél lenni:</label>
             <select id="kigyo-select">
-                <option value="erdeisiklo">Erdei sikló</option>
-                <option value="kaszpiharangoskigyo">Kaszpi haragossikló</option>
-                <option value="keresztesvipera">Keresztes vipera</option>
-                <option value="kockassiklo">Kockás sikló</option>
-                <option value="rakosivipera">Rákosi vipera</option>
-                <option value="rezsiklo">Rézsikló</option>
-                <option value="vizisiklo">Vízisikló</option>
+                <option class="gomb" value="erdeisiklo">Erdei sikló</option>
+                <option class="gomb" value="kaszpiharangossiklo">Kaszpi haragossikló</option>
+                <option class="gomb" value="keresztesvipera">Keresztes vipera</option>
+                <option class="gomb" value="kockassiklo">Kockás sikló</option>
+                <option class="gomb" value="rakosivipera">Rákosi vipera</option>
+                <option class="gomb" value="rezsiklo">Rézsikló</option>
+                <option class="gomb" value="vizisiklo">Vízisikló</option>
             </select>
         </div>
 
@@ -76,59 +78,34 @@
             <div class="counter-container  tartalom_resz_tartalom">
                 Pontok: <span id="points">0</span>
             </div>
+
+            <a id="modalLink" href="javascript:void(0);" class="tovabb-gomb">Szeretnél többet megtundi az általad kiválasztott kígyóról? →</a> <!-- a href="#" felugrana a lap tetejére (kell javascript)                      , de ez a href="javascript:void(0);" ugyanúgy letíltja az ugrást -->
         </div>
 
-        <!--<div class="game-container">
-            <div id="board"></div> <!- A játéktábla ->
-            <img id="solved-image" src=" " alt="Megoldás"> <!- A teljes kép, ami alapból láthatatlan, de győzelemkor pontosan a tábla helyén jelenik meg ->
-        </div>-->
+        <!-- WASD irányírás !!!!!!!!!!    gomb helyett lehetne beszélő kígyó-->
 
-        <!-- Klasszikus felugró ablak (Modal) a szövegnek -->
-        <!--<div id="win-popup" class="popup-overlay  modal-hatter">
-            <div class="popup-content  modal-tartalom">
-                <span class="bezar-gomb">&times;</span> <!- Az X bezáró gomb ->
-                <h2 class="modalCim">Sikerült!</h2>
-                <p class="modalLeiras">Sikeresen kiraktad a képet!</p>
-                <!- a href="#" felugrana a lap tetejére (kell javascript)                      , de ez a href="javascript:void(0);" ugyanúgy letíltja az ugrást ->
-                <a id="restart-btn" href="javascript:void(0);" class="tovabb-gomb">Új játék</a>
+        <!-- Felugró ablak (Modal) szerkezete -->
+        <div id="parkModal" class="modal-hatter">
+        <div class="modal-tartalom">
+            <span class="bezar-gomb">&times;</span> <!--az x jele-->
+            <div class="galleria">
+                <figure class="kep_doboz">
+                    <img id="modalKep" src="x" alt="Kígyó fajta" class="modal-logo">
+                    <figcaption>Forrás: <a id="modalForrasLink" class="tartalom_resz_link" target="_blank" href="x">www</a>  </figcaption>
+                </figure>
             </div>
-        </div>-->
-
-
-        https://matramuzeum.nhmus.hu/hu/blog/bg_kigyokmagyarorszagon
-        Magyarországon összesen hét őshonos kígyófaj él. A hazai kígyók mindegyike védett vagy fokozottan védett!
-
-        Siklófélék (Nem mérgesek)
-        1. Vízisikló (Natrix natrix)
+            <h2 id="modalCim">Kígyó neve</h2>
+            <p id="modalLeiras1"><span class="kigyo-alcim">Hogy néz ki?</span><br> <span id="szovegKinezet"></span></p>
+            <p id="modalLeiras2"><span class="kigyo-alcim">Mit eszik?</span><br> <span id="szovegEszik"></span></p>
+            <p id="modalLeiras3"><span class="kigyo-alcim">Melyik nemzeti parkban él?</span><br> <span id="szovegLakik"></span></p>
+        </div>
+        </div>
+        <!--1. Vízisikló (Natrix natrix)
         Hogy néz ki? Szürkés, olajzöld vagy barnás színű kígyó. Legfontosabb ismertetőjegye a félhold alakú, sárga, fehér vagy narancssárga nyakfolt a feje mögött kétoldalt. Hossza általában 1-1,2 méter.
         Mit eszik? Elsősorban kétéltűeket (békákat, gőtéket), ezenkívül ebihalakat és kisebb halakat fogyaszt.
         Melyik nemzeti parkban él? Országszerte elterjedt. Gyakori a Balaton-felvidéki, a Hortobágyi, a Fertő-Hanság és a Duna-Ipoly Nemzeti Park vizes élőhelyein.
-        2. Kockás sikló (Natrix tessellata)
-        Hogy néz ki? Színe a szürkétől a zöldesbarnáig terjed, hátát sakktáblaszerű, sötét négyzetes foltok borítják. Nyakfoltja nincs, szemei kissé felfelé néznek.
-        Mit eszik? Szinte kizárólag halakkal táplálkozik, ritkábban békákat is ejt.
-        Melyik nemzeti parkban él? Kimondottan a nagyobb állóvizek, folyók mentén él. Rendkívül gyakori például a Balaton-felvidéki Nemzeti Park (Balaton-part) és a Duna-Dráva Nemzeti Park területein.
-        3. Erdei sikló (Zamenis longissimus)
-        Hogy néz ki? Hazánk egyik legnagyobb kígyója, hossza a 1,5-2 métert is elérheti. Karcsú, fénylő olajbarna, sárgásbarna vagy szürkés színű, a hasa világossárga. A pikkelyein finom, fehér pontozás látható. Kiválóan mászik fára.
-        Mit eszik? Egereket, pockokat, cickányokat, valamint madárfiókákat és tojásokat. Zsákmányát fojtással öli meg.
-        Melyik nemzeti parkban él? A domb- és hegyvidéki erdőket kedveli. Megtalálható a Bükki, az Aggteleki, a Duna-Ipoly és a Balaton-felvidéki Nemzeti Parkban.
-        4. Rézsikló (Coronella austriaca)
-        Hogy néz ki? Kistermetű (50-70 cm), szürkés vagy rézvörös alapszínű. Hátán két sorban apró, sötét foltok futnak. A feje tetején egy sötét, patkó alakú rajzolat, a szemén keresztül pedig egy sötét csík húzódik. Gyakran összetévesztik a keresztes viperával!
-        Mit eszik? Főként más hüllőket (fali gyíkokat, lábatlan gyíkokat) és esetenként rágcsálók kölykeit fogyasztja.
-        Melyik nemzeti parkban él? Napos, száraz erdőszéleken, kőbányákban él. Jelen van az Őrségi, a Bükki, az Aggteleki és a Balaton-felvidéki Nemzeti Parkban.
-        5. Kaszpi haragossikló (Dolichophis caspius)
-        Hogy néz ki? A legnagyobb és legritkább hazai sikló (akár 2 méter feletti is lehet). Színe olajbarna vagy ezüstösszürke, a pikkelyek közepe világosabb. Hatalmas szemei és szúrós tekintete van. Meglepődve rendkívül gyors és agresszíven védekezik (harap), de nem mérges.
-        Mit eszik? Nagyon falánk: gyíkokat, rágcsálókat (például ürgét), madarakat és más kígyókat is megeszik.
-        Melyik nemzeti parkban él? Fokozottan védett, nagyon szűk élettérrel. Legnagyobb állománya a Duna-Dráva Nemzeti Parkhoz tartozó Villányi-hegységben (Szársomlyó) él, de előfordul a Duna-Ipoly Nemzeti Park száraz, budai kopárjain is (pl. Sas-hegy).
+        https://mme.hu/keteltuek-es-hullok/vizisiklo-->
 
-        Viperafélék (Mérgeskígyók)
-        6. Keresztes vipera (Vipera berus)
-        Hogy néz ki? Zömök testű, rövid farkú kígyó (60-80 cm). A feje háromszögletű, rajta sötét „X” vagy „Y” mintázattal. Legfőbb jellemzője a háton végighúzódó, markáns, sötét színű cikkcakk minta. A hímek ezüstszürkék, a nőstények barnásak. Pupillája rés alakú (vágott). A mérge a keringési rendszert és a szöveteket támadja meg, de marása ritka (évente 1-2 eset).
-        Mit eszik? Erdei egereket, pockokat, békákat és gyíkokat fogyaszt.
-        Melyik nemzeti parkban él? Hűvös, nyirkos helyeket kedvel. Főként az Őrségi Nemzeti Park láprétjein, Somogyban és a Bükki Nemzeti Park magasabb, északi területein (illetve a Zemplénben) fordul elő.
-        7. Rákosi vipera (Vipera ursinii rakosiensis)
-        Hogy néz ki? Nagyon kistermetű vipera (40-50 cm). Mintázata hasonló a keresztes viperáéhoz (háti cikkcakk), de a színe sokkal halványabb, szürkésbarna, és a cikkcakkok szélei elmosódottabbak, hullámosabbak lehetnek. Európa egyik legveszélyeztetettebb gerinces állata. A rákosi vipera mérge az egyik leggyengébb az európai viperák között. Ráadásul ez a faj rendkívül békés, alig lehet harapásra bírni.
-        Mit eszik? Főként nagyobb rovarokat (sáskákat, tücsköket), valamint gyíkokat és egérkölyköket eszik.
-        Melyik nemzeti parkban él? Szigorúan védett alföldi gyepeken él. Kizárólag a Kiskunsági Nemzeti Park (Duna-Tisza köze) és a Fertő-Hanság Nemzeti Park (Hanság) gyepein található meg.
     </div>
     </div>
 
@@ -137,6 +114,159 @@
     <div>
         <img class="also_kep" src="../../erdos_proba.png" alt="" >
     </div>
+
+<script>
+//adatok eltárolása egy objektumban
+const kigyoAdatok = {
+    erdeisiklo: {
+        cim: "Erdei sikló",
+        kep: "images/erdeisiklo/erdei_siklo_zsoldos_marton_c.png",
+        forras: "www.mme.hu",
+        link: "https://mme.hu/keteltuek-es-hullok/erdei-siklo",
+        kinezet: "Hazánk egyik legnagyobb kígyója, hossza a 1,5-2 métert is elérheti. Karcsú, fénylő olajbarna, sárgásbarna vagy szürkés színű, a hasa világossárga. A pikkelyein finom, fehér pontozás látható. Kiválóan mászik fára.",
+        eszik: "Egereket, pockokat, cickányokat, valamint madárfiókákat és tojásokat. Zsákmányát fojtással öli meg.",
+        lakik: "A domb- és hegyvidéki erdőket kedveli. Megtalálható a Bükki, az Aggteleki, a Duna-Ipoly és a Balaton-felvidéki Nemzeti Parkban."     
+    },
+    kaszpiharangossiklo: {
+        cim: "Kaszpi haragossikló",
+        kep: "images/kaszpiharangossiklo/haragos_siklo_zsoldos_marton_c.png",
+        forras: "www.mme.hu",
+        link: "https://mme.hu/keteltuek-es-hullok/kaszpi-haragossiklo",
+        kinezet: "A legnagyobb és legritkább hazai sikló (akár 2 méter feletti is lehet). Színe olajbarna vagy ezüstösszürke, a pikkelyek közepe világosabb. Hatalmas szemei és szúrós tekintete van. Meglepődve rendkívül gyors és agresszíven védekezik (harap), de nem mérges.",
+        eszik: "Nagyon falánk: gyíkokat, rágcsálókat (például ürgét), madarakat és más kígyókat is megeszik.",
+        lakik: "Fokozottan védett, nagyon szűk élettérrel. Legnagyobb állománya a Duna-Dráva Nemzeti Parkhoz tartozó Villányi-hegységben (Szársomlyó) él, de előfordul a Duna-Ipoly Nemzeti Park száraz, budai kopárjain is (pl. Sas-hegy)."     
+    },        
+    keresztesvipera: {
+        cim: "Keresztes vipera",
+        kep: "images/keresztesvipera/keresztes_vipera_c.png",
+        forras: "www.mme.hu",
+        link: "https://mme.hu/keteltuek-es-hullok/keresztes-vipera",
+        kinezet: "Zömök testű, rövid farkú kígyó (60-80 cm). A feje háromszögletű, rajta sötét „X” vagy „Y” mintázattal. Legfőbb jellemzője a háton végighúzódó, markáns, sötét színű cikkcakk minta. A hímek ezüstszürkék, a nőstények barnásak. Pupillája rés alakú (vágott). A mérge a keringési rendszert és a szöveteket támadja meg, de marása ritka (évente 1-2 eset).",
+        eszik: "Erdei egereket, pockokat, békákat és gyíkokat fogyaszt.",
+        lakik: "Hűvös, nyirkos helyeket kedvel. Főként az Őrségi Nemzeti Park láprétjein, Somogyban és a Bükki Nemzeti Park magasabb, északi területein (illetve a Zemplénben) fordul elő."     
+    },        
+    kockassiklo: {
+        cim: "Kockás sikló",
+        kep: "images/kockassiklo/kockas_siklo_zsoldos_marton_c.png",
+        forras: "www.mme.hu",
+        link: "https://mme.hu/keteltuek-es-hullok/kockas-siklo",
+        kinezet: "Színe a szürkétől a zöldesbarnáig terjed, hátát sakktáblaszerű, sötét négyzetes foltok borítják. Nyakfoltja nincs, szemei kissé felfelé néznek.",
+        eszik: "Szinte kizárólag halakkal táplálkozik, ritkábban békákat is ejt.",
+        lakik: "Kimondottan a nagyobb állóvizek, folyók mentén él. Rendkívül gyakori például a Balaton-felvidéki Nemzeti Park (Balaton-part) és a Duna-Dráva Nemzeti Park területein."     
+    },
+    rakosivipera: {
+        cim: "Rákosi vipera",
+        kep: "images/rakosivipera/rakosi_vipera_c.png",
+        forras: "www.mme.hu",
+        link: "https://mme.hu/keteltuek-es-hullok/rakosi-vipera",
+        kinezet: "Nagyon kistermetű vipera (40-50 cm). Mintázata hasonló a keresztes viperáéhoz (háti cikkcakk), de a színe sokkal halványabb, szürkésbarna, és a cikkcakkok szélei elmosódottabbak, hullámosabbak lehetnek. Európa egyik legveszélyeztetettebb gerinces állata. A rákosi vipera mérge az egyik leggyengébb az európai viperák között. Ráadásul ez a faj rendkívül békés, alig lehet harapásra bírni.",
+        eszik: "Főként nagyobb rovarokat (sáskákat, tücsköket), valamint gyíkokat és egérkölyköket eszik.",
+        lakik: "Szigorúan védett alföldi gyepeken él. Kizárólag a Kiskunsági Nemzeti Park (Duna-Tisza köze), a Fertő-Hanság Nemzeti Park (Hanság) és a Hortobágyi Nemzeti Park gyepein található meg."     
+    },
+    rezsiklo: {
+        cim: "Rézsikló",
+        kep: "images/rezsiklo/rezsiklo_zsoldos_marton_c.png",
+        forras: "www.mme.hu",
+        link: "https://mme.hu/keteltuek-es-hullok/rezsiklo",
+        kinezet: "Kistermetű (50-70 cm), szürkés vagy rézvörös alapszínű. Hátán két sorban apró, sötét foltok futnak. A feje tetején egy sötét, patkó alakú rajzolat, a szemén keresztül pedig egy sötét csík húzódik. Gyakran összetévesztik a keresztes viperával!",
+        eszik: "Főként más hüllőket (fali gyíkokat, lábatlan gyíkokat) és esetenként rágcsálók kölykeit fogyasztja.",
+        lakik: "Napos, száraz erdőszéleken, kőbányákban él. Jelen van az Őrségi, a Bükki, az Aggteleki és a Balaton-felvidéki Nemzeti Parkban."     
+    },
+    vizisiklo: {
+        cim: "Vízisikló",
+        kep: "images/vizisiklo/vizisiklo_c.png",
+        forras: "www.mme.hu",
+        link: "https://mme.hu/keteltuek-es-hullok/vizisiklo",
+        kinezet: "Szürkés, olajzöld vagy barnás színű kígyó. Legfontosabb ismertetőjegye a félhold alakú, sárga, fehér vagy narancssárga nyakfolt a feje mögött kétoldalt. Hossza általában 1-1,2 méter.",
+        eszik: "Elsősorban kétéltűeket (békákat, gőtéket), ezenkívül ebihalakat és kisebb halakat fogyaszt.",
+        lakik: "Országszerte elterjedt. Gyakori a Balaton-felvidéki, a Hortobágyi, a Fertő-Hanság és a Duna-Ipoly Nemzeti Park vizes élőhelyein."     
+    }
+};
+
+
+// 2. HTML elemek pontos kijelölése ID alapján
+const modal = document.getElementById("parkModal");
+const modalCim = document.getElementById("modalCim");
+//const modalKep = document.getElementById("modalKep");
+//const modalForrasLink = document.getElementById("modalForrasLink");
+
+const szovegKinezet = document.getElementById("szovegKinezet");
+const szovegEszik = document.getElementById("szovegEszik");
+const szovegLakik = document.getElementById("szovegLakik");
+
+const infoGomb = document.getElementById("modalLink");        // A te "modalLink" gombod
+const kigyoSelect = document.getElementById("kigyo-select");    // A te legördülő menüd
+const bezarGomb = document.querySelector(".bezar-gomb");
+
+// 3. Kattintás esemény kezelése az információs gombra
+infoGomb.addEventListener("click", () => {
+  // Kiolvassuk, hogy melyik opció van éppen kiválasztva (pl. "erdeisiklo" vagy "vizisiklo")
+  const kivalasztottKulcs = kigyoSelect.value; 
+  
+  // Megkeressük az ehhez tartozó adatot az objektumban
+  const adat = kigyoAdatok[kivalasztottKulcs];
+
+  if (adat) {
+    // Galéria kép és felirat frissítése
+    modalCim.textContent = adat.cim;
+    modalKep.src = adat.kep;
+    modalKep.alt = adat.cim;
+    
+    // Forrás szöveg és link cseréje
+    modalForrasLink.textContent = adat.forras;
+    modalForrasLink.href = adat.link;
+    
+    // Három leírási mező frissítése
+    szovegKinezet.textContent = adat.kinezet;
+    szovegEszik.textContent = adat.eszik;
+    szovegLakik.textContent = adat.lakik;
+    
+    // Modal megjelenítése Flexbox elrendezéssel (tökéletesen középre teszi)
+    modal.style.display = "flex";
+  } else {
+    console.error("Nem találhatók adatok a következő kígyóhoz: " + kivalasztottKulcs);
+  }
+});
+
+// 4. Bezárás az X gombbal
+bezarGomb.addEventListener("click", () => {
+  modal.style.display = "none";
+});
+
+// 5. Bezárás háttérre kattintással
+window.addEventListener("click", (e) => {
+  if (e.target === modal) {
+    modal.style.display = "none";
+  }
+});
+
+// 6. Bezárás Escape gombbal
+window.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") {
+    modal.style.display = "none";
+  }
+});
+
+// 7. Bezárás telefonon a vissza gomb megnyomásával
+window.addEventListener("popstate", () => {
+  // Ha a felhasználó visszalépett, bezárjuk a modalt
+  modal.style.display = "none";
+});
+
+</script>
+
+
+
+
+        <!--https://matramuzeum.nhmus.hu/hu/blog/bg_kigyokmagyarorszagon
+        Magyarországon összesen hét őshonos kígyófaj él. A hazai kígyók mindegyike védett vagy fokozottan védett!
+
+        Siklófélék (Nem mérgesek)
+        1. Vízisikló (Natrix natrix)
+        Hogy néz ki? Szürkés, olajzöld vagy barnás színű kígyó. Legfontosabb ismertetőjegye a félhold alakú, sárga, fehér vagy narancssárga nyakfolt a feje mögött kétoldalt. Hossza általában 1-1,2 méter.
+        Mit eszik? Elsősorban kétéltűeket (békákat, gőtéket), ezenkívül ebihalakat és kisebb halakat fogyaszt.
+        Melyik nemzeti parkban él? Országszerte elterjedt. Gyakori a Balaton-felvidéki, a Hortobágyi, a Fertő-Hanság és a Duna-Ipoly Nemzeti Park vizes élőhelyein.
+        https://mme.hu/keteltuek-es-hullok/vizisiklo-->
 
 </body>
 </html>
