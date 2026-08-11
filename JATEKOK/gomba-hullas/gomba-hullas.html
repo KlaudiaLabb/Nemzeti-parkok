@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="gomba-hullas.css">
+    <link rel="stylesheet" href="../../alap.css">
+    <title>Nemzeti parkjaink</title>
+    <link rel="icon" type="image/x-icon" href="../../mokus2.png">
+    <!--hambi icon--><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+
+    <div class="hero-image">
+    <div class="hero-text">
+        <h1>Játékok</h1>
+    </div>
+    </div>
+
+    <div id="navigacios_sav">
+    <div class="topnav" id="myTopnav">
+        <a href="../../index.html">Főoldal</a>
+        <a href="../../np-index.html">Nemzeti parkok</a>
+        <a href="../../jatekok.html">Játékok</a>
+        <a href="../../rolam.html">Rólam</a>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()" aria-label="icon">
+            <i class="fa fa-bars"></i>
+        </a>
+    </div>
+    </div>
+
+    <script>
+        function myFunction() {
+            var x = document.getElementById("myTopnav");
+            if (x.className === "topnav") {
+                x.className += " responsive";
+            } else {
+                x.className = "topnav";
+            }
+        }
+    </script>
+
+
+    <div class="tartalom">
+    <div class="belso_tartalom_mezo">
+
+        <h1 class="tartalom_resz_cim">Gomba szedés</h1>
+        <p class="tartalom_resz_tartalom">Próbálj meg a lehető legtöbb gombát elkapni! Vigyázz a mérges gombákkal, mert ha egyet elkaptál, akkor vége a játéknak. A kosarat irányíthatod számítógépen a nyíl billentyűkkel vagy az "A" és "D" betűkkel. Telefonon úgy tudod irányítani, hogy a játéktér jobb és bal oldalát nyomod meg.</p>
+
+        <p class="tartalom_resz_tartalom  felsorolashoz">A játékban szereplő gombák:</p>
+
+        <!-- Képnézegetők konténere -->
+        <div class="galeria-kontener">
+            <!-- 1. KÉPNÉZEGETŐ: Ehető gombák -->
+            <div class="galeria-doboz">
+                <h3>Ehető gombák</h3>
+                <div class="galeria-iranyitas">
+                    <button type="button" class="galeria-gomb" id="eheto-bal">◀</button>
+                    <div class="galeria-kep-keret">
+                        <img id="eheto-kep" src="images/eheto/1.png" alt="Ehető gomba">
+                    </div>
+                    <button type="button" class="galeria-gomb" id="eheto-jobb">▶</button>
+                </div>
+            </div>
+
+            <!-- 2. KÉPNÉZEGETŐ: Mérgező gombák -->
+            <div class="galeria-doboz">
+                <h3>Mérgező gombák</h3>
+                <div class="galeria-iranyitas">
+                    <button type="button" class="galeria-gomb" id="mergezo-bal">◀</button>
+                    <div class="galeria-kep-keret">
+                        <img id="mergezo-kep" src="images/mergezo/1.png" alt="Mérgező gomba">
+                    </div>
+                    <button type="button" class="galeria-gomb" id="mergezo-jobb">▶</button>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    </div>
+
+    <div class="tartalom  kulso_tartalom_mezo_szinatmenet">
+    <div class="belso_tartalom_mezo_szinatmenet">
+
+        <!-- A játéktér konténere -->
+        <div class="game-container">
+            <!-- Játéktér felülete (A gomb is ezen belül lesz rajzolva) -->
+            <canvas id="board" ></canvas>
+
+            <!-- Pontszámláló a játéktér ALATT -->
+            <div class="counter-container  tartalom_resz_tartalom">
+                Pontok: <span id="points">0</span>
+            </div>
+        </div>
+
+        <br>
+        <p class="tartalom_resz_tartalom">További ehető gombák: <a class="tartalom_resz_link" href="https://www.gombacsoda.hu/eheto-gombak" target="_blank">www.gombacsoda.hu</a> </p>
+        <p class="tartalom_resz_tartalom">További mérges gombák: <a class="tartalom_resz_link" href="https://www.gombacsoda.hu/mergezo-gombak" target="_blank">www.gombacsoda.hu</a> </p>
+
+    </div>
+    </div>
+
+
+
+    <div>
+        <img class="also_kep" src="../../erdos_proba.png" alt="" >
+    </div>
+
+
+    <!-- csak akkor indul el a js kód ha már minden html elem betöltődött -->
+    <script src="gomba-hullas.js"></script>
+
+
+</body>
+</html>

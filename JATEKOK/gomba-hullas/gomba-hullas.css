@@ -1,0 +1,90 @@
+.game-container{
+    text-align: center; /*szöveg, képek, canvas középre helyezlse*/
+}
+
+canvas {
+    width: 80vw;             /* Kis képernyőn a kijelző szélességének pontosan a 80%-a lesz */
+    max-width: 525px;        /* Nagy képernyőn maximum az eredeti méretig (15 * 35px) nőhet */
+    height: 80vw;            /* Mivel négyzet alakú, a magassága megegyezik a szélességével */
+    max-height: 525px;
+    box-sizing: border-box;
+    display: inline-block;
+    border: 5px solid #247606;
+    border-radius: 8px;
+}
+
+
+.felsorolashoz{
+    text-align: center;
+    font-weight: bold;
+    color: #247606;
+}
+
+/* KÉPNÉZEGETŐ */
+/* A két galéria közös konténere */
+.galeria-kontener {
+    width: 80vw;
+    max-width: 400px;
+    display: flex;
+    justify-content: space-between;
+    gap: 5px;
+    margin: 0px auto;
+    box-sizing: border-box;
+}
+
+/* Egy-egy galéria doboz formázása */
+.galeria-doboz {
+    flex: 1;
+    background-color: #dcf9d2;
+    border: 2px solid #247606;
+    border-radius: 8px;
+    padding: 10px;
+    text-align: center;
+}
+
+.galeria-doboz h3 {
+    margin: 0 0 10px 0;
+    font-size: 14px;
+    font-weight: bold;
+    /*font-family: monospace;*/
+    color: #247606;
+}
+
+/* Gombok és a kép elrendezése egy sorba */
+.galeria-iranyitas {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* A nyilak stílusa */
+.galeria-gomb {
+    background-color: #247606;
+    color: #dcf9d2;
+    border: none;
+    padding: 5px 8px;
+    font-size: 12px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background 0.2s;
+}
+
+.galeria-gomb:hover {
+    background-color: rgb(60, 93, 56);
+    color: #b2dfa0;
+}
+
+/* Képkeret fix mérettel, hogy ne ugráljon az oldal */
+.galeria-kep-keret {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.galeria-kep-keret img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}

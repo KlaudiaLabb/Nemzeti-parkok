@@ -113,3 +113,19 @@ gyik: https://pngtree.com/free-png-vectors/green-lizard-vector
 beka: https://www.flaticon.com/free-icon/frog_7196617
 
 elihal: https://www.flaticon.com/free-icon/animal_11177563
+
+JÁTÉKHOZ
+gombák: https://www.flaticon.com/free-icon/toadstool_3413389
+	https://www.flaticon.com/free-icon/food_13054742
+	https://www.flaticon.com/free-icon/food_12713346
+	https://www.flaticon.com/free-icon/fungus_15859897
+	https://www.flaticon.com/free-icon/mushroom_4246631
+
+	https://www.flaticon.com/free-icon/mushroom_2217419
+	https://www.flaticon.com/free-icon/mushroom_1514947
+	https://www.flaticon.com/free-icon/chanterelle_7449859
+	https://www.flaticon.com/free-icon/mushroom_3944314
+	https://www.flaticon.com/free-icon/champignon_4479238
+	https://www.flaticon.com/free-icon/mushroom_16085771
+	
+	https://www.flaticon.com/free-icon/mushrooms_286706

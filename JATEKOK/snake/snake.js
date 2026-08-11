@@ -148,16 +148,16 @@ function handleKeyDown(e) {
 
     // Irányváltás logika (csak játék közben)
     if (gameState === "PLAYING") {
-        if (e.code == "ArrowUp" && velocityY != 1) { //hogy ne tudjon magába visszafordulni
+        if ((e.code == "ArrowUp" || e.code == "KeyW") && velocityY != 1) { //hogy ne tudjon magába visszafordulni
             velocityX = 0; velocityY = -1;
         }
-        else if (e.code == "ArrowDown" && velocityY != -1) { 
+        else if ((e.code == "ArrowDown" || e.code == "KeyS") && velocityY != -1) { 
             velocityX = 0; velocityY = 1;
         }
-        else if (e.code == "ArrowLeft" && velocityX != 1) { 
+        else if ((e.code == "ArrowLeft" || e.code == "KeyA") && velocityX != 1) { 
             velocityX = -1; velocityY = 0;
         }
-        else if (e.code == "ArrowRight" && velocityX != -1) { 
+        else if ((e.code == "ArrowRight" || e.code == "KeyD") && velocityX != -1) { 
             velocityX = 1; velocityY = 0; 
         }
     } 
