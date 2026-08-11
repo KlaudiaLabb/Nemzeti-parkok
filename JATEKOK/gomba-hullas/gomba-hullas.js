@@ -137,17 +137,31 @@ canvas.addEventListener("touchstart", (e) => {
     // Megakadályozzuk, hogy a telefon görgessen az oldalon, miközben játszunk
     e.preventDefault();
 
-    // Ha nincs játékban, az érintés elindítja a játékot (mint a kattintás vagy a space)
-    if (gameState !== "PLAYING") {
-        startTheGame();
-        return;
-    }
-
-    // Lekérjük az érintés pontos helyét a canvas-hoz képest
+    // Lekérjük az érintés pontos helyét a canvas-hoz képest (az első ujj alapján)
     const rect = canvas.getBoundingClientRect();
     const touchX = e.touches[0].clientX - rect.left;
+    const touchY = e.touches[0].clientY - rect.top;
 
-    // Képernyő felezővonalának kiszámítása (400px / 2 = 200px)
+    // --- HA NEM JÁTÉKBAN VAGYUNK: Ellenőrizzük, hogy a gombra nyomott-e rá ---
+    if (gameState !== "PLAYING") {
+        // Átszámoljuk a gomb koordinátáit a képernyőn látható (skálázott) mérethez
+        const skalaX = rect.width / canvas.width;
+        const skalaY = rect.height / canvas.height;
+        
+        const gombLathatoX = btnX * skalaX;
+        const gombLathatoY = btnY * skalaY;
+        const gombLathatoWidth = btnWidth * skalaX;
+        const gombLathatoHeight = btnHeight * skalaY;
+
+        // Ha pontosan a kirajzolt gomb területén belül van az érintés, csak akkor indul!
+        if (touchX >= gombLathatoX && touchX <= gombLathatoX + gombLathatoWidth &&
+            touchY >= gombLathatoY && touchY <= gombLathatoY + gombLathatoHeight) {
+            startTheGame();
+        }
+        return; // Ha nem a gombra nyomott, nem csinálunk semmit
+    }
+
+    // --- HA JÁTÉKBAN VAGYUNK: Irányítás logikája (Felezővonal) ---
     const felezoVonal = rect.width / 2;
 
     if (touchX < felezoVonal) {
