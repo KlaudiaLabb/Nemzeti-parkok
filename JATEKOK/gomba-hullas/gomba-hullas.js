@@ -148,7 +148,7 @@ canvas.addEventListener("touchstart", (e) => {
     const touchX = e.touches[0].clientX - rect.left;
 
     // Képernyő felezővonalának kiszámítása (400px / 2 = 200px)
-    const felezoVonal = canvas.width / 2;
+    const felezoVonal = rect.width / 2;
 
     if (touchX < felezoVonal) {
         // Bal oldalt nyomta meg -> szimuláljuk a balra nyilat
