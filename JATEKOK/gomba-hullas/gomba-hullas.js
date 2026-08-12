@@ -134,8 +134,10 @@ canvas.addEventListener("click", (e) => {
 
 // Eseményfigyelő az érintés kezdetére (amikor az ujj hozzáér a canvas-hoz)
 canvas.addEventListener("touchstart", (e) => {
-    // Megakadályozzuk, hogy a telefon görgessen az oldalon, miközben játszunk
-    e.preventDefault();
+    // Csak akkor tiltjuk le a görgetést, ha éppen aktívan JÁTSZIK a felhasználó
+    if (gameState === "PLAYING") {
+        e.preventDefault();
+    }
 
     // Lekérjük az érintés pontos helyét a canvas-hoz képest (az első ujj alapján)
     const rect = canvas.getBoundingClientRect();
@@ -156,6 +158,8 @@ canvas.addEventListener("touchstart", (e) => {
         // Ha pontosan a kirajzolt gomb területén belül van az érintés, csak akkor indul!
         if (touchX >= gombLathatoX && touchX <= gombLathatoX + gombLathatoWidth &&
             touchY >= gombLathatoY && touchY <= gombLathatoY + gombLathatoHeight) {
+            // Ha a gombra nyomott, elindítjuk a játékot ÉS letiltjuk a görgetést abban a pillanatban
+            e.preventDefault();
             startTheGame();
         }
         return; // Ha nem a gombra nyomott, nem csinálunk semmit
@@ -177,11 +181,14 @@ canvas.addEventListener("touchstart", (e) => {
 
 // Eseményfigyelő az érintés végére (amikor a felhasználó felemeli az ujját)
 canvas.addEventListener("touchend", (e) => {
-    e.preventDefault();
+    // Csak játék közben tiltjuk le a böngésző alapértelmezett ujj-felengedési eseményét
+    if (gameState === "PLAYING") {
+        e.preventDefault();
+    }
     // Megállítjuk a kosár mozgását
     keys["ArrowLeft"] = false;
     keys["ArrowRight"] = false;
-});
+}, { passive: false });
 
 // Biztonsági eseményfigyelő, ha az ujj kicsúszna a játéktérből
 canvas.addEventListener("touchcancel", (e) => {
