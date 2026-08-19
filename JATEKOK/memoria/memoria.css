@@ -282,7 +282,7 @@ height: 17vw;   /*100/4*
 /* A belső információs doboz */
 .start-box {
     background-color: #eefbb2;
-    padding: 25px;
+    padding: 20px;
     border: 3px solid #247606;
     border-radius: 8px;
     width: 85%;
@@ -293,14 +293,14 @@ height: 17vw;   /*100/4*
 
 .start-box h2 {
     color: #247606;
-    margin: 0 0 10px 0;
+    margin: 0 0 5px 0;
     font-size: 24px; /*22*/
 }
 
 .start-box p {
     font-size: 17px; /*14*/
     color: #333;
-    margin: 0 0 20px 0;
+    margin: 0 0 10px 0;
     line-height: 1.4;
 }
 
