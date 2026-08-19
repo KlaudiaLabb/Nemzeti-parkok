@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../alap.css">
+    <link rel="stylesheet" href="memoria.css">
+    <script src="memoria.js"></script>
+    <title>Nemzeti parkjaink</title>
+    <link rel="icon" type="image/x-icon" href="../../mokus2.png">
+    <!--hambi icon--><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+
+    <div class="hero-image">
+    <div class="hero-text">
+        <h1>Játékok</h1>
+    </div>
+    </div>
+
+    <div id="navigacios_sav">
+    <div class="topnav" id="myTopnav">
+        <a href="../../index.html">Főoldal</a>
+        <a href="../../np-index.html">Nemzeti parkok</a>
+        <a href="../../jatekok.html">Játékok</a>
+        <a href="../../rolam.html">Rólam</a>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()" aria-label="icon">
+            <i class="fa fa-bars"></i>
+        </a>
+    </div>
+    </div>
+
+    <script>
+        function myFunction() {
+            var x = document.getElementById("myTopnav");
+            if (x.className === "topnav") {
+                x.className += " responsive";
+            } else {
+                x.className = "topnav";
+            }
+        }
+    </script>
+
+
+    <div class="tartalom">
+    <div class="belso_tartalom_mezo">
+
+        <h1 class="tartalom_resz_cim">Memória játék</h1>
+        <p class="tartalom_resz_tartalom">Válassz egy paklit, majd a kártyak darabszámát amikkel játszani szeretnél. Próbáld meg a lehető legkevesebb hibával összepárosítani a kártyákat!</p>
+
+
+        <!-- legördülő menü -->
+        <div class="select-container">
+            <label for="pakli-select" class="tartalom_resz_tartalom">Válaszd ki, hogy melyik paklival szeretnél játszani:</label>
+            <select id="pakli-select">
+                <option class="gomb" value="kutyak">Magyar kutyafajták</option>
+                <option class="gomb" value="lovak">Magyar lófajták</option>
+            </select>
+        </div>
+
+        <!-- legördülő menü -->
+        <div class="select-container">
+            <label for="db-select" class="tartalom_resz_tartalom">Válaszd ki, hogy hány darab kártyával szeretnél játszani:</label>
+            <select id="db-select">
+                <option class="gomb" value="20">20 kártya (10 pár)</option>
+                <option class="gomb" value="16">16 kártya (8 pár)</option>
+                <option class="gomb" value="12">12 kártya (6 pár)</option>
+                <option class="gomb" value="8">8 kártya (4 pár)</option>
+                <option class="gomb" value="4">4 kártya (2 pár)</option>
+            </select>
+        </div>
+
+    </div>
+    </div>
+
+
+    <div class="tartalom  kulso_tartalom_mezo_szinatmenet">
+    <div class="belso_tartalom_mezo_szinatmenet">
+
+        <div class="game-container">
+            <div id="board"></div> <!-- játéktábla: 20 lappal -->
+        </div>
+
+        <p class="tartalom_resz_tartalom  counter-container">Hibák: <span id="errors">0</span></p>
+
+        <!-- Klasszikus felugró ablak (Modal) a szövegnek -->
+        <div id="win-popup" class="popup-overlay  modal-hatter">
+            <div class="popup-content  modal-tartalom">
+                <span class="bezar-gomb">&times;</span> <!-- Az X bezáró gomb -->
+                <h2 class="modalCim">Sikerült!</h2>
+                <p class="modalLeiras">Sikeresen összepárosítottad a képeket!</p>
+                <!-- a href="#" felugrana a lap tetejére (kell javascript)                      , de ez a href="javascript:void(0);" ugyanúgy letíltja az ugrást -->
+                <a id="restart-btn" href="javascript:void(0);" class="tovabb-gomb">Új játék</a>
+            </div>
+        </div>
+
+    </div>
+    </div>
+
+
+
+    <div>
+        <img class="also_kep" src="erdos_proba.png" alt="" >
+    </div>
+
+</body>
+</html>

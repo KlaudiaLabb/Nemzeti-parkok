@@ -1,0 +1,184 @@
+/* Menü konténer */
+.select-container, .counter-container {
+    text-align: center;
+    margin: 20px auto;  /*közép*/
+}
+
+/* Felirat stílusa */
+.select-container label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 600;
+    color: rgb(60,93,56);
+}
+
+/* Maga a legördülő menü */
+#pakli-select, #db-select {
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #333;
+    background-color: #e0f9e1; /*#d2fbd3;*/
+    border: 2px solid #4CAF50; /* Természetközeli zöld keret */
+    border-radius: 8px; /*szélek lekerekítése*/
+    cursor: pointer;
+    width: 80vw; /*képernyő 80%-a*/
+    max-width: 300px;
+}
+
+
+
+
+
+/* Játéktábla */
+.game-container {
+width: 65.2vw;       /* Telefonon a képernyő 70%-a */
+height: 73vw;
+    max-width: 483px;  /* Számítógépen maximum */
+    max-height: 540px;
+    margin: 0 auto; /*középre*/
+    position: relative;
+}
+
+#board {
+    /*height: 532px;
+    width: 475px;
+    display: flex;   flexbox: a kártyák balról jobbra mennek, majd kövi sorba
+    flex-wrap: wrap;*/
+    width: 100%; /* kitölti a játéltábla méretét teljesen */
+    height: 100%;
+    /* 5x4-as rácsot hoz létre automatikusan */
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /*oszlopok: 3db egyforma oszlopot hoz létre, 1fr: rendelkezésre állő helyet egyenlő arányban osztja el*/
+    grid-template-rows: repeat(4, 1fr);
+    gap: 2.5px; /* Egy minimális rést hagy a négyzetek között, hogy elválljanak egymástól */
+    
+    background-color: #e0f9e1; /*whitesmoke;*/
+    border: 4px solid #4CAF50; /*lightgrey;*/
+    border-radius: 8px; /*szélek lekerekítése*/
+    box-sizing: border-box;
+}
+
+/*táblában lévő képek*/
+#board img{    
+    width: 100%;  /* Teljesen kitölti a rácscellát szélességben */
+    height: 100%; /* Teljesen kitölti a rácscellát magasságban */
+    object-fit: cover; /* Ha a kép nem lenne tökéletes négyzet, akkor sem torzul el, hanem levágja a széleit */
+    user-select: none; /* Hogy ne lehessen a képet kijelölni */
+    -webkit-user-drag: none; /* Tiltja a mozgatást -> nem lesz szellemkép, sima kattintásnak fogja érzékelni */
+    cursor: pointer; /* Mutatókéz ikon: mutatja a játékosnak, hogy rákattintható */
+    
+}
+/*.card {
+    user-select: none; /* Hogy ne lehessen a képet kijelölni 
+    -webkit-user-drag: none; /* Tiltja a mozgatást -> nem lesz szellemkép, sima kattintásnak fogja érzékelni *
+    cursor: pointer; /* Mutatókéz ikon: mutatja a játékosnak, hogy rákattintható *
+    
+width: 11.8vw;       /*70/5=14  12   Telefonon a képernyő 70%-a *
+height: 17vw;   /*100/4*
+    max-width: 90px;  /* Számítógépen maximum *
+    max-height: 128px;
+
+    /*height: 128px;
+    width: 90px;*
+    margin: 2.5px;   kártyák közötti rés
+}*/
+
+
+
+
+
+
+
+
+
+
+
+
+/* --- FELUGRÓ ABLAK (MODAL) --- */
+
+/* Sötétített háttér, ami mindent letakar */
+.modal-hatter {
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Áttetsző fekete */
+    backdrop-filter: blur(3px); /* Enyhe homályosítás a háttérnek */
+    display: flex; /* Flexboxot használunk a tökéletes középre igazításhoz */
+    align-items: center;
+    justify-content: center;
+    
+    /* ALAPHELYZETBEN REJTVE VAN: Opacity-vel oldjuk meg, hogy szép legyen az átmenet */
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease-in-out;
+}
+
+/* Amikor ezt az osztályt megkapja JavaScriptből, akkor válik láthatóvá */
+.modal-hatter.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Az információs kártya doboza */
+.modal-tartalom {
+    background-color: #eefbb2;
+    background-size: cover;
+    padding: 30px;
+    border: 3px solid #247606;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 450px;
+    position: relative;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+/* Az "X" bezáró gomb */
+.bezar-gomb {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    color: #247606;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+.bezar-gomb:hover {
+    color: #8b0000; /* Pirosra vált ha fölé viszed az egeret */
+}
+
+/* Cím és leírás a felugróban */
+.modal-tartalom h2 {
+    color: #247606;
+    margin-top: 10px;
+    font-size: 24px;
+    border-bottom: 2px dashed #247606;
+    padding-bottom: 10px;
+}
+.modal-tartalom p {
+    font-size: 17px;
+    line-height: 1.5;
+    margin: 20px 0;
+    color: #333;
+}
+
+/* Továbbvezető zöldes/erdei gomb */
+.tovabb-gomb {
+    display: inline-block;
+    background-color: #247606;
+    color: white;
+    text-decoration: none;
+    padding: 12px 24px;
+    border-radius: 4px;
+    font-weight: bold;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+    transition: background-color 0.4s;
+}
+.tovabb-gomb:hover {
+    background-color: #389c14;
+}
