@@ -78,8 +78,18 @@
     <div class="belso_tartalom_mezo_szinatmenet">
 
         <div class="game-container">
+            <!-- ÚJ RÉSZ: Lebegő indítóablak a játéktér felett -->
+            <div id="game-start-overlay" class="game-start-overlay">
+                <div class="start-box">
+                    <h2>Készen állsz?</h2>
+                    <p>Kattints a gombra a játék indításához!</p>
+                    <button id="real-start-btn" class="tovabb-gomb" type="button">Start</button>
+                </div>
+            </div>
+
             <div id="board"></div> <!-- játéktábla: 20 lappal -->
         </div>
+
 
         <p class="tartalom_resz_tartalom  counter-container">Hibák: <span id="errors">0</span></p>
 

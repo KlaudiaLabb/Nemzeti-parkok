@@ -49,25 +49,30 @@ height: 73vw;
     height: 100%;
     /* 5x4-as rácsot hoz létre automatikusan */
     display: grid;
-    grid-template-columns: repeat(5, 1fr); /*oszlopok: 3db egyforma oszlopot hoz létre, 1fr: rendelkezésre állő helyet egyenlő arányban osztja el*/
-    grid-template-rows: repeat(4, 1fr);
-    gap: 2.5px; /* Egy minimális rést hagy a négyzetek között, hogy elválljanak egymástól */
+
+    /*grid-template-columns: repeat(5, 1fr); /*oszlopok: 3db egyforma oszlopot hoz létre, 1fr: rendelkezésre állő helyet egyenlő arányban osztja el*/
+    /*grid-template-rows: repeat(4, 1fr);   ezeket a js állítja be*/
+    gap: 4px;/*2.5px; /* Egy minimális rést hagy a négyzetek között, hogy elválljanak egymástól */
     
     background-color: #e0f9e1; /*whitesmoke;*/
     border: 4px solid #4CAF50; /*lightgrey;*/
     border-radius: 8px; /*szélek lekerekítése*/
     box-sizing: border-box;
+
+    padding: 4px;
 }
 
 /*táblában lévő képek*/
 #board img{    
     width: 100%;  /* Teljesen kitölti a rácscellát szélességben */
     height: 100%; /* Teljesen kitölti a rácscellát magasságban */
-    object-fit: cover; /* Ha a kép nem lenne tökéletes négyzet, akkor sem torzul el, hanem levágja a széleit */
+    object-fit: contain; /* soha nem fogja levágni a széleit */
     user-select: none; /* Hogy ne lehessen a képet kijelölni */
     -webkit-user-drag: none; /* Tiltja a mozgatást -> nem lesz szellemkép, sima kattintásnak fogja érzékelni */
     cursor: pointer; /* Mutatókéz ikon: mutatja a játékosnak, hogy rákattintható */
     
+    padding: 1px;
+    box-sizing: border-box; /* Biztosítja, hogy a padding ne tolja szét a rácsot */
 }
 /*.card {
     user-select: none; /* Hogy ne lehessen a képet kijelölni 
@@ -83,6 +88,61 @@ height: 17vw;   /*100/4*
     width: 90px;*
     margin: 2.5px;   kártyák közötti rés
 }*/
+
+/* --- ÚJ 3D KÁRTYA ANIMÁCIÓ STÍLUSOK --- */
+/* A kártya külső doboza, ami biztosítja a 3D teret */
+.card-container {
+    width: 100%;
+    height: 100%;
+    perspective: 1000px; /* Térhatás mélysége */
+    cursor: pointer;
+}
+/* A kártya belső törzse, ami ténylegesen megfordul */
+.card-inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.6s ease-in-out; /* Az animáció sebessége és finomsága */
+}
+/* Amikor a kártya megkapja a .flipped osztályt, megpördül */
+.card-container.flipped .card-inner {
+    transform: rotateY(180deg);
+}
+/* Az előlap és hátlap közös tulajdonságai */
+.card-front, .card-back {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    backface-visibility: hidden; /* Elrejti a kártya hátulját, ha felénk néz */
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+/* A hátlap (ez van elforgatva 180 fokkal, hogy hátul legyen, amikor az állat látszik) */
+.card-back {
+    transform: none; /* ÁTÍRVA: a card-front-ról ide raktuk át */
+}
+/* A hátlap (ez látszik alapból) */
+.card-back img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    user-select: none;
+    -webkit-user-drag: none;
+}
+/* Az előlap (a valódi állat képe - ez 180 fokkal el van forgatva alapból) */
+.card-front {
+    transform: rotateY(180deg);
+}
+.card-front img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    user-select: none;
+    -webkit-user-drag: none;
+}
 
 
 
@@ -181,4 +241,72 @@ height: 17vw;   /*100/4*
 }
 .tovabb-gomb:hover {
     background-color: #389c14;
+}
+
+
+
+
+
+
+
+
+
+/* --- LEBEGŐ INDÍTÓABLAK STÍLUSAI --- */
+
+/* A teljes játékteret lefedő sötétített réteg */
+.game-start-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(28, 34, 25, 0.75); /* Sötét áttetsző háttér */
+    backdrop-filter: blur(4px); /* Homályosítja a hátteret */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 50; /* A kártyák felett kell elhelyezkednie */
+    border-radius: 8px;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+/* Amikor a játék elindul, ezt az osztályt kapja meg JS-ből, így eltűnik */
+.game-start-overlay.hide {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+/* A belső információs doboz */
+.start-box {
+    background-color: #eefbb2;
+    padding: 25px;
+    border: 3px solid #247606;
+    border-radius: 8px;
+    width: 85%;
+    max-width: 350px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.start-box h2 {
+    color: #247606;
+    margin: 0 0 10px 0;
+    font-size: 24px; /*22*/
+}
+
+.start-box p {
+    font-size: 17px; /*14*/
+    color: #333;
+    margin: 0 0 20px 0;
+    line-height: 1.4;
+}
+
+/* Gomb igazítása */
+.start-box .tovabb-gomb {
+    cursor: pointer;
+    border: none;
+    font-size: 16px;
 }

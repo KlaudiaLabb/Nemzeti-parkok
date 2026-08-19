@@ -12,11 +12,15 @@ var isAnimating = false; // Megakadályozza a spammelést animáció közben
 // 4 különböző variációt (a 3-as az üres mező)
 var solvableOrders = [
     /*["1", "3", "2", "4", "5", "6", "7", "8", "9"]*/
-    ["4", "2", "8", "5", "1", "6", "7", "9", "3"],
-    ["5", "4", "2", "6", "3", "9", "8", "1", "7"],   
-    ["3", "7", "4", "2", "9", "5", "1", "8", "6"],
-    ["7", "9", "4", "2", "8", "6", "3", "5", "1"],
-    ["5", "1", "3", "4", "8", "7", "9", "6", "2"]
+    ["3", "1", "5", "7", "6", "2", "8", "4", "9"],
+    ["1", "3", "2", "7", "5", "9", "6", "4", "8"],
+    ["1", "9", "3", "7", "2", "5", "8", "6", "4"],
+    ["1", "5", "2", "3", "4", "9", "7", "6", "8"],
+    ["4", "1", "5", "6", "3", "8", "7", "9", "2"],
+    ["7", "1", "2", "5", "9", "3", "8", "6", "4"],
+    ["1", "5", "2", "7", "9", "4", "3", "8", "6"],
+    ["7", "1", "2", "5", "6", "9", "8", "3", "4"],
+    ["4", "1", "2", "9", "8", "6", "5", "7", "3"]
 ];
 // Ebbe a változóba mentjük el az éppen aktuálisan kiválasztott random sorrendet
 var activeOrder = [];
@@ -43,6 +47,14 @@ window.onload = function() {
     // Ha megnyomják az X gombot, csak bezárjuk a felugrót, a megoldott kép ott marad a táblán!
     document.querySelector(".bezar-gomb").addEventListener("click", function() {
         document.getElementById("win-popup").classList.remove("show");
+    });
+
+    // Győzelmi ablak (Sikerült!) bezárása, ha a sötét részre kattintanak
+    document.getElementById("win-popup").addEventListener("click", function(e) {
+        // Csak akkor tüntetjük el, ha pontosan a sötét hátteret találta el
+        if (e.target === this) {
+            this.classList.remove("show");
+        }
     });
 }
     // --- Bezárás a háttérre kattintva --- nemjo nem működik a háttérre kattintás
