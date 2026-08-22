@@ -1,0 +1,207 @@
+.kep{
+    position: relative;
+    width: 240px;
+    z-index: 100;
+    margin-left: 500px;
+    top: -80px;
+}
+
+
+
+
+/* Alap konténer */
+.tabla-container {
+    display: flex;
+    flex-direction: column; /*oszlopban jelennek meg az np nevek*/
+    align-items: center;
+    gap: 15px;
+    padding: 50px 20px;
+    padding-top: 15px;
+    position: relative;
+    max-width: 600px;
+    margin: 0 auto;
+    overflow: visible;
+    height: 450px;
+    margin-right: 320px; /*********/
+}
+
+/* Tartó oszlop fa */
+.oszlop {
+    height: 450px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 24px;
+    z-index: 1; /*egymást fedő elemek egymásra rakása*/
+    background-color: rgb(141, 103, 103);
+    box-shadow: inset -3px 0 5px rgba(0,0,0,0.5), 3px 3px 10px rgba(0,0,0,0.3);
+    border-radius: 3px;
+}
+
+/* Közös fa nyíl stílus */
+.fa-nyil {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(177, 131, 131);
+    color: black;
+    /*text-decoration: none;*/
+    font-weight: bold;
+    padding: 15px 30px;
+    min-width: 220px;
+    text-align: center;
+    z-index: 2;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+/* Rámulatáskor a fa "kigyullad" és kiemelkedik */
+.fa-nyil:hover {
+    filter: brightness(1.2) contrast(1.1);
+}
+
+
+/* --- NYÍL FORMÁK KIALAKÍTÁSA --- */
+
+/* Jobbra mutató nyíl vége (vágás) */
+.fa-nyil.jobbra {
+    clip-path: polygon(0% 0%, 85% 0%, 100% 50%, 85% 100%, 0% 100%);
+    padding-right: 45px;
+}
+/* Balra mutató nyíl vége (vágás) */
+.fa-nyil.balra {
+    clip-path: polygon(15% 0%, 100% 0%, 100% 100%, 15% 100%, 0% 50%);
+    padding-left: 45px;
+}
+
+/* --- IRÁNYOK ÉS LEJTÉSEK --- */
+
+/* Jobbra mutató táblák dőlései */
+.fa-nyil.jobbra { transform: rotate(1deg); }
+.fa-nyil.jobbra.felfele { transform: rotate(-7deg); background-color: rgb(185, 144, 144);}
+.fa-nyil.jobbra.lefele { transform: rotate(2deg); background-color: rgb(194, 157, 157);}
+/* Balra mutató táblák dőlései */
+.fa-nyil.balra { transform: rotate(-2deg); }
+.fa-nyil.balra.felfele { transform: rotate(6deg); background-color: #b88f71;}
+.fa-nyil.balra.lefele { transform: rotate(-4deg); background-color: #b39b8c;}
+
+/* Hover animáció: kiegyenesedik és kicsit megnő */
+.fa-nyil:hover {
+    transform: scale(1.06) rotate(0deg) !important;
+}
+
+
+
+/* --- ÚJ CSOMAGOLÓ DOBOZ STÍLUSA --- */
+.nyil-doboz {
+    position: relative;
+    display: inline-block;
+    z-index: 2;
+    transition: transform 0.3s ease; /* A mozgást most a doboz végzi! */
+}
+
+/* --- DEKORÁCIÓK POZICIONÁLÁSA (SZABAD KILÓGÁSSAL) --- */
+.nyil-doboz .dekoracio {
+    position: absolute;
+    z-index: 10;
+    width: 40px; 
+    height: auto;
+    pointer-events: none; /*hogy ne zavarjon kattintásnál*/
+    /*filter: drop-shadow(3px 3px 3px rgba(0,0,0,0.5));*/
+    transition: transform 0.3s ease;
+}
+
+/* MÉH */
+.dekor-meh-cs .dekoracio{
+    width: 30px;
+    top: -10px;
+    left: 60px;
+    transform: rotate(45deg);
+}
+.dekor-meh-cs:hover .dekoracio {
+    transform: scale(1.2) rotate(40deg) translateX(-2px);
+}
+
+/* BEKA */
+.dekor-beka .dekoracio{
+    width: 25px;
+    bottom: -2px;
+    left: 30px;
+    transform: rotate(50deg);
+}
+.dekor-beka:hover .dekoracio {
+    transform: scale(1.2) rotate(40deg) translateX(-5px);
+}
+
+/* KATICA */
+.dekor-katica-cs .dekoracio{
+    width: 35px;
+    top: -25px;
+    right: 6px;
+    transform: rotate(0deg);
+}
+.dekor-katica-cs:hover .dekoracio {
+    transform: scale(1.2) rotate(2deg) translateX(2px) translateY(2px);
+}
+
+/* CSIGA */
+.dekor-csiga .dekoracio{
+    width: 25px;
+    top: 0px;
+    right: 2px;
+    transform: rotate(30deg) scaleX(-1); /* vízszintes tükrözés */
+}
+.dekor-csiga:hover .dekoracio {
+    transform: scale(1.2) rotate(27deg) translateY(-7px) translateX(-5px) scaleX(-1);
+}
+
+
+
+
+@media (max-width: 800px) {
+    /* Alap konténer */
+    .tabla-container {
+        display: flex;
+        flex-direction: column; /*oszlopban jelennek meg az np nevek*/
+        align-items: center;
+        gap: 15px;
+        padding: 50px 20px;
+        padding-top: 15px;
+        position: relative;
+        max-width: 600px;
+        margin: 0 auto;
+        overflow: visible;
+        height: 450px;
+    }
+    .kep{        
+        position: relative;
+        width: 200px;
+        z-index: 100;
+        margin-left: 220px;
+        top: -20px;
+    }
+}
+
+
+
+
+
+/* --- MOBILBARÁT BEÁLLÍTÁSOK: összébb mennek a nyilak --- */
+@media (max-width: 480px) {
+    .fa-nyil {
+        min-width: 180px;
+        /*font-size: 14px;*/
+        padding: 12px 25px;
+    }
+    .fa-nyil.jobbra { padding-right: 35px; }
+    .fa-nyil.balra { padding-left: 35px; }
+
+    .oszlop{
+        height: 400px;        
+    }
+    .kep{        
+        width: 150px;
+        margin-left: 130px;
+        top: -10px;
+    }
+}
