@@ -9,7 +9,7 @@
   height: 80vh;      /* a képernyő magasságának 80%-a lesz */
 }
 /* RESPONSIVE: Amikor kisebb lesz a képernyő (pl. mobil) */
-@media (max-width: 600px) {
+@media (max-width: 700px) {
   .hero-image {
     height: 30vh;    /*50vh-> Kisebb kijelzőn a kép magassága lecsökken a képernyő 50%-ára */
   }

@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="alap.css">
-    <link rel="javascript" href="alap.js">
     <link rel="stylesheet" href="jatekok.css">
     <title>Nemzeti parkjaink</title>
     <link rel="icon" type="image/x-icon" href="./mokus2.png">
@@ -12,18 +11,18 @@
 </head>
 <body>
 
-    <div class="hero-image">
+    <!--<div class="hero-image">
     <div class="hero-text">
         <h1>Játékok</h1>
     </div>
-    </div>
+    </div>-->
+    <div class="hero-image"></div>
 
     <div id="navigacios_sav">
     <div class="topnav" id="myTopnav">
         <a href="./index.html">Főoldal</a>
         <a href="./np-index.html">Nemzeti parkok</a>
         <a href="" class="active">Játékok</a>
-        <a href="/rolam.html">Rólam</a>
         <a href="javascript:void(0);" class="icon" onclick="myFunction()" aria-label="icon">
             <i class="fa fa-bars"></i>
         </a>
@@ -62,37 +61,44 @@
             <div class="oszlop"></div>
 
             <div class="nyil-doboz  dekor-csiga">
-                <div class="fa-nyil jobbra lefele" data-park="kiskunsag">
-                    <span><a href="JATEKOK/gomba-hullas/gomba-hullas.html">Gomba elkapó játék</a> </span>
-                </div>
+                <a href="JATEKOK/gomba-hullas/gomba-hullas.html">
+                    <div class="fa-nyil jobbra lefele" data-park="kiskunsag">
+                        <span>Gomba elkapó játék</span>
+                    </div>
+                </a>
                 <img  class="dekoracio" src="minis/csiga22.png" alt="">
             </div>
 
             <div class="nyil-doboz  dekor-beka">
-                <div class="fa-nyil balra lefele" data-park="dunad">
-                    <span><a href="JATEKOK/snake/snake.html">Kígyós játék</a> </span> <!-- https://www.youtube.com/watch?v=baBq5GAL0_U&t=7s -->
-                </div>
+                <a href="JATEKOK/snake/snake.html">
+                    <div class="fa-nyil balra lefele" data-park="dunad">
+                        <span>Kígyós játék</span> <!-- https://www.youtube.com/watch?v=baBq5GAL0_U&t=7s -->
+                    </div>
+                </a>
                 <img  class="dekoracio" src="minis/beka2.png" alt="">
             </div>
 
             <div class="nyil-doboz  dekor-katica-cs">
-                <div class="fa-nyil balra" data-park="hortobagy">
-                    <span><a href="JATEKOK/memoria/memoria.html">Memória játék</a> </span> <!-- https://www.youtube.com/watch?v=wz9jeI9M9hI&t=21s  https://www.youtube.com/watch?v=wz9jeI9M9hI  https://www.youtube.com/watch?v=xWdkt6KSirw -->
-                </div>
+                <a href="JATEKOK/memoria/memoria.html">
+                    <div class="fa-nyil balra" data-park="hortobagy">
+                        <span>Memória játék</span> <!-- https://www.youtube.com/watch?v=wz9jeI9M9hI&t=21s  https://www.youtube.com/watch?v=wz9jeI9M9hI  https://www.youtube.com/watch?v=xWdkt6KSirw -->
+                    </div>
+                </a>
                 <img  class="dekoracio" src="minis/katica-csak.png" alt="">
             </div>
 
             <div class="nyil-doboz  dekor-meh-cs">
-                <div class="fa-nyil jobbra" data-park="bukk">
-                    <span><a href="JATEKOK/tili-toli/tili-toli.html">Tili-toli kirakó</a></span> <!-- https://www.youtube.com/watch?v=sD3Os4H_EOU -->
-                </div>
+                <a href="JATEKOK/tili-toli/tili-toli.html">
+                    <div class="fa-nyil jobbra" data-park="bukk">
+                        <span>Tili-toli kirakó</span> <!-- https://www.youtube.com/watch?v=sD3Os4H_EOU -->
+                    </div>
+                </a>
                 <img  class="dekoracio" src="minis/meh3.png" alt="">
             </div>
 
             <img class="kep" src="őzike.png" alt="">
         </div>
 
-        <br><br>
 
     </div>
     </div>

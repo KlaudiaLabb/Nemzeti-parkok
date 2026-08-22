@@ -43,7 +43,7 @@ body, html{ /*egyész weoldal*/
   height: 80vh;      /* a képernyő magasságának 80%-a lesz */
 }
 /* RESPONSIVE: Amikor kisebb lesz a képernyő (pl. mobil) */
-@media (max-width: 600px) {
+@media (max-width: 700px) { /*600*/
   .hero-image {
     height: 30vh;    /*50vh-> Kisebb kijelzőn a kép magassága lecsökken a képernyő 50%-ára */
   }
@@ -83,14 +83,14 @@ body, html{ /*egyész weoldal*/
 .topnav .icon {
   display: none;
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 700px) {
   .topnav a:not(:first-child) {display: none;}
   .topnav a.icon {
     float: right;
     display: block;
   }
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 700px) {
   .topnav.responsive {position: relative;}
   .topnav.responsive .icon {
     position: absolute;

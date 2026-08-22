@@ -1,3 +1,25 @@
+.hero-image {
+  background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url("voros-roka-kolykok\ Jatekok.png");/*url("mokus_hatter3.jpg");*/
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  /* Alapértelmezett beállítás (NAGY KÉPERNYŐN): */
+  width: 100%;       /* kitölti a teljes képernyő szélességét */
+  height: 80vh;      /* a képernyő magasságának 80%-a lesz */
+}
+/* RESPONSIVE: Amikor kisebb lesz a képernyő (pl. mobil) */
+@media (max-width: 700px) { /*600*/
+  .hero-image {
+    height: 30vh;    /*50vh-> Kisebb kijelzőn a kép magassága lecsökken a képernyő 50%-ára */
+  }
+}
+
+
+
+
+
+
 .kep{
     position: relative;
     width: 240px;
@@ -5,8 +27,6 @@
     margin-left: 500px;
     top: -80px;
 }
-
-
 
 
 /* Alap konténer */
