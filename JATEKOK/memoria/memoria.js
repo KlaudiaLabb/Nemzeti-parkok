@@ -1,15 +1,15 @@
-var errors = 0; //hibaszámláláshoz
+var errors = 0; // hibaszámláláshoz
 
-var cardSet = []; //kártyák amikkel játszunk
-var board = []; //kártyák elhelyezése
+var cardSet = []; // kártyák amikkel játszunk
+var board = []; // kártyák elhelyezése
 var rows = 4;
 var columns = 5;
 
 var card1Selected = null;
 var card2Selected = null;
 
-//a kártyák nevei amiket asználunk
-var kutyak = [//a fájlok neve
+// a kártyák nevei amiket használunk
+var kutyak = [// a fájták nevei
     "d vizsla",
     "e kopo",
     "komondor",
@@ -21,7 +21,7 @@ var kutyak = [//a fájlok neve
     "r vizsla",
     "sinka"
 ]
-var lovak = [//a fájlok neve
+var lovak = [// a fájták nevei
     "furioso",
     "gidran",
     "hucul",
@@ -41,7 +41,7 @@ var kivalasztottPakli = [...kutyak];
 
 
 window.onload = function() { //mikor sz oldal betölt ezt a függvényt meghívja
-    // Figyeljük, ha a felhasználó megváltoztatja a paklit vagy a darabszámot
+    // Figyeli, ha a felhasználó megváltoztatja a paklit vagy a darabszámot
     document.getElementById("pakli-select").addEventListener("change", beallitasokFrissitese);
     document.getElementById("db-select").addEventListener("change", beallitasokFrissitese);
     
@@ -50,19 +50,19 @@ window.onload = function() { //mikor sz oldal betölt ezt a függvényt meghívj
         document.getElementById("win-popup").classList.remove("show");
         beallitasokFrissitese();
     });
-    // Ha megnyomják az X gombot, csak bezárjuk a felugrót, a megoldott kép ott marad a táblán!
+    // Ha megnyomja az X gombot, csak bezárja a felugrót, a megoldott kép ott marad a táblán!
     document.querySelector(".bezar-gomb").addEventListener("click", function() {
         document.getElementById("win-popup").classList.remove("show");
     });
-    // Győzelmi ablak (Sikerült!) bezárása, ha a sötét részre kattintanak
+    // Győzelmi ablak (Sikerült!) bezárása, ha a sötét részre kattint
     document.getElementById("win-popup").addEventListener("click", function(e) {
-        // Csak akkor tüntetjük el, ha pontosan a sötét hátteret találta el
+        // Csak akkor tünik el, ha pontosan a sötét hátteret találta el
         if (e.target === this) {
             this.classList.remove("show");
         }
     });
 
-     // --- ÚJ RÉSZ: Az igazi indítógomb eseményfigyelője a lebegő ablakban ---
+     // Az igazi indítógomb eseményfigyelője a lebegő ablakban
     document.getElementById("real-start-btn").addEventListener("click", jatekValodiInditasa);
 
     beallitasokFrissitese();
@@ -82,37 +82,37 @@ function beallitasokFrissitese() {
     // 2. Darabszám kiválasztása a lenyíló menüből
     const db = parseInt(document.getElementById("db-select").value);
     
-    // --- ÚJ RÉSZ: Dinamikus rácsosztás (Oszlopok és sorok beállítása) ---
-    // Kevesebb kártyánál kevesebb oszlop lesz, így a kártyák automatikusan megnőnek telefonon is!
+    // Dinamikus rácsosztás (Oszlopok és sorok beállítása) 
+    // Kevesebb kártyánál kevesebb oszlop lesz, így a kártyák automatikusan megnőnek telefonon is
     if (db === 20) { rows = 4; columns = 5; }
     else if (db === 16) { rows = 4; columns = 4; }
     else if (db === 12) { rows = 3; columns = 4; }
     else if (db === 8)  { rows = 2; columns = 4; }
     else if (db === 4)  { rows = 2; columns = 2; }
 
-    // --- ÚJ RÉSZ: A HTML tábla (rács) szerkezetének azonnali átírása ---
+    // A HTML tábla (rács) szerkezetének azonnali átírása
     const boardElem = document.getElementById("board");
     if (boardElem) {
         boardElem.style.gridTemplateRows = `repeat(${rows}, 1fr)`;
         boardElem.style.gridTemplateColumns = `repeat(${columns}, 1fr)`;
     }
 
-    // --- MÓDOSÍTÁS: Pakliváltáskor újra megmutatjuk a lebegő ablakot ---
+    // Pakliváltáskor újra megmutatja a lebegő ablakot
     document.getElementById("game-start-overlay").classList.remove("hide");
 
-    // Elindítjuk az új játékot a friss rácsmérettel
+    // Elindítja az új játékot a friss rácsmérettel
     jatekInditasa();
 }
 function jatekInditasa() {
     errors = 0;
     document.getElementById("errors").innerText = errors;
-    document.getElementById("board").innerHTML = ""; // Kiürítjük a régi táblát
+    document.getElementById("board").innerHTML = ""; // Kiüríti a régi táblát
     board = [];
     card1Selected = null;
     card2Selected = null;
 
-    // 1. KEVERÉS: Először a TELJES 10 darabos paklit keverjük meg alaposan
-    // Így minden játékindításnál teljesen más állatok/gombák kerülnek az első helyekre!
+    // 1. KEVERÉS: Először a TELJES 10 darabos paklit keveri meg alaposan
+    // Így minden játékindításnál teljesen más állatok kerülnek az első helyekre
     for (let i = 0; i < kivalasztottPakli.length; i++) {
         let j = Math.floor(Math.random() * kivalasztottPakli.length);
         let temp = kivalasztottPakli[i];
@@ -120,14 +120,14 @@ function jatekInditasa() {
         kivalasztottPakli[j] = temp;
     }
 
-    // Csak a keverés UTÁN vágjuk le a szükséges mennyiséget (pl. 4 kártyához csak 2 párt)
+    // Csak a keverés UTÁN vágja le a szükséges mennyiséget (pl. 4 kártyához csak 2 párt)
     const parokSzama = (rows * columns) / 2;
     let jatekPakli = kivalasztottPakli.slice(0, parokSzama);
     
-    // Duplázzuk a levágott paklit a párok létrehozásához
+    // Duplázza a levágott paklit a párok létrehozásához
     cardSet = jatekPakli.concat(jatekPakli); 
 
-    // 2. KEVERÉS: Megkeverjük a duplázott paklit is, hogy a párok ne egymás mellett szülessenek meg a táblán
+    // 2. KEVERÉS: Megkeveri a duplázott paklit is, hogy a párok ne egymás mellett jelenjenek meg a táblán
     for (let i = 0; i < cardSet.length; i++) {
         let j = Math.floor(Math.random() * cardSet.length);
         let temp = cardSet[i];
@@ -143,7 +143,7 @@ function jatekInditasa() {
             row.push(cardImg);
 
             let cardContainer = document.createElement("div");
-            cardContainer.className = "card-container flipped"; // Először megmutatjuk a képeket
+            cardContainer.className = "card-container flipped"; // Először megmutatja a képeket
             cardContainer.id = r.toString() + "-" + c.toString();
 
             let cardInner = document.createElement("div");
@@ -174,7 +174,7 @@ function jatekInditasa() {
         board.push(row);
     }
 
-    // 2 másodperces megmutatás után lefordítjuk a kártyákat
+    // 2 másodperces megmutatás után lefordítja a kártyákat
     //setTimeout(hideCards, 2000);
 }
 
@@ -187,7 +187,7 @@ function hideCards() { // kártyák megfordítása hogy ne a színe hanem a hát
     }
 }
 
-function selectCard() { //ahhoz hogy rá tudhassunk kattintani a kártyára, muszáj hogy a kártya lefele nézzen, vagyis a háttér látszódjon
+function selectCard() { // ahhoz hogy rá lehessen kattintani a kártyára, muszáj hogy a kártya lefele nézzen, vagyis a háttér látszódjon
     if (!this.classList.contains("flipped") && !card2Selected) {
         if (!card1Selected) {
             card1Selected = this;
@@ -204,10 +204,10 @@ function selectCard() { //ahhoz hogy rá tudhassunk kattintani a kártyára, mus
 
 function update() {
     let coords1 = card1Selected.id.split("-");
-    let name1 = board[parseInt(coords1[0])][parseInt(coords1[1])]; // JAVÍTVA: Pontos 2D indexelés
+    let name1 = board[parseInt(coords1[0])][parseInt(coords1[1])]; // Pontos 2D indexelés
 
     let coords2 = card2Selected.id.split("-");
-    let name2 = board[parseInt(coords2[0])][parseInt(coords2[1])]; // JAVÍTVA: Pontos 2D indexelés
+    let name2 = board[parseInt(coords2[0])][parseInt(coords2[1])];
 
     if (name1 !== name2) {
         card1Selected.classList.remove("flipped");
@@ -220,18 +220,18 @@ function update() {
     card2Selected = null;
 
     // Győzelem ellenőrzése
-    const osszesKártya = document.querySelectorAll(".card-container");
+    const osszesKartya = document.querySelectorAll(".card-container");
     const megforditottKartyak = document.querySelectorAll(".card-container.flipped");
-    if (osszesKártya.length === megforditottKartyak.length) {
+    if (osszesKartya.length === megforditottKartyak.length) {
         document.getElementById("win-popup").classList.add("show");
     }
 }
 
-// --- ÚJ FÜGGVÉNY: Csak akkor indul a visszaszámlálás, ha a gombra kattintottak ---
+// Csak akkor indul a visszaszámlálás, ha a gombra kattintottak 
 function jatekValodiInditasa() {
-    // Elrejtjük a lebegő indító ablakot animációval
+    // Elrejti a lebegő indító ablakot animációval
     document.getElementById("game-start-overlay").classList.add("hide");
     
-    // Elindítjuk a 2 másodperces időzítőt: a képek ekkor kezdenek el ketyegni, majd lefordulnak
+    // Elindítja a 2 másodperces időzítőt, majd lefordulnak a képek
     setTimeout(hideCards, 2000);
 }

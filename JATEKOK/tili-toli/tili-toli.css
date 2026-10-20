@@ -115,11 +115,11 @@
     height: 100%;
     background-color: rgba(0, 0, 0, 0.6); /* Áttetsző fekete */
     backdrop-filter: blur(3px); /* Enyhe homályosítás a háttérnek */
-    display: flex; /* Flexboxot használunk a tökéletes középre igazításhoz */
+    display: flex; /* Flexboxot használ a tökéletes középre igazításhoz */
     align-items: center;
     justify-content: center;
     
-    /* ALAPHELYZETBEN REJTVE VAN: Opacity-vel oldjuk meg, hogy szép legyen az átmenet */
+    /* ALAPHELYZETBEN REJTVE VAN: Opacity-vel oldja meg, hogy szép legyen az átmenet */
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.4s ease-in-out;
@@ -157,7 +157,7 @@
     transition: color 0.2s;
 }
 .bezar-gomb:hover {
-    color: #8b0000; /* Pirosra vált ha fölé viszed az egeret */
+    color: #8b0000; /* Pirosra vált ha fölé viszi az egeret */
 }
 
 /* Cím és leírás a felugróban */
@@ -175,7 +175,7 @@
     color: #333;
 }
 
-/* Továbbvezető zöldes/erdei gomb */
+/* Továbbvezető zöldes gomb */
 .tovabb-gomb {
     display: inline-block;
     background-color: #247606;

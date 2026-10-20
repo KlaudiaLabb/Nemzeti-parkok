@@ -18,8 +18,6 @@
 
 
 
-
-
 .kep{
     position: relative;
     width: 240px;
@@ -27,6 +25,7 @@
     margin-left: 500px;
     top: -80px;
 }
+
 
 
 /* Alap konténer */
@@ -42,7 +41,7 @@
     margin: 0 auto;
     overflow: visible;
     height: 450px;
-    margin-right: 320px; /*********/
+    min-margin-right: 320px; /****hogy nagyon nagy képernyőn is középen maradjon*****/
 }
 
 /* Tartó oszlop fa */
@@ -177,8 +176,7 @@
 
 
 
-
-@media (max-width: 800px) {
+@media (max-width: 900px) {
     /* Alap konténer */
     .tabla-container {
         display: flex;
@@ -209,11 +207,11 @@ a{
 
 
 
+
 /* --- MOBILBARÁT BEÁLLÍTÁSOK: összébb mennek a nyilak --- */
 @media (max-width: 480px) {
     .fa-nyil {
         min-width: 180px;
-        /*font-size: 14px;*/
         padding: 12px 25px;
     }
     .fa-nyil.jobbra { padding-right: 35px; }

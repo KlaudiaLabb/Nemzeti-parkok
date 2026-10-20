@@ -10,9 +10,7 @@
     <script src="snake.js"></script>
     <title>Nemzeti parkjaink</title>
     <link rel="icon" type="image/x-icon" href="../../mokus2.png">
-    <!--hambi icon--><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
 
@@ -45,7 +43,7 @@
     <div class="belso_tartalom_mezo">
 
         <h1 class="tartalom_resz_cim">Snake</h1>
-        <p class="tartalom_resz_tartalom">Próbálj meg a lehető legtöbbmindent megetetni a kígyódval a játék vége előtt! A kígyót irányíthatod számítógépen a nyíl billentyűk vagy a WASD billentyűk segítségével, telefonon pedig az ujjad mozgatásával a játéktér felett.</p>
+        <p class="tartalom_resz_tartalom">Próbálj meg a lehető legtöbbmindent megetetni a kígyóval a játék vége előtt! A kígyót irányíthatod számítógépen a nyíl billentyűk vagy a WASD billentyűk segítségével, telefonon pedig az ujjad mozgatásával a játéktér felett.</p>
 
         <!-- legördülő menü -->
         <div class="select-container">
@@ -75,7 +73,7 @@
                 Pontok: <span id="points">0</span>
             </div>
 
-            <a id="modalLink" href="javascript:void(0);" class="tovabb-gomb">Szeretnél többet megtundi az általad kiválasztott kígyóról? →</a> <!-- a href="#" felugrana a lap tetejére (kell javascript)                      , de ez a href="javascript:void(0);" ugyanúgy letíltja az ugrást -->
+            <a id="modalLink" href="javascript:void(0);" class="tovabb-gomb">Szeretnél többet megtudni az általad kiválasztott kígyóról? →</a> <!-- a href="#" felugrana a lap tetejére (kell javascript)                      , de ez a href="javascript:void(0);" ugyanúgy letíltja az ugrást -->
         </div>
 
         <!-- gomb helyett lehetne beszélő kígyó-->
@@ -96,11 +94,6 @@
             <p id="modalLeiras3"><span class="kigyo-alcim">Melyik nemzeti parkban él?</span><br> <span id="szovegLakik"></span></p>
         </div>
         </div>
-        <!--1. Vízisikló (Natrix natrix)
-        Hogy néz ki? Szürkés, olajzöld vagy barnás színű kígyó. Legfontosabb ismertetőjegye a félhold alakú, sárga, fehér vagy narancssárga nyakfolt a feje mögött kétoldalt. Hossza általában 1-1,2 méter.
-        Mit eszik? Elsősorban kétéltűeket (békákat, gőtéket), ezenkívül ebihalakat és kisebb halakat fogyaszt.
-        Melyik nemzeti parkban él? Országszerte elterjedt. Gyakori a Balaton-felvidéki, a Hortobágyi, a Fertő-Hanság és a Duna-Ipoly Nemzeti Park vizes élőhelyein.
-        https://mme.hu/keteltuek-es-hullok/vizisiklo-->
 
     </div>
     </div>
@@ -108,7 +101,7 @@
 
 
     <div>
-        <img class="also_kep" src="../../erdos_proba.png" alt="" >
+        <img class="also_kep" src="../../erdos.png" alt="" >
     </div>
 
 <script>
@@ -190,14 +183,14 @@ const szovegKinezet = document.getElementById("szovegKinezet");
 const szovegEszik = document.getElementById("szovegEszik");
 const szovegLakik = document.getElementById("szovegLakik");
 
-const infoGomb = document.getElementById("modalLink");        // A te "modalLink" gombod
-const kigyoSelect = document.getElementById("kigyo-select");    // A te legördülő menüd
+const infoGomb = document.getElementById("modalLink");        // A "modalLink" gomb
+const kigyoSelect = document.getElementById("kigyo-select");    // A legördülő menü
 const bezarGomb = document.querySelector(".bezar-gomb");
 
 // Közös bezáró függvény, ami kezeli a telefon vissza gombjának az előzményeit is
 function modalBezarasa() {
   modal.style.display = "none";
-  // Ha a felhasználó nem a vissza gombbal zárt be, töröljük a "kamu" előzményt
+  // Ha a felhasználó nem a vissza gombbal zárt be, töröli a "kamu" előzményt
   if (history.state && history.state.modalOpen) {
     history.back();
   }
@@ -205,10 +198,10 @@ function modalBezarasa() {
 
 // 3. Kattintás esemény kezelése az információs gombra
 infoGomb.addEventListener("click", () => {
-  // Kiolvassuk, hogy melyik opció van éppen kiválasztva (pl. "erdeisiklo" vagy "vizisiklo")
+  // Kiolvassa, hogy melyik opció van éppen kiválasztva (pl. "erdeisiklo" vagy "vizisiklo")
   const kivalasztottKulcs = kigyoSelect.value; 
   
-  // Megkeressük az ehhez tartozó adatot az objektumban
+  // Megkeresi az ehhez tartozó adatot az objektumban
   const adat = kigyoAdatok[kivalasztottKulcs];
 
   if (adat) {
@@ -226,10 +219,10 @@ infoGomb.addEventListener("click", () => {
     szovegEszik.textContent = adat.eszik;
     szovegLakik.textContent = adat.lakik;
     
-    // Modal megjelenítése Flexbox elrendezéssel (tökéletesen középre teszi)
+    // Modal megjelenítése Flexbox elrendezéssel (középre teszi)
     modal.style.display = "flex";
 
-    // Előzmény-bejegyzés létrehozása a vissza gombnak ----
+    // Előzmény-bejegyzés létrehozása a vissza gombnak
     history.pushState({ modalOpen: true }, ""); 
 
   } else {
@@ -239,10 +232,10 @@ infoGomb.addEventListener("click", () => {
 
 // 4. Bezárás az X gombra kattintva
 bezarGomb.addEventListener("click", () => {
-  modalBezarasa(); // A közös függvényt hívjuk meg //modal.style.display = "none";
+  modalBezarasa(); // A közös függvényt hívja meg //modal.style.display = "none";
 });
 
-// 5. Bezárás ha a modal mögötti sötét háttérre kattintunk
+// 5. Bezárás ha a modal mögötti sötét háttérre kattint
 window.addEventListener("click", (esemeny) => {
   if (esemeny.target === modal) {
     modalBezarasa();
@@ -251,7 +244,7 @@ window.addEventListener("click", (esemeny) => {
 
 // 6. Bezárás az Escape (Esc) billentyű megnyomásával
 window.addEventListener("keydown", (esemeny) => {          //keydown: folyamatosan figyeli, hogy a felhasználó lenyom-e bármilyen billentyűt a billentyűzeten, miközben az oldalon van
-  // Megnézzük, hogy a megnyomott billentyű az Escape-e
+  // Megnézi, hogy a megnyomott billentyű az Escape-e
   if (esemeny.key === "Escape") {
     modalBezarasa();
   }
@@ -259,24 +252,12 @@ window.addEventListener("keydown", (esemeny) => {          //keydown: folyamatos
 
 // 7. Bezárás telefonon a vissza gomb megnyomásával
 window.addEventListener("popstate", () => {
-  // Ha a felhasználó visszalépett, bezárjuk a modalt
+  // Ha a felhasználó visszalépett, bezárja a modalt
   modal.style.display = "none";
 });
 
 </script>
 
-
-
-
-        <!--https://matramuzeum.nhmus.hu/hu/blog/bg_kigyokmagyarorszagon
-        Magyarországon összesen hét őshonos kígyófaj él. A hazai kígyók mindegyike védett vagy fokozottan védett!
-
-        Siklófélék (Nem mérgesek)
-        1. Vízisikló (Natrix natrix)
-        Hogy néz ki? Szürkés, olajzöld vagy barnás színű kígyó. Legfontosabb ismertetőjegye a félhold alakú, sárga, fehér vagy narancssárga nyakfolt a feje mögött kétoldalt. Hossza általában 1-1,2 méter.
-        Mit eszik? Elsősorban kétéltűeket (békákat, gőtéket), ezenkívül ebihalakat és kisebb halakat fogyaszt.
-        Melyik nemzeti parkban él? Országszerte elterjedt. Gyakori a Balaton-felvidéki, a Hortobágyi, a Fertő-Hanság és a Duna-Ipoly Nemzeti Park vizes élőhelyein.
-        https://mme.hu/keteltuek-es-hullok/vizisiklo-->
 
 </body>
 </html>

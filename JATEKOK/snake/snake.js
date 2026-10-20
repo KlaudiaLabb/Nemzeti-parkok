@@ -1,17 +1,17 @@
 // Pálya alapbeállításai
-var blockSize = 35; //1 négyzet mérete
-var rows = 15; //10*10-ös pálya
+var blockSize = 35; // 1 négyzet mérete
+var rows = 15; // 15*15-ös pálya
 var cols = 15;
 var board;
 var context; 
 var points = 0;
 
 // Kígyó adatai
-var snakeX, snakeY; //fej
-var velocityX, velocityY; //melyik irányba halad
+var snakeX, snakeY; // fej
+var velocityX, velocityY; // melyik irányba halad
 var snakeBody = []; 
 var foodX, foodY;
-var foodImageIndex = 1; // Eltároljuk, hogy a jelenlegi kaja épp melyik sorszámú kép (1, 2 vagy 3)
+var foodImageIndex = 1; // Eltárolja, hogy a jelenlegi kaja épp melyik sorszámú kép (1, 2 vagy 3)
 
 // Játékállapotok kezelése: "START" (kezdőképernyő), "PLAYING" (játék), "GAMEOVER" (vége)
 var gameState = "START"; 
@@ -34,14 +34,14 @@ var imgTest = new Image();
 var imgKaja1 = new Image();
 var imgKaja2 = new Image();
 var imgKaja3 = new Image();
-// Új farok képobjektumok létrehozása
+
 var imgFarokFel = new Image();
 var imgFarokLe = new Image();
 var imgFarokBalra = new Image();
 var imgFarokJobbra = new Image();
 
 
-// Függvény, ami frissíti a képek forrását (src), ha kígyót váltunk
+// Függvény, ami frissíti a képek forrását (src), ha kígyót vált
 function kepekBetoltese() {
     imgFejFel.src = "images/"+ kigyoMappa + "/fej-fel.png";
     imgFejLe.src = "images/"+ kigyoMappa + "/fej-le.png";
@@ -87,17 +87,17 @@ window.onload = function() {
     board.addEventListener("touchend", handleTouchEnd, { passive: false });
 
     board.addEventListener("touchstart", function(e) {
-        // Ha a menüben vagyunk, a touchstart-ot is átküldjük a gombvizsgálónak
+        // Ha a menüben vagyunk, a touchstart-ot is átküldi a gombvizsgálónak
         if (gameState === "START" || gameState === "GAMEOVER") {
             handleCanvasClick(e.changedTouches[0]);
         }
     });
 
-    // Inicializáljuk az alaphelyzetet, de még nem indítjuk el a mozgást
+    // Inicializálja az alaphelyzetet, de még nem indítja el a mozgást
     resetGameData();
     
-    // A játékhurok folyamatosan fut   //(másodpercenként 10-szer frissít)
-    setInterval(gameLoop, 2000 / 10); //1000/10
+    // A játékhurok folyamatosan fut   //(másodpercenként 5-ször frissít)
+    setInterval(gameLoop, 2000 / 10);                            //1000/10 //(másodpercenként 10-szer frissít)
 }
 
 
@@ -133,7 +133,7 @@ function placeFood() {
     foodX = Math.floor(Math.random() * cols) * blockSize;
     foodY = Math.floor(Math.random() * rows) * blockSize;
     
-    // 1) Véletlenszerűen kiválasztunk egy kaja képet (1, 2 vagy 3)
+    // Véletlenszerűen kiválaszt egy kaja képet (1, 2 vagy 3)
     foodImageIndex = Math.floor(Math.random() * 3) + 1;
 }
 
@@ -165,7 +165,7 @@ function handleKeyDown(e) {
 
 // Játék indítása
 function startGame() {
-    // Játék közben letiltjuk a legördülő menüt, hogy ne lehessen menet közben váltani
+    // Játék közben letiltja a legördülő menüt, hogy ne lehessen menet közben váltani
     document.getElementById("kigyo-select").disabled = true;
     resetGameData();
     gameState = "PLAYING";
@@ -173,10 +173,10 @@ function startGame() {
 
 // --- 2. CANVAS KATTINTÁSOK KEZELÉSE (EGÉR) ---
 function handleCanvasClick(e) {
-    // Megszerezzük a kattintás pontos koordinátáit a Canvas-on belül
+    // Megszerezi a kattintás pontos koordinátáit a Canvas-on belül
     const rect = board.getBoundingClientRect();
 
-    // Kiszámoljuk az arányt a belső felbontás és a CSS méret között a pontos kattintáshoz
+    // Kiszámolja az arányt a belső felbontás és a CSS méret között a pontos kattintáshoz
     const scaleX = board.width / rect.width;
     const scaleY = board.height / rect.height;
     
@@ -217,7 +217,7 @@ function drawStartScreen() {
 
 
     // --- ASCII ART RAJZOLÁSA ---
-    // Elmentjük a sorokat egy tömbbe
+    // Elmenti a sorokat egy tömbbe
     var asciiArt = [ //https://asciiart.website/art/737
         "                           ____",
         "  ________________________/ O  \\___/",
@@ -226,21 +226,21 @@ function drawStartScreen() {
 
     context.fillStyle = "#ffffff";
     context.font = "12px 'Courier New', Courier, monospace"; // Fix szélességű betűtípus, hogy ne csússzanak el a karakterek
-    context.textAlign = "left"; // FONTOS: Balra igazítjuk, különben szétesik a minta!
+    context.textAlign = "left"; // FONTOS: Balra igazítja, különben szétesik a minta
 
-    // Kiszámoljuk a kezdő X és Y koordinátát, hogy az egész ábra középen legyen
+    // Kiszámolja a kezdő X és Y koordinátát, hogy az egész ábra középen legyen
     // Egy karakter szélessége 12px-es betűméretnél kb. 7.2px. A leghosszabb sor 48 karakteres.
     var artWidth = 48 * 7.2; 
     var startX = (board.width - artWidth) / 2 +40;
     var startY = board.height / 2 - 20; // Az ábra tetejének pozíciója
 
-    // Végigmegyünk a sorokon és egymás alá rajzoljuk őket
+    // Végigmegy a sorokon és egymás alá rajzolja őket
     for (var i = 0; i < asciiArt.length; i++) {
         context.fillText(asciiArt[i], startX, startY + (i * 15)); // 15px a sortávolság
     }
 
 
-    // Indító gomb rajzolása (visszaállítjuk a center igazítást a gomb előtt)
+    // Indító gomb rajzolása (visszaállítja a center igazítást a gomb előtt)
     context.textAlign = "center";
     drawCanvasButton("START", board.width / 2, board.height / 2 + 30);
     //drawCanvasButton("START", board.width / 2, board.height / 2 + 30);
@@ -248,14 +248,14 @@ function drawStartScreen() {
 
 // JÁTÉK VÉGE KÉPERNYŐ
 function drawGameOverScreen() {
-    // Játék végén újra engedélyezzük a legördülő menüt, hogy lehessen fajtát váltani
+    // Játék végén újra engedélyezi a legördülő menüt, hogy lehessen fajtát váltani
     document.getElementById("kigyo-select").disabled = false;
 
-    // Sötétített áttetsző réteget vonunk a meglévő játékfázisra (mint a modal-hatter)
+    // Sötétített áttetsző réteget rak a meglévő játékfázisra (mint a modal-hatter)
     context.fillStyle = "#51923a"; //"rgb(60,93,56)";
     context.fillRect(0, 0, board.width, board.height);
 
-    // Sikerült! / Játék Vége felirat
+    // Játék Vége felirat
     context.fillStyle = "#eefbb2";
     context.font = "bold 32px Times serif";
     context.textAlign = "center";
@@ -305,7 +305,7 @@ function updateGame() {
     context.fillStyle = "rgb(231, 241, 172)"; //60,93,56 vagy #51923a
     context.fillRect(0, 0, board.width, board.height);
 
-    // 1) KAJA KIRAJZOLÁSA KÉPPEL (A sorsolt foodImageIndex alapján)
+    // KAJA KIRAJZOLÁSA KÉPPEL (A sorsolt foodImageIndex alapján)
     var kivalasztottKajaKep = imgKaja1;
     if (foodImageIndex === 2) {
         kivalasztottKajaKep = imgKaja2;
@@ -334,7 +334,7 @@ function updateGame() {
     snakeX += velocityX * blockSize; 
     snakeY += velocityY * blockSize;
 
-    // // KÍGYÓ TESTÉNEK ÉS FARKÁNAK KIRAJZOLÁSA
+    // KÍGYÓ TESTÉNEK ÉS FARKÁNAK KIRAJZOLÁSA
     for (let i = 0; i < snakeBody.length; i++) { 
         // Ha ez a legutolsó elem a tömbben, akkor ez a FAROK
         if (i === snakeBody.length - 1) {
@@ -349,7 +349,7 @@ function updateGame() {
             // Alapértelmezett kép (jobbra), ha valamiért nem mozogna
             var aktualisFarokKep = imgFarokJobbra; 
             
-            // Kiszámoljuk az irányt az előtte lévő elemhez képest
+            // Kiszámolja az irányt az előtte lévő elemhez képest
             if (elozoX === farokX && elozoY < farokY) {
                 aktualisFarokKep = imgFarokFel; // Az előző elem feljebb van, tehát felfelé néz a farok
             } else if (elozoX === farokX && elozoY > farokY) {
@@ -369,7 +369,7 @@ function updateGame() {
         }
     }
 
-    // 2) KÍGYÓ FEJÉNEK KIRAJZOLÁSA (Iránynak megfelelő képpel, alapértelmezett a JOBBRA)
+    // KÍGYÓ FEJÉNEK KIRAJZOLÁSA (Iránynak megfelelő képpel, alapértelmezett a JOBBRA)
     var aktualisFejKep = imgFejJobbra; // Kezdőállapot / Jobbra néz alapból
     
     if (velocityX === 0 && velocityY === -1) {
@@ -420,7 +420,7 @@ function placeFood() {
 // MOBILON IRÁNYÍTÁS
 // 1. Amikor az ujj hozzáér a kijelzőhöz
 function handleTouchStart(e) {
-    // Csak játék közben tiltjuk le az alapértelmezett görgetést, a menüben engedjük
+    // Csak játék közben tiltja le az alapértelmezett görgetést, a menüben engedi
     if (gameState === "PLAYING") {
         e.preventDefault(); 
     }
@@ -435,14 +435,14 @@ function handleTouchMove(e) {
     }
 }
 
-// 3. Amikor az ujj felemelkedik a kijelzőről (itt számoljuk ki az irányt)
+// 3. Amikor az ujj felemelkedik a kijelzőről (itt számolja ki az irányt)
 function handleTouchEnd(e) {
     if (gameState !== "PLAYING") return;
 
     let touchEndX = e.changedTouches[0].screenX;
     let touchEndY = e.changedTouches[0].screenY;
 
-    // Kiszámoljuk a vízszintes és függőleges elmozdulás távolságát
+    // Kiszámolja a vízszintes és függőleges elmozdulás távolságát
     let diffX = touchEndX - touchStartX;
     let diffY = touchEndY - touchStartY;
 

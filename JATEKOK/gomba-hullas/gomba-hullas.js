@@ -20,10 +20,10 @@ const fallSpeed = 3;      // Hullási sebesség pixelben
 // Kosár adatai (2 blokk széles a legalsó sorban)
 let basket = {
     x: Math.floor(cols / 2) * blockSize - blockSize, 
-    y: (rows - 2) * blockSize, // 1 helyett 2-vel toljuk fel, mert kétszer olyan magas lett a kosár!
+    y: (rows - 2) * blockSize, // 1 helyett 2-vel tolja fel, mert kétszer olyan magas lesz a kosár
     width: blockSize * 2,      // 2 blokk széles (40px)
-    height: blockSize * 2,     // MÓDOSÍTVA: 2 blokk magas lett (40px), így a darabkák tökéletes négyzetek!
-    // Új változó a sima és gyors kosármozgáshoz
+    height: blockSize * 2,     // 2 blokk magas (40px), így a darabkák tökéletes négyzetek
+    // változó a sima és gyors kosármozgáshoz
     speed: 6 
 };
 
@@ -44,7 +44,7 @@ const kepekSzama = 18; // 18-18 kép van a mappákban
 // Ehető gombák betöltése (images/eheto/1.png-től 18.png-ig)
 for (let i = 1; i <= kepekSzama; i++) {
     let img = new Image();
-    img.src = `images/eheto/${i}.png`; // Ellenőrizd, hogy a kiterjesztés .png vagy .jpg!
+    img.src = `images/eheto/${i}.png`; 
     ehetoKepek.push(img);
 }
 
@@ -66,11 +66,11 @@ const basketImg4 = new Image();
 basketImg4.src = "images/k4.png"; // Jobb alsó
 
 
-// Billentyűzet-állapot figyelő a folyamatos csúszáshoz ---
+// Billentyűzet-állapot figyelő a folyamatos csúszáshoz
 let keys = {};
 
 window.addEventListener("keydown", (e) => {
-    keys[e.code] = true; // Elmentjük, hogy a gomb le van nyomva
+    keys[e.code] = true; // Elmenti, hogy a gomb le van nyomva
     
     // Space vagy Enter indítás (mint a Snake-nél)
     if (gameState !== "PLAYING" && (e.code === "Space" || e.code === "Enter")) {
@@ -78,7 +78,7 @@ window.addEventListener("keydown", (e) => {
     }
 });
 window.addEventListener("keyup", (e) => {
-    keys[e.code] = false; // Elmentjük, hogy a gombot felengedték
+    keys[e.code] = false; // Elmenti, hogy a gombot felengedték
 });
 
 
@@ -87,7 +87,7 @@ function spawnObject() {
     const randomCol = Math.floor(Math.random() * cols);
     const objectType = Math.random() < 0.5 ? "GOOD" : "BAD"; 
     
-    // --- MÓDOSÍTÁS: Véletlenszerű kép kiválasztása ---
+    // Véletlenszerű kép kiválasztása
     let randomIndex = Math.floor(Math.random() * kepekSzama);
     let kivalasztottKep = objectType === "GOOD" ? ehetoKepek[randomIndex] : mergezoKepek[randomIndex];
     
@@ -95,7 +95,7 @@ function spawnObject() {
         x: randomCol * blockSize,
         y: -blockSize,
         type: objectType,
-        img: kivalasztottKep // Eltároljuk a kiválasztott Image objektumot
+        img: kivalasztottKep // Eltárolja a kiválasztott Image objektumot
     });
 }
 
@@ -106,7 +106,7 @@ function startTheGame() {
     pointsSpan.textContent = score;
     fallingObjects = [];
     basket.x = Math.floor(cols / 2) * blockSize - blockSize;
-    // --- MÓDOSÍTÁS: Az újraindításnál is beállítjuk a helyes magassági pozíciót ---
+    // Az újraindításnál is beállítja a helyes magassági pozíciót
     basket.y = (rows - 2) * blockSize; 
     gameState = "PLAYING";
 }
@@ -115,12 +115,12 @@ function startTheGame() {
 // 1. IRÁNYÍTÁS: Egérkattintás a Canvas-on lévő gombra
 canvas.addEventListener("click", (e) => {
     if (gameState !== "PLAYING") {
-        // Megnézzük, pontosan hova kattintott a felhasználó a canvas-on belül
+        // Megnézi, pontosan hova kattintott a felhasználó a canvas-on belül
         const rect = canvas.getBoundingClientRect();
         const mouseX = e.clientX - rect.left;
         const mouseY = e.clientY - rect.top;
 
-        // Ellenőrizzük, hogy a kirajzolt gomb területére kattintott-e
+        // Ellenőrzi, hogy a kirajzolt gomb területére kattintott-e
         if (mouseX >= btnX && mouseX <= btnX + btnWidth &&
             mouseY >= btnY && mouseY <= btnY + btnHeight) {
             startTheGame();
@@ -130,23 +130,23 @@ canvas.addEventListener("click", (e) => {
 
 
 
-// 2. TELEFONOS ÉRINTŐKÉPERNYŐS IRÁNYÍTÁS (KÉPERNYŐ-FELEZÉS) ---
+// 2. TELEFONOS ÉRINTŐKÉPERNYŐS IRÁNYÍTÁS (KÉPERNYŐ-FELEZÉS)
 
 // Eseményfigyelő az érintés kezdetére (amikor az ujj hozzáér a canvas-hoz)
 canvas.addEventListener("touchstart", (e) => {
-    // Csak akkor tiltjuk le a görgetést, ha éppen aktívan JÁTSZIK a felhasználó
+    // Csak akkor tiltja le a görgetést, ha éppen aktívan JÁTSZIK a felhasználó
     if (gameState === "PLAYING") {
         e.preventDefault();
     }
 
-    // Lekérjük az érintés pontos helyét a canvas-hoz képest (az első ujj alapján)
+    // Lekéri az érintés pontos helyét a canvas-hoz képest (az első ujj alapján)
     const rect = canvas.getBoundingClientRect();
     const touchX = e.touches[0].clientX - rect.left;
     const touchY = e.touches[0].clientY - rect.top;
 
-    // --- HA NEM JÁTÉKBAN VAGYUNK: Ellenőrizzük, hogy a gombra nyomott-e rá ---
+    // --- HA NEM JÁTÉKBAN VAN: Ellenőrzi, hogy a gombra nyomott-e rá ---
     if (gameState !== "PLAYING") {
-        // Átszámoljuk a gomb koordinátáit a képernyőn látható (skálázott) mérethez
+        // Átszámolja a gomb koordinátáit a képernyőn látható (skálázott) mérethez
         const skalaX = rect.width / canvas.width;
         const skalaY = rect.height / canvas.height;
         
@@ -155,25 +155,25 @@ canvas.addEventListener("touchstart", (e) => {
         const gombLathatoWidth = btnWidth * skalaX;
         const gombLathatoHeight = btnHeight * skalaY;
 
-        // Ha pontosan a kirajzolt gomb területén belül van az érintés, csak akkor indul!
+        // Ha pontosan a kirajzolt gomb területén belül van az érintés, csak akkor indul a játék
         if (touchX >= gombLathatoX && touchX <= gombLathatoX + gombLathatoWidth &&
             touchY >= gombLathatoY && touchY <= gombLathatoY + gombLathatoHeight) {
-            // Ha a gombra nyomott, elindítjuk a játékot ÉS letiltjuk a görgetést abban a pillanatban
+            // Ha a gombra nyomott, elindítja a játékot ÉS letiltja a görgetést abban a pillanatban
             e.preventDefault();
             startTheGame();
         }
-        return; // Ha nem a gombra nyomott, nem csinálunk semmit
+        return; // Ha nem a gombra nyomott, nem csinál semmit
     }
 
-    // --- HA JÁTÉKBAN VAGYUNK: Irányítás logikája (Felezővonal) ---
+    // --- HA JÁTÉKBAN VAN: Irányítás logikája (Felezővonal) ---
     const felezoVonal = rect.width / 2;
 
     if (touchX < felezoVonal) {
-        // Bal oldalt nyomta meg -> szimuláljuk a balra nyilat
+        // Bal oldalt nyomta meg -> szimulálja a balra nyilat
         keys["ArrowLeft"] = true;
         keys["ArrowRight"] = false;
     } else {
-        // Jobb oldalt nyomta meg -> szimuláljuk a jobbra nyilat
+        // Jobb oldalt nyomta meg -> szimulálja a jobbra nyilat
         keys["ArrowRight"] = true;
         keys["ArrowLeft"] = false;
     }
@@ -181,11 +181,11 @@ canvas.addEventListener("touchstart", (e) => {
 
 // Eseményfigyelő az érintés végére (amikor a felhasználó felemeli az ujját)
 canvas.addEventListener("touchend", (e) => {
-    // Csak játék közben tiltjuk le a böngésző alapértelmezett ujj-felengedési eseményét
+    // Csak játék közben tiltja le a böngésző alapértelmezett ujj-felengedési eseményét
     if (gameState === "PLAYING") {
         e.preventDefault();
     }
-    // Megállítjuk a kosár mozgását
+    // Megállítja a kosár mozgását
     keys["ArrowLeft"] = false;
     keys["ArrowRight"] = false;
 }, { passive: false });
@@ -203,7 +203,7 @@ canvas.addEventListener("touchcancel", (e) => {
 function update() {
     if (gameState !== "PLAYING") return;
 
-    // --- MÓDOSÍTÁS: Folyamatos kosármozgás feldolgozása (Sokkal precízebb irányítás) ---
+    // Folyamatos kosármozgás feldolgozása (precízebb irányítás)
     if ((keys["ArrowLeft"] || keys["KeyA"]) && basket.x > 0) {
         basket.x -= basket.speed;
     }
@@ -221,7 +221,7 @@ function update() {
         let obj = fallingObjects[i];
         obj.y += fallSpeed;
 
-        // --- MÓDOSÍTÁS: Tökéletesített, hajszálpontos ütközésvizsgálat mindkét oldalon ---
+        //  Tökéletesített, hajszálpontos ütközésvizsgálat mindkét oldalon
         // A gomba jobb széle (obj.x + blockSize) és bal széle (obj.x) is ellenőrizve van a kosárhoz képest
         if (obj.y + blockSize >= basket.y && 
             obj.y <= basket.y + basket.height &&
@@ -251,7 +251,7 @@ function draw() {
     ctx.fillStyle = "rgb(231, 241, 172)";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-    // Barna téglalap helyett a 4 képből álló kosár kirajzolása ---
+    // Barna téglalap helyett a 4 képből álló kosár kirajzolása 
     // Egy-egy negyed mérete: szélesség = basket.width / 2 (20px), magasság = basket.height / 2 (10px)
     const wHalf = basket.width / 2;
     const hHalf = basket.height / 2;
@@ -284,47 +284,48 @@ function draw() {
         ctx.fillText("Gomba elkapó játék", canvas.width / 2, canvas.height / 2 - 30);
 
         // --- ASCII ART RAJZOLÁSA ---
-    // Elmentjük a sorokat egy tömbbe
-    var asciiArt = [ //https://www.asciiart.eu/art/c8cc0ebe54da56f3
-        "         ___..._",
-        "    _,--'       \"`-.",
-        "  ,'.  .            \\",
-        ",/:. .     .       .'",
-        "|;..  .      _..--'",
-        "\`--:...-,-'\"\"\\",
-        "        |:.  \`.",
-        "        l;.   l",
-        "        \`|:.   |",
-        "         |:.   \`.,",
-        "        .l;.    j, ,",
-        "     \`. \\\`;:.   //,/",
-        "      .\\\\)\`;,|\\'/(",
-        "       \` \`itz \`(,"
-    ];
+        // Elmenti a sorokat egy tömbbe
+        var asciiArt = [ //https://www.asciiart.eu/art/c8cc0ebe54da56f3
+            "         ___..._",
+            "    _,--'       \"`-.",
+            "  ,'.  .            \\",
+            ",/:. .     .       .'",
+            "|;..  .      _..--'",
+            "\`--:...-,-'\"\"\\",
+            "        |:.  \`.",
+            "        l;.   l",
+            "        \`|:.   |",
+            "         |:.   \`.,",
+            "        .l;.    j, ,",
+            "     \`. \\\`;:.   //,/",
+            "      .\\\\)\`;,|\\'/(",
+            "       \` \`itz \`(,"
+        ];
 
-    ctx.fillStyle = "#ffffff";
-    ctx.font = "12px 'Courier New', Courier, monospace"; // Fix szélességű betűtípus, hogy ne csússzanak el a karakterek
-    ctx.textAlign = "left"; // FONTOS: Balra igazítjuk, különben szétesik a minta!
+        ctx.fillStyle = "#ffffff";
+        ctx.font = "12px 'Courier New', Courier, monospace"; // Fix szélességű betűtípus, hogy ne csússzanak el a karakterek
+        ctx.textAlign = "left"; // FONTOS: Balra igazítja, különben szétesik a minta!
 
-    // Kiszámoljuk a kezdő X és Y koordinátát, hogy az egész ábra középen legyen
-    // Egy karakter szélessége 12px-es betűméretnél kb. 7.2px. A leghosszabb sor 48 karakteres.
-    var artWidth = 48 * 7.2; 
-    var startX = (canvas.width - artWidth) / 2 - 70;
-    var startY = canvas.height / 2 - 10; // Az ábra tetejének pozíciója
+        // Kiszámolja a kezdő X és Y koordinátát, hogy az egész ábra középen legyen
+        // Egy karakter szélessége 12px-es betűméretnél kb. 7.2px. A leghosszabb sor 48 karakteres.
+        var artWidth = 48 * 7.2; 
+        var startX = (canvas.width - artWidth) / 2 - 70;
+        var startY = canvas.height / 2 - 10; // Az ábra tetejének pozíciója
 
-    // Végigmegyünk a sorokon és egymás alá rajzoljuk őket
-    for (var i = 0; i < asciiArt.length; i++) {
-        ctx.fillText(asciiArt[i], startX, startY + (i * 15)); // 15px a sortávolság
-    }
+        // Végigmegy a sorokon és egymás alá rajzolja őket
+        for (var i = 0; i < asciiArt.length; i++) {
+            ctx.fillText(asciiArt[i], startX, startY + (i * 15)); // 15px a sortávolság
+        }
 
 
         // Zöld gomb rajzolása a canvasra
-        // Indító gomb rajzolása (visszaállítjuk a center igazítást a gomb előtt)
+        // Indító gomb rajzolása (visszaállítja a center igazítást a gomb előtt)
         ctx.textAlign = "center";
         drawCanvasButton("START", canvas.width / 2, canvas.height / 2 +20);
         // Zöld gomb rajzolása a drawCanvasButton függvénnyel
         //drawCanvasButton(btnX, btnY, btnWidth, btnHeight, "VAGY KATTINTS IDE", "#2ecc71", "#ffffff");
     } 
+
     // --- GAMEOVER KÉPERNYŐ (Gombbal együtt) ---
     else if (gameState === "GAMEOVER") {
         ctx.fillStyle = "#51923a";
@@ -380,7 +381,7 @@ function drawCanvasButton(text, centerX, centerY) {
 // KÉPNÉZEGETŐ
 let aktualisEhetoIndex = 1;
 let aktualisMergezoIndex = 1;
-const maxKepek = 6; // Csak az 1-6.png képeket nézegetjük
+const maxKepek = 18; // Csak az 1-6.png képeket nézegeti
 
 // Elemek kijelölése a HTML-ből
 const ehetoKepElem = document.getElementById("eheto-kep");

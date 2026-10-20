@@ -70,14 +70,6 @@
 .active:after {
   content: "\2212"; /* Ez a mínusz jel kódja */
 }
-/* Hogy a lista és a jel egymás mellett legyenek -> collapsible-ben benne lévő ul-re
-.collapsible ul {
-  display: inline-block;
-  margin: 0;
-  padding: 0;
-  vertical-align: middle;
-}*/
-
 
 
 hr{
