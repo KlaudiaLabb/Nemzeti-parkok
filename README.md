@@ -12,7 +12,7 @@ Az elkészült weboldal: **www.klaudialabb.github.io/Nemzeti-parkok/index.html**
 ## Funkciók
 - nemzeti parkokba bepillantást nyerhetsz
 - a leírások motiválnak egy kis kalandra a természetben
-- a játékok kikapcsolódásra szolgálnak, valamint érdekességeket is olvashatnak a kiváncsiabbak
+- a játékok kikapcsolódásra szolgálnak, valamint érdekességeket is olvashatsz
 
 ## Technológiák
 - HTML5
