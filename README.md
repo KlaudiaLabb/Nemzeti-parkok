@@ -6,7 +6,7 @@
 A weboldal fő célja a nemzeti parkok bemutatása, valamint népszerűsítése. Számtalan látnivalóról, rendezvényről és tanösvényről található információ az oldalon.
 Továbbá a weboldalon helyet kapott még néhány játék is.
 
-Az elkészült weboldal: **www.klaudialabb.github.io/Nemzeti-parkok/index.html**
+Az elkészült weboldal: **klaudialabb.github.io/Nemzeti-parkok/index.html**
 
 
 ## Funkciók
